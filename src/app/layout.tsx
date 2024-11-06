@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AppSidebar from "@/components/Sidebar";
 
 const inter = Inter({
   subsets: ['latin']
@@ -45,9 +46,12 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased min-h-screen w-screen`}
       >
-        <Header />
-        {children}
-        <Footer />
+          <AppSidebar />
+          <main>
+            <Header />
+            {children}
+            <Footer />
+          </main>
       </body>
     </html>
   );
