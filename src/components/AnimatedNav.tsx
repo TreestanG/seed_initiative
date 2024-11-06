@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import Link from 'next/link';
 
@@ -13,12 +13,8 @@ const AnimatedNavLink = ({
 }) => {
     const rectRef = useRef(null);
 
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.set(rectRef.current, { scale: 0}); 
-        })
-
-        return () => ctx.revert();
+    useEffect(() => {
+        gsap.set(rectRef.current, { scale: 0 });
     })
 
     const onMouseEnter = () => {
