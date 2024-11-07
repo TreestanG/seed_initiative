@@ -36,6 +36,7 @@ export default function Header() {
         } else {
             gsap.to(sidebarRef.current, {
                 x: '100%',
+                ease: 'power3.out',
             });
         }
     }, [menuOpen]);
