@@ -6,9 +6,8 @@ import Link from "next/link"
 import { Menu } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
 
-let items = [
+const items = [
     {
         href: "/",
         text: "About Us"
@@ -29,22 +28,19 @@ export default function Header() {
     const sidebarRef = useRef(null)
 
     useEffect(() => {
-        gsap.set(sidebarRef.current, { x: "-100%" })
-    })
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            onComplete: () => {
-                gsap.set(sidebarRef.current, { clearProps: "all" })
-            }
-        })
-
         if (menuOpen) {
-            tl.to(sidebarRef.current, { x: 0, duration: 0.5, ease: "power2.out" })
+            gsap.to(sidebarRef.current, {
+                x: 0,
+                duration: 0.5,
+                ease: 'power3.out',
+            });
         } else {
-            tl.to(sidebarRef.current, { x: "-100%", duration: 0.5, ease: "power2.out" })
+            gsap.to(sidebarRef.current, {
+                x: '100%',
+                ease: 'power3.in',
+            });
         }
-    })
+    }, [menuOpen]);
 
     return (
         <div className="flex justify-between w-full items-center p-6 fixed left-0 top-0 ">
@@ -57,25 +53,27 @@ export default function Header() {
                 <AnimatedNavLink href="/" text="Our Team" />
                 <AnimatedNavLink href="/" text="Contact Us" />
             </div>
-            <Menu className="" onClick={() => setMenuOpen(!menuOpen)} />
+            <Menu className="block md:hidden" onClick={() => setMenuOpen(!menuOpen)} />
 
-            <div ref={sidebarRef} className={` absolute top-0 left-0 w-screen h-screen bg-white p-6 z-50`}>
-                <div className="flex justify-between">
-                    <span className="text-sm font-bold text-neutral-500">Seed Initiative</span>
-                    <Menu className="" onClick={() => setMenuOpen(!menuOpen)} />
+            {
+                <div ref={sidebarRef} className="block md:hidden absolute top-0 left-0 w-screen h-screen bg-white p-6 z-50">
+                    <div className="flex justify-between">
+                        <span className="text-sm font-bold text-neutral-500">Seed Initiative</span>
+                        <Menu className="" onClick={() => setMenuOpen(!menuOpen)} />
+                    </div>
+                    <div className="flex flex-col items-center justify-center pt-8 gap-4">
+                        {
+                            items.map((item) => {
+                                return (
+                                    <div key={item.text}>
+                                        <Link href={item.href} className="  uppercase font-medium ">{item.text}</Link>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-                <div className="flex flex-col items-center justify-center pt-8 gap-4">
-                    {
-                        items.map((item) => {
-                            return (
-                                <div key={item.text}>
-                                    <Link href={item.href} className="  uppercase font-medium ">{item.text}</Link>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            </div>
+            }
         </div>
     )
 }

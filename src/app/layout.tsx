@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AppSidebar from "@/components/Sidebar";
+import PlausibleProvider from "next-plausible";
 
 const inter = Inter({
   subsets: ['latin']
@@ -43,15 +43,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased min-h-screen w-screen`}
-      >
-        <main >
-          <Header />
-          {children}
-          <Footer />
-        </main>
-      </body>
+      <PlausibleProvider domain="seed.tristangee.com">
+        <body
+          className={`${inter.className} antialiased min-h-screen w-screen`}
+        >
+          <main >
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </body>
+
+      </PlausibleProvider>
     </html>
   );
 }
