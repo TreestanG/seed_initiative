@@ -46,12 +46,11 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased min-h-screen w-screen`}
       >
-          <AppSidebar />
-          <main>
-            <Header />
-            {children}
-            <Footer />
-          </main>
+        <main >
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );

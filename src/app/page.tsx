@@ -16,7 +16,11 @@ export default function Home() {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline()
+      const tl = gsap.timeline({
+        onComplete: () => {
+          gsap.set([titleRef.current, sloganRef.current, btn1Ref.current, btn2Ref.current, imgRef.current], { clearProps: "all" })
+        }
+      })
       tl.from(titleRef.current, { y: -50, opacity: 0, duration: .25 })
       tl.from(sloganRef.current, { y: -50, opacity: 0, duration: .25 })
       tl.from(btn1Ref.current, { y: -50, opacity: 0, duration: .25 }, "-=.15")
