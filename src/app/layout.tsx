@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: process.env.URL!,
     siteName: "Seed Initiative",
-    title: "Seed Initiative: Bringing Academic Competitions Within Reach for Under-Resourced Students",
+    title: "Seed Initiative: Planting the seed for the next generation of STEM students",
     description: "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
     images: [
       {
