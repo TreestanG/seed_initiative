@@ -41,7 +41,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-bold leading-snug" ref={titleRef}>Empowering the Next Generation in STEM</h1>
           <p className="text-lg pt-4" ref={sloganRef}>Bringing Academic Competitions Within Reach for Under-Resourced Students</p>
           <div className="pt-8">
-            <Button className="mr-4 " size="lg" variant="outline" ref={btn1Ref} >Get Involved</Button>
+            <Button className="mr-4 mb-4" size="lg" variant="outline" ref={btn1Ref} >Get Involved</Button>
             <Button ref={btn2Ref} size='lg'>Enroll in Programs</Button>
           </div>
         </div>

@@ -31,13 +31,11 @@ export default function Header() {
         if (menuOpen) {
             gsap.to(sidebarRef.current, {
                 x: 0,
-                duration: 0.5,
                 ease: 'power3.out',
             });
         } else {
             gsap.to(sidebarRef.current, {
                 x: '100%',
-                ease: 'power3.in',
             });
         }
     }, [menuOpen]);
@@ -56,7 +54,7 @@ export default function Header() {
             <Menu className="block md:hidden" onClick={() => setMenuOpen(!menuOpen)} />
 
             {
-                <div ref={sidebarRef} className="block md:hidden absolute top-0 left-0 w-screen h-screen bg-white p-6 z-50">
+                <div ref={sidebarRef} className=" translate-x-[100%] block md:hidden absolute top-0 left-0 w-screen h-screen bg-white p-6 z-50">
                     <div className="flex justify-between">
                         <span className="text-sm font-bold text-neutral-500">Seed Initiative</span>
                         <Menu className="" onClick={() => setMenuOpen(!menuOpen)} />
