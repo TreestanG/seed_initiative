@@ -59,13 +59,12 @@ export default function Header() {
                 start: 'bottom 20%',
                 scrub: true,
                 toggleActions: 'play none none none',
-                markers: true,
             }
         })
     }, [menuOpen]);
 
     return (
-        <div className="flex justify-between w-full items-center p-6 fixed left-0 top-0 " ref={headerRef}>
+        <div className="flex justify-between w-full items-center p-6 fixed left-0 top-0 z-50" ref={headerRef}>
 
             <Link href="/" className="max-w-52 md:max-w-none">
                 <Image src="/logo_w_text.svg" alt="logo" width={350} height={100} />
