@@ -140,9 +140,9 @@ export default function Home() {
       <section className="w-full bg-bpurple py-6 grid md:grid-cols-2 gap-8 justify-center mx-auto items-center px-4">
         <Image src="donations.svg" width={160} height={200} alt="donations" className="hidden md:block justify-self-end"/>
         <div>
-          <h2 className="text-2xl font-bold text-white">Support Our Mission</h2>
-          <p className="text-white text-xl font-medium max-w-[36rem]">Your donation helps us provide resources, mentorship, and support to under-resourced students in STEM competitions.</p>
-          <Button className="mt-4 bg-white text-black" size="lg" >Donate Now</Button>
+          <h2 className="text-xl md:text-2xl font-bold text-white">Support Our Mission</h2>
+          <p className="text-white text-lg md:text-xl font-medium max-w-[36rem]">Your donation helps us provide resources, mentorship, and support to under-resourced students in STEM competitions.</p>
+          <Button className="mt-4 bg-byellow text-white" size="lg" >Donate Now</Button>
         </div>
       </section>
 
