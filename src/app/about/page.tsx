@@ -1,7 +1,5 @@
 import MeetTeamCard from "@/components/MeetTeamCard";
-import { image } from "framer-motion/client";
 import Image from "next/image";
-import { title } from "process";
 
 const founders = [
     {
