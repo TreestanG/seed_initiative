@@ -76,7 +76,8 @@ export default function Home() {
               <h3 className="text-4xl font-bold pb-4 ">Who We Are</h3>
               <p className="text-byellow font-bold text-2xl">We empower all students to succeed in STEM competitions</p>
               <p className="pt-4 text-white">We believe that every student, regardless of background, should have the opportunity to thrive in academic competitions. Through weekly lessons, hands-on workshops, and fully-funded tournament experiences, we provide the resources, mentorship, and support needed for success.</p>
-              <button className=" underline mt-4">Learn More</button>
+              <Link href="/about"><button className=" underline mt-4">Learn More</button></Link>
+              
             </div>
             <Image src="/teaching.svg" alt="team" width={600} height={200} />
           </div>
