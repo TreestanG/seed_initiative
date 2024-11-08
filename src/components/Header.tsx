@@ -3,7 +3,7 @@
 import Image from "next/image"
 import AnimatedNavLink from "./AnimatedNav"
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { useRef, useState } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -80,7 +80,7 @@ export default function Header() {
                 <div ref={sidebarRef} className=" translate-x-[100%] block md:hidden absolute top-0 left-0 w-screen h-screen bg-white p-6 z-50">
                     <div className="flex justify-between">
                         <span className="text-sm font-bold text-neutral-500">Seed Initiative</span>
-                        <Menu className="" onClick={() => setMenuOpen(!menuOpen)} />
+                        <X className="" onClick={() => setMenuOpen(!menuOpen)} />
                     </div>
                     <div className="flex flex-col items-center justify-center pt-8 gap-4">
                         {
