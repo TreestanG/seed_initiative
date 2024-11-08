@@ -49,7 +49,7 @@ export default function Home() {
     <div className="flex min-h-screen justify-center items-center flex-col">
       {/* Hero */}
 
-      <div className="grid max-w-screen-xl px-4 pt-24 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+      <section className="grid max-w-screen-xl px-4 pt-24 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
         <div className="mr-auto place-self-center lg:col-span-7">
           <h1 className="text-4xl md:text-5xl font-bold leading-snug" ref={titleRef}>Empowering the Next Generation in STEM</h1>
           <p className="text-lg pt-4" ref={sloganRef}>Bringing Academic Competitions Within Reach for Under-Resourced Students</p>
@@ -59,16 +59,16 @@ export default function Home() {
           </div>
         </div>
         <Image src="/science.svg" alt="science" width={600} height={200} className="hidden lg:mt-0 lg:col-span-5 lg:flex" ref={imgRef} />
-      </div>
+      </section>
 
       {/* sponsorships maybe */}
       <section className="w-full" >
-        <Image ref={purpleRef} src="transition-about.svg" alt="wave" width={900} height={200} className="w-full contrast-start" />
+        <Image ref={purpleRef} src="transition-about.svg" alt="wave" width={900} height={200} className="w-full" />
       </section>
 
       {/* About */}
 
-      <div className="w-full bg-bpurple " ref={secPurpleRef}>
+      <section className="w-full bg-bpurple " ref={secPurpleRef}>
         <h2 className="text-2xl font-bold text-center pb-8 bg-bpurple w-full text-white underline underline-offset-8">About Us</h2>
         <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
           <div className="lg:grid lg:grid-cols-2 xl:gap-16 " ref={secPurpleRef}>
@@ -81,7 +81,7 @@ export default function Home() {
             <Image src="/teaching.svg" alt="team" width={600} height={200} />
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="w-full">
         <Image src="about-impact.svg" alt="wave" width={900} height={200} className="w-full border-none" />
@@ -89,7 +89,7 @@ export default function Home() {
 
       <h2 className="text-2xl font-bold text-center pb-8 bg-bcrimson w-full text-white underline underline-offset-8">Our Impact</h2>
 
-      <div className="w-full bg-bcrimson" >
+      <section className="w-full bg-bcrimson" >
         <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4 ">
           <div className="lg:grid lg:grid-cols-3 xl:gap-16 space-y-4 items-center">
             <div className="lg:flex lg:items-center lg:flex-col ">
@@ -109,15 +109,15 @@ export default function Home() {
             <p className="text-white max-w-[50rem] md:text-center ">With the generous support of our fiscal sponsor, <Link className="font-bold" href="https://hackclub.com/">Hack Club</Link>, and sponsors like <Link href="https://www.codeninjas.com/" className="font-bold">Code Ninjas</Link> and FTC teams <span className="font-bold">TechnoWarriors and Scarlet Serpents</span>, we&apos;re making an impact in our community.</p>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="w-full">
-        <Image src="about-cta-donations.svg" alt="wave" width={900} height={75} className="w-full border-none contrast-end" />
+        <Image src="about-cta-donations.svg" alt="wave" width={900} height={75} className="w-full border-none" />
       </section>
 
       <h2 className="text-2xl font-bold md:text-center w-full underline underline-offset-8 px-4 pt-20">How We Make <span className="text-bpurple">Differences</span></h2>
 
-      <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:py-24 lg:px-4">
+      <section className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:py-24 lg:px-4">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex flex-col gap-2 md:items-center justify-center lg:w-1/3">
             <GraduationCap size={48} strokeWidth={2} className="text-bpurple" />
@@ -135,7 +135,9 @@ export default function Home() {
             <p className="text-neutral-600 leading-6 tracking-wide md:text-center">Through sponsorships and fundraising, we cover travel costs for students to participate in national and international STEM tournaments.</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Donations */}
 
       <section className="w-full bg-bpurple py-6 grid md:grid-cols-2 gap-8 justify-center mx-auto items-center px-4">
         <Image src="donations.svg" width={200} height={200} alt="donations" className="hidden md:block justify-self-end"/>
@@ -146,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="w-full py-24" >
+      <section className="w-full py-24" >
         <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
           <div className="lg:grid lg:grid-cols-2 xl:gap-16 items-center">
             <Image src="/seed-image1.png" alt="team" width={600} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
@@ -157,7 +159,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
     </div>
   );

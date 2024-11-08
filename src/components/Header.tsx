@@ -10,7 +10,7 @@ import { useGSAP } from "@gsap/react"
 
 const items = [
     {
-        href: "/",
+        href: "/about",
         text: "About Us"
     },
     {
@@ -42,28 +42,23 @@ export default function Header() {
             });
         }
 
-        gsap.to(headerRef.current, {
-            backgroundColor: '#FFFFEB',
-            scrollTrigger: {
-                trigger: '.contrast-start',
-                start: 'bottom 20%',
-                scrub: true,
-                toggleActions: 'play none none none',
-            }
-        })
-
     }, [menuOpen]);
 
     return (
-        <div className="flex justify-between w-full items-center p-6 fixed left-0 top-0 z-50" ref={headerRef}>
+        <div className="flex justify-between w-full items-center p-6 z-50" ref={headerRef}>
 
             <Link href="/" className="max-w-52 md:max-w-none">
                 <Image src="/logo_w_text.svg" alt="logo" width={350} height={100} />
             </Link>
             <div className="hidden md:flex gap-4 font-semibold">
-                <AnimatedNavLink href="/" text="About Us" />
-                <AnimatedNavLink href="/" text="Our Team" />
-                <AnimatedNavLink href="/" text="Contact Us" />
+
+                {
+                    items.map((item) => {
+                        return (
+                            <AnimatedNavLink key={item.text} href={item.href} text={item.text} />
+                        )
+                    })
+                }
             </div>
             <Menu className="block md:hidden" onClick={() => setMenuOpen(!menuOpen)} />
 
