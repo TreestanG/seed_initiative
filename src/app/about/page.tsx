@@ -23,12 +23,12 @@ const officers = [
     {
         image: "/placeholder-team.png",
         name: "Arjun M.",
-        title: "Chief Operations Officers"
+        title: "Chief Operations Officer"
     },
     {
         image: "/placeholder-team.png",
         name: "Ishaan Agrawal",
-        title: "Chief Technology Officers"
+        title: "Chief Technology Officer"
     },
     {
         image: '/placeholder-team.png',
