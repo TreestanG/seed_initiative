@@ -52,15 +52,6 @@ export default function Header() {
             }
         })
 
-        gsap.to(headerRef.current, {
-            backgroundColor: 'none',
-            scrollTrigger: {
-                trigger: '.contrast-end',
-                start: 'bottom 20%',
-                scrub: true,
-                toggleActions: 'play none none none',
-            }
-        })
     }, [menuOpen]);
 
     return (

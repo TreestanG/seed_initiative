@@ -151,7 +151,7 @@ export default function Home() {
           <div className="lg:grid lg:grid-cols-2 xl:gap-16 items-center">
             <Image src="/seed-image1.png" alt="team" width={600} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             <div className="" id="enroll">
-              <h3 className="text-4xl font-bold pb-4 uppercase text-byellow">Join Us Today</h3>
+              <h3 className="text-4xl font-bold py-4 uppercase text-byellow">Join Us Today</h3>
               <p className="pt-4 text-xl">Ready to take your STEM skills to the next level? Join our weekly lessons, participate in tournaments, and gain the experience and resources you need to succeed</p>
               <button className="mt-8 bg-byellow px-8 rounded-full py-2 text-lg text-neutral-800 ">Enroll Now</button>
             </div>
