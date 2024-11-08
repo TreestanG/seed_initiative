@@ -26,7 +26,7 @@ export default function Home() {
     () => {
       const tl = gsap.timeline({
         onComplete: () => {
-          gsap.set([titleRef.current, sloganRef.current, btn1Ref.current, btn2Ref.current, imgRef.current], { clearProps: "all" })
+          gsap.set([titleRef.current, sloganRef.current, btn1Ref.current, btn2Ref.current, imgRef.current, purpleRef.current], { clearProps: "all" })
         }
       })
       tl.from(titleRef.current, { y: -50, opacity: 0, duration: .5, rotateY: -90 })
@@ -35,34 +35,8 @@ export default function Home() {
       tl.from(btn2Ref.current, { y: -50, opacity: 0, duration: .35, rotateY: -90 }, "-=.05")
       tl.from(imgRef.current, { x: 50, opacity: 0, duration: .35 }, "-=.25")
 
-      gsap.fromTo(purpleRef.current,
-        {
-          opacity: 0
-        }, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: purpleRef.current,
-          start: "top 80%",
-          end: "bottom 50%",
-          scrub: true,
-          toggleActions: "play none none none"
-        }
-      }
-    )
-
-      gsap.fromTo(secPurpleRef.current,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: purpleRef.current,
-            start: "top 80%",
-            end: "bottom 50%",
-            scrub: true,
-            toggleActions: "play none none none"
-          }
-        }
-      )
+      tl.from(purpleRef.current, { y: 50, opacity: 0, duration: .35 }, "")
+      tl.from(secPurpleRef.current, { y: 50, opacity: 0, duration: .35 }, "")
     }
   )
 
@@ -84,7 +58,7 @@ export default function Home() {
 
       {/* sponsorships maybe */}
       <section className="w-full" >
-        <Image ref={purpleRef} src="transition-about.svg" alt="wave" width={900} height={200} className="w-full opacity-0 contrast-header" />
+        <Image ref={purpleRef} src="transition-about.svg" alt="wave" width={900} height={200} className="w-full contrast-start" />
       </section>
 
       {/* About */}
@@ -133,7 +107,7 @@ export default function Home() {
       </div>
 
       <section className="w-full">
-        <Image src="about-cta-donations.svg" alt="wave" width={900} height={75} className="w-full border-none" />
+        <Image src="about-cta-donations.svg" alt="wave" width={900} height={75} className="w-full border-none contrast-end" />
       </section>
 
       <h2 className="text-2xl font-bold md:text-center w-full underline underline-offset-8 px-4 pt-20">How We Make <span className="text-bpurple">Differences</span></h2>
@@ -155,7 +129,19 @@ export default function Home() {
             <h3 className="text-xl md:text-2xl font-bold md:text-center">Expense-Paid Competitions</h3>
             <p className="text-neutral-600 leading-6 tracking-wide md:text-center">Through sponsorships and fundraising, we cover travel costs for students to participate in national and international STEM tournaments.</p>
           </div>
+        </div>
+      </div>
 
+      <div className="w-full py-24" ref={secPurpleRef}>
+        <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
+          <div className="lg:grid lg:grid-cols-2 xl:gap-16 items-center" ref={secPurpleRef}>
+            <Image src="/seed-image1.png" alt="team" width={600} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
+            <div className="">
+              <h3 className="text-4xl font-bold pb-4 uppercase text-byellow">Join Us Today</h3>
+              <p className="pt-4 text-xl">Ready to take your STEM skills to the next level? Join our weekly lessons, participate in tournaments, and gain the experience and resources you need to succeed</p>
+              <button className="mt-8 bg-byellow px-8 rounded-full py-2 text-lg text-neutral-800 ">Enroll Now</button>
+            </div>
+          </div>
         </div>
       </div>
 

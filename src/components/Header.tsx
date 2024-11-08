@@ -4,7 +4,7 @@ import Image from "next/image"
 import AnimatedNavLink from "./AnimatedNav"
 import Link from "next/link"
 import { Menu } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 
@@ -45,11 +45,21 @@ export default function Header() {
         gsap.to(headerRef.current, {
             backgroundColor: '#FFFFEB',
             scrollTrigger: {
-                trigger: '.contrast-header',
-                start: 'bottom top',
+                trigger: '.contrast-start',
+                start: 'bottom 20%',
                 scrub: true,
                 toggleActions: 'play none none none',
-                markers: true
+            }
+        })
+
+        gsap.to(headerRef.current, {
+            backgroundColor: 'none',
+            scrollTrigger: {
+                trigger: '.contrast-end',
+                start: 'bottom 20%',
+                scrub: true,
+                toggleActions: 'play none none none',
+                markers: true,
             }
         })
     }, [menuOpen]);
