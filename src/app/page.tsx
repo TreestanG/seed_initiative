@@ -4,10 +4,13 @@ import { Button } from "@/components/ui/button";
 import NumberTicker from "@/components/ui/number-ticker";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Briefcase, GraduationCap, Trophy } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
   const titleRef = useRef(null)
@@ -15,6 +18,8 @@ export default function Home() {
   const btn1Ref = useRef(null)
   const btn2Ref = useRef(null)
   const imgRef = useRef(null)
+  const purpleRef = useRef(null)
+  const secPurpleRef = useRef(null)
 
 
   useGSAP(
@@ -29,6 +34,35 @@ export default function Home() {
       tl.from(btn1Ref.current, { y: -50, opacity: 0, duration: .35, rotateY: -90 }, "-=.15")
       tl.from(btn2Ref.current, { y: -50, opacity: 0, duration: .35, rotateY: -90 }, "-=.05")
       tl.from(imgRef.current, { x: 50, opacity: 0, duration: .35 }, "-=.25")
+
+      gsap.fromTo(purpleRef.current,
+        {
+          opacity: 0
+        }, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: purpleRef.current,
+          start: "top 80%",
+          end: "bottom 50%",
+          scrub: true,
+          toggleActions: "play none none none"
+        }
+      }
+    )
+
+      gsap.fromTo(secPurpleRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: purpleRef.current,
+            start: "top 80%",
+            end: "bottom 50%",
+            scrub: true,
+            toggleActions: "play none none none"
+          }
+        }
+      )
     }
   )
 
@@ -49,18 +83,16 @@ export default function Home() {
       </div>
 
       {/* sponsorships maybe */}
-
-      <section className="w-full">
-        <Image src="transition-about.svg" alt="wave" width={900} height={200} className="w-full" />
+      <section className="w-full" >
+        <Image ref={purpleRef} src="transition-about.svg" alt="wave" width={900} height={200} className="w-full opacity-0 contrast-header" />
       </section>
-
 
       {/* About */}
 
-      <div className="w-full bg-bpurple" >
+      <div className="w-full bg-bpurple " ref={secPurpleRef}>
         <h2 className="text-2xl font-bold text-center pb-8 bg-bpurple w-full text-white underline underline-offset-8">About Us</h2>
         <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
-          <div className="lg:grid lg:grid-cols-2 xl:gap-16 ">
+          <div className="lg:grid lg:grid-cols-2 xl:gap-16 " ref={secPurpleRef}>
             <div className=" text-white">
               <h3 className="text-4xl font-bold pb-4 ">Who We Are</h3>
               <p className="text-byellow font-bold text-2xl">We empower all students to succeed in STEM competitions</p>

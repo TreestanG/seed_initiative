@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Menu } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 
 const items = [
     {
@@ -26,8 +27,9 @@ export default function Header() {
 
     const [menuOpen, setMenuOpen] = useState(false)
     const sidebarRef = useRef(null)
+    const headerRef = useRef(null)
 
-    useEffect(() => {
+    useGSAP(() => {
         if (menuOpen) {
             gsap.to(sidebarRef.current, {
                 x: 0,
@@ -39,10 +41,21 @@ export default function Header() {
                 ease: 'power3.out',
             });
         }
+
+        gsap.to(headerRef.current, {
+            backgroundColor: '#FFFFEB',
+            scrollTrigger: {
+                trigger: '.contrast-header',
+                start: 'bottom top',
+                scrub: true,
+                toggleActions: 'play none none none',
+                markers: true
+            }
+        })
     }, [menuOpen]);
 
     return (
-        <div className="flex justify-between w-full items-center p-6 fixed left-0 top-0 ">
+        <div className="flex justify-between w-full items-center p-6 fixed left-0 top-0 " ref={headerRef}>
 
             <Link href="/" className="max-w-52 md:max-w-none">
                 <Image src="/logo_w_text.svg" alt="logo" width={350} height={100} />

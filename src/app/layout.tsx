@@ -43,18 +43,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <PlausibleProvider domain="seed.tristangee.com">
-        <body
-          className={`${inter.className} antialiased min-h-screen w-screen`}
-        >
-          <main >
-            <Header />
-            {children}
-            <Footer />
-          </main>
-        </body>
-
-      </PlausibleProvider>
+      <head>
+        <PlausibleProvider domain="seed.tristangee.com" />
+      </head>
+      <body
+        className={`${inter.className} antialiased min-h-screen w-screen`}
+      >
+        <main >
+          <Header />
+          {children}
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }
