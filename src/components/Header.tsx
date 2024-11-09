@@ -72,9 +72,7 @@ export default function Header() {
                         {
                             items.map((item) => {
                                 return (
-                                    <div key={item.text}>
-                                        <Link href={item.href} className="  uppercase font-medium ">{item.text}</Link>
-                                    </div>
+                                        <Link href={item.href} onClick={() => setMenuOpen(menuOpen)} key={item.text} className="  uppercase font-medium w-full">{item.text}</Link>
                                 )
                             })
                         }

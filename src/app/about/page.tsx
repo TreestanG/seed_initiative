@@ -46,7 +46,7 @@ const officers = [
 export default function About() {
     return (
         <div className="w-full flex flex-col justify-center">
-            <Image src="/about-banner.jpg" alt="science" width={600} height={200} className="w-full" />
+            <Image src="/about-banner.jpg" alt="science" width={600} height={200} className="w-full min-h-52 object-cover md:object-contain" />
             <section className="py-24 flex items-center flex-col">
                 <h2 className="text-3xl font-bold text-center">About Seed Initiative</h2>
                 <p className="text-center max-w-[40rem] pt-8 leading-8">At <span className="font-semibold text-bblue">Seed Initiative</span>, we empower under-resourced middle and high school students to excel in STEM academic competitions by providing essential resources, workshops, and travel opportunities.</p>
