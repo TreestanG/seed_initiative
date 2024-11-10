@@ -47,13 +47,15 @@ export default function RootLayout({
         <PlausibleProvider domain="seed.tristangee.com" />
       </head>
       <body
-        className={`${inter.className} antialiased min-h-screen w-screen`}
+        className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
       >
-        <main >
-          <Header />
+        <Header />
+
+        <main className="overflow-x-hidden">
           {children}
-          <Footer />
         </main>
+        <Footer />
+
       </body>
     </html>
   );

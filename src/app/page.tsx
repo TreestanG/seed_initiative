@@ -24,7 +24,7 @@ export default function Home() {
   const secPurpleRef = useRef(null)
 
   const onClickEnroll = () => {
-    gsap.to(window, { duration: 1, scrollTo: "#enroll" })
+    gsap.to(window, { duration: 1, scrollTo: "#enroll", ease: "power3.out" })
   }
 
   useGSAP(
@@ -123,7 +123,7 @@ export default function Home() {
           <div className="flex flex-col gap-2 md:items-center justify-center lg:w-1/3">
             <GraduationCap size={48} strokeWidth={2} className="text-bpurple" />
             <h3 className="text-xl md:text-2xl font-bold md:text-center">Weekly STEM Lessons</h3>
-            <p className="text-neutral-600 leading-6 tracking-wide md:text-center">Our engaging lessons are designed to prepare students for competition while developing skills in science, engineering, and math.</p>
+            <p className="text-neutral-600 leading-6 tracking-wide md:text-center">Our engaging lessons are designed to prepare students for competition while developing skills needed for Science Bowl topics.</p>
           </div>
           <div className="flex flex-col gap-2 md:items-center justify-center lg:w-1/3">
             <Trophy size={48} strokeWidth={2} className="text-bpurple" />

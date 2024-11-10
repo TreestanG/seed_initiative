@@ -12,7 +12,7 @@ export default function MeetTeamCard({
     
 
     return (
-        <div>
+        <div className="pb-6 md:pb-0">
             <Image src={image} alt={name} width={400} height={200} className="" />
             <p className="font-semibold pt-4">{name}</p>
             <p className="text-sm text-neutral-600 capitalize">{title}</p>

@@ -15,7 +15,7 @@ const items = [
     },
     {
         href: "/",
-        text: "Our Team"
+        text: "Sponsors"
     },
     {
         href: "/",
@@ -45,7 +45,7 @@ export default function Header() {
     }, [menuOpen]);
 
     return (
-        <div className="flex justify-between w-full items-center p-6 z-50" ref={headerRef}>
+        <div className="flex justify-between w-full items-center p-6 z-50 overflow-x-hidden " ref={headerRef}>
 
             <Link href="/" className="max-w-52 md:max-w-none">
                 <Image src="/logo_w_text.svg" alt="logo" width={350} height={100} />
@@ -63,7 +63,7 @@ export default function Header() {
             <Menu className="block md:hidden" onClick={() => setMenuOpen(!menuOpen)} />
 
             {
-                <div ref={sidebarRef} className=" translate-x-[100%] block md:hidden absolute top-0 left-0 w-screen h-screen bg-white p-6 z-50">
+                <div ref={sidebarRef} className=" block fixed md:hidden top-0 left-0 w-screen h-screen bg-white p-6 z-50 overflow-x-hidden">
                     <div className="flex justify-between">
                         <span className="text-sm font-bold text-neutral-500">Seed Initiative</span>
                         <X className="" onClick={() => setMenuOpen(!menuOpen)} />

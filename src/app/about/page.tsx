@@ -4,7 +4,7 @@ import Image from "next/image";
 const founders = [
     {
         image: "/placeholder-team.png",
-        name: "Samyuktha ",
+        name: "Samyuktha Gopinath Lakshmi",
         title: "Co-Founder"
     },
     {
@@ -22,7 +22,7 @@ const founders = [
 const officers = [
     {
         image: "/placeholder-team.png",
-        name: "Arjun M.",
+        name: "Arjun Murugappan",
         title: "Chief Operations Officer"
     },
     {
@@ -46,7 +46,7 @@ const officers = [
 export default function About() {
     return (
         <div className="w-full flex flex-col justify-center">
-            <Image src="/about-banner.jpg" alt="science" width={600} height={200} className="w-full min-h-52 object-cover md:object-contain" />
+            <Image src="/about-banner.jpg" alt="science" width={600} height={200} className="w-full min-h-52 object-cover md:object-contain" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             <section className="py-24 flex items-center flex-col">
                 <h2 className="text-3xl font-bold text-center">About Seed Initiative</h2>
                 <p className="text-center max-w-[40rem] pt-8 leading-8">At <span className="font-semibold text-bblue">Seed Initiative</span>, we empower under-resourced middle and high school students to excel in STEM academic competitions by providing essential resources, workshops, and travel opportunities.</p>
@@ -58,7 +58,7 @@ export default function About() {
                         <Image src="/our-story.jpg" alt="team" width={600} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         <div className="" id="enroll">
                             <h3 className="text-4xl font-bold py-4 uppercase text-byellow">Our Story</h3>
-                            <p className="pt-4 leading-8">Lorem ipsum odor amet, consectetuer adipiscing elit. Morbi auctor netus faucibus eu feugiat. Aenean semper vulputate nulla pulvinar integer orci aliquam blandit. Conubia cursus ridiculus a mauris cubilia bibendum. Tempus class dignissim tortor accumsan fermentum. Sem justo placerat eleifend torquent semper justo. Nullam posuere vehicula quam turpis bibendum fusce suspendisse. Lacus torquent sociosqu a arcu curae aliquet maecenas molestie. Justo dui vivamus porttitor per integer euismod leo. Iaculis conubia nostra augue nunc risus venenatis primis ad amet. Quam hac nullam tortor ornare nam. Metus nullam vehicula orci ut vel, gravida pulvinar blandit amet. Dui dui vulputate urna etiam venenatis turpis magnis, lobortis porta. Nec et dictumst lacinia senectus nullam dui quam massa. Auctor et turpis sed eu suscipit.</p>
+                            <p className="pt-4 leading-8">SEED started as a substitute for a middle school science bowl club. After Horner Middle School students struggled to form a club due to a lack of support from the school, members of the Irvington High School science bowl club stepped in, forming the Bay Area Science Bowl Initiative (BASBI). BASBI recruited volunteers from Irvington High School to teach the five science bowl topics: biology, chemistry, physics, earth and space science, and math. Over the summer of 2024, every weekday for seven weeks, BASBI taught online classes to over 100 Horner students interested in science bowl. At the end of the program, BASBI hosted an in-person tournament simulating the science bowl competition experience. The program was renamed to the SEED (Science Engagement and Educational Development) Initiative, which strives to bring to middle school students what BASBI did: advanced knowledge of important scientific topics and a passion for science bowl competitions.</p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ export default function About() {
             <section className=" px-4 py-8 space-y-12 lg:space-y-20 lg:py-8 lg:px-24 w-full">
                 <h3 className="text-2xl font-bold">Founders</h3>
 
-                <div className="grid lg:grid-cols-3 gap-x-6 w-full">
+                <div className="responsive-grid">
                     {
                         founders.map((founder) => {
                             return (
@@ -80,7 +80,7 @@ export default function About() {
                 </div>
 
                 <h3 className="text-2xl font-bold">Officers</h3>
-                <div className="grid lg:grid-cols-3 lg:grid-rows-2 gap-x-6 w-full gap-y-6 ">
+                <div className="responsive-grid ">
                     {
                         officers.map((officer) => {
                             return (
