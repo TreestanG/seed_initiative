@@ -125,7 +125,7 @@ export default function Home() {
       <section className="w-full py-8 md:py-24" >
         <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
           <div className="lg:grid lg:grid-cols-2 xl:gap-16 items-center">
-            <Image src="/seed-image1.png" alt="team" width={600} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+            <Image src="/landing/seed-image1.png" alt="team" width={600} height={200} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <div className="" id="enroll">
               <h3 className="text-4xl font-bold py-4 uppercase text-byellow">Join Us Today</h3>
               <p className="pt-4 text-xl">Ready to take your STEM skills to the next level? Join our weekly lessons, participate in tournaments, and gain the experience and resources you need to succeed</p>
