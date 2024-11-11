@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlausibleProvider from "next-plausible";
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ['latin']
@@ -43,9 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <PlausibleProvider domain="seed.tristangee.com" />
-      </head>
+      </Head>
       <body
         className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
       >
