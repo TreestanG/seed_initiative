@@ -27,6 +27,7 @@ module.exports = {
 				bblue: 'hsl(var(--bblue))',
 				bcrimson: 'hsl(var(--bcrimson))',
 				bpurple: 'hsl(var(--bpurple))',
+				bcyan: 'hsl(var(--bcyan))',
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'

@@ -6,20 +6,30 @@ import { Separator } from "./ui/separator";
 export default function Footer() {
     return (
         <div className="py-20 px-4 md:px-8 lg:px-20 w-full gap-4 mt-12">
-            <Separator className="w-full"/>
+            <Separator className="w-full" />
             <div className=" md:grid md:grid-cols-3 w-full py-16">
                 <div>
                     <Image src="/logo_curve_text.svg" alt="logo" width={150} height={100} className="justify-self-center" />
                     <p className="font-semibold md:pl-4">sucseedinitiative@gmail.com</p>
+                    <p className="font-semibold md:pl-4">Bay Area, California</p>
                 </div>
-                <div className="justify-self-center self-center">
-                <p className="text-neutral-600 text-sm">© 2024 Seed Initiative. All Rights Reserved.</p>
-                <p className="text-neutral-600 text-sm">Designed by Tristan</p>
+                <div className="justify-self-center self-center pt-4">
+                    <div className="flex gap-2 md:justify-center w-full underline">
+                        <Link href="/" className="">Home</Link>
+                        <Link href="/about" className="">About</Link>
+                        <Link href="/" className="">Get Involved</Link>
+                        <Link href="/" className="">Contact</Link>
+                    </div>
                 </div>
                 <div className="flex gap-2 md:justify-center items-center justify-self-center self-center pt-4">
                     <Link href="https://www.instagram.com/"><Instagram size={24} className="" /></Link>
                     <Link href="mailto:sucseedinitiative@gmail.com"><Mail size={24} className="" /></Link>
                 </div>
+            </div>
+            <div className="mx-auto w-full">
+                <p className="text-neutral-600 text-sm">© 2024 Seed Initiative. All Rights Reserved.</p>
+                <p className="text-neutral-600 text-sm">Designed by Tristan</p>
+
             </div>
         </div>
     )
