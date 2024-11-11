@@ -1,5 +1,4 @@
 import MeetTeamCard from "@/components/MeetTeamCard";
-import Image from "next/image";
 
 const founders = [
     {
@@ -38,7 +37,7 @@ const officers = [
     {
         image: "/placeholder-team.png",
         name: "Tristan Gee",
-        title: "Chief Web Officer"
+        title: "Chief Web and Design Officer"
     }
 ]
 
@@ -46,12 +45,9 @@ const officers = [
 export default function About() {
     return (
         <div className="w-full flex flex-col justify-center">
-
             <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/about/about-banner.png')]">
                 <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
-
             </section>
-
             <h2 className="text-xl font-semibold md:text-center w-full px-4 pt-20">Meet the Team</h2>
             <section className=" px-4 py-8 space-y-12 lg:space-y-20 lg:py-8 lg:px-24 w-full">
                 <h3 className="text-2xl font-bold">Founders</h3>

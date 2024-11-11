@@ -1,47 +1,4 @@
-import MeetTeamCard from "@/components/MeetTeamCard";
 import Image from "next/image";
-
-const founders = [
-    {
-        image: "/placeholder-team.png",
-        name: "Samyuktha Gopinath Lakshmi",
-        title: "Co-Founder"
-    },
-    {
-        image: "/placeholder-team.png",
-        name: "Roland Pratt",
-        title: "Co-Founder"
-    },
-    {
-        image: "/placeholder-team.png",
-        name: "Avyukt Bhardwaj",
-        title: "Co-Founder"
-    }
-]
-
-const officers = [
-    {
-        image: "/placeholder-team.png",
-        name: "Arjun Murugappan",
-        title: "Chief Operations Officer"
-    },
-    {
-        image: "/placeholder-team.png",
-        name: "Ishaan Agrawal",
-        title: "Chief Technology Officer"
-    },
-    {
-        image: '/placeholder-team.png',
-        name: 'Jerry Sun',
-        title: 'Chief Financial Officer'
-    },
-    {
-        image: "/placeholder-team.png",
-        name: "Tristan Gee",
-        title: "Chief Web Officer"
-    }
-]
-
 
 export default function About() {
     return (
