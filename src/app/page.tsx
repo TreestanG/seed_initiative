@@ -45,6 +45,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sponsors */}
+
+
+      <section className="w-full justify-center flex flex-col items-center py-8 md:pt-24 p-4">
+        <h1 className="font-bold text-4xl">Our Sponsors</h1>
+        <p className="pt-4 text-lg text-neutral-700">We are extremely thankful to each and every one of our sponsors who have helped us come this far.</p>
+        <div className="grid grid-cols-3 gap-8 items-center py-8">
+          <Image src="/landing/code-ninja.png" alt="codeninja" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
+          <Image src="/landing/scarlet-serpents.PNG" alt="ftc" width={200} height={200} />
+        </div>
+      </section>
+
       {/* About */}
 
       <section className="w-full py-8 lg:py-24">
@@ -70,7 +83,7 @@ export default function Home() {
         <div>
           <h2 className="text-xl md:text-2xl font-bold text-white">Support Our Mission</h2>
           <p className="text-white text-lg md:text-xl font-medium max-w-[36rem]">Your donation helps us provide resources, mentorship, and support to under-resourced students in STEM competitions.</p>
-          
+
           <button className="py-4 px-6 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
             Donate Now
           </button>
@@ -135,16 +148,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full justify-center flex flex-col items-center py-8 md:pt-24 p-4">
-        <h1 className="font-bold text-4xl">Our Sponsors</h1>
-        <p className="pt-4 text-lg text-neutral-700">We are extremely thankful to each and every one of our sponsors who have helped us come this far.</p>
-        <div className="grid grid-cols-3 gap-8 items-center py-8">
-          <Image src="/landing/code-ninja.png" alt="codeninja" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/scarlet-serpents.PNG" alt="ftc" width={200} height={200} />
-        </div>
-
-      </section>
 
     </div>
   );

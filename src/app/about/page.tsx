@@ -5,8 +5,9 @@ export default function About() {
         <div className="w-full flex flex-col justify-center">
 
             <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/about/about-banner.png')]">
-                <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
+                <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">About Us</h1>
 
+                <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 to-transparent"></div>
             </section>
 
             <section className="py-24 flex items-center flex-col">
