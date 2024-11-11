@@ -109,7 +109,7 @@ export default function Home() {
           <h3 className="text-4xl font-bold text-white">This Summer, We:</h3>
           <div className="lg:grid lg:grid-cols-2 space-y-8 lg:space-y-0 gap-16">
             <div className="bg-white p-4 rounded-xl">
-              <Image src="/landing/tournament.jpg" alt="team" width={600} height={200} className="rounded-xl" />
+              <Image src="/landing/tournament.JPG" alt="team" width={600} height={200} className="rounded-xl" />
               <h4 className="text-2xl font-bold text-blue-700 pt-8">7-Week Bootcamp</h4>
               <p className="text-lg">Hosted a 7-week STEM bootcamp and organized our own SciBowl tournament, giving over 100 students the chance to learn science in-depth, build teamwork skills, and experience the thrill of academic competition</p>
             </div>
