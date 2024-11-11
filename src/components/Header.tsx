@@ -14,6 +14,10 @@ const items = [
         text: "About Us"
     },
     {
+        href: "/team",
+        text: "Our Team"
+    },
+    {
         href: "/",
         text: "Sponsors"
     },

@@ -23,7 +23,6 @@ export default function Home() {
     <div className="flex min-h-screen justify-center items-center flex-col">
       {/* Hero */}
 
-
       <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/landing/background.png')]">
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
         <div className="flex flex-wrap md:flex-nowrap gap-4 relative z-10">
