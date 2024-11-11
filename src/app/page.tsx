@@ -114,7 +114,7 @@ export default function Home() {
               <p className="text-lg">Hosted a 7-week STEM bootcamp and organized our own SciBowl tournament, giving over 100 students the chance to learn science in-depth, build teamwork skills, and experience the thrill of academic competition</p>
             </div>
             <div className="bg-white p-4 rounded-xl">
-              <Image src="/landing/tournament.jpg" alt="team" width={600} height={200} className="rounded-xl" />
+              <Image src="/landing/tournament.JPG" alt="team" width={600} height={200} className="rounded-xl" />
               <h4 className="text-2xl font-bold text-blue-700 pt-8">In-Person Scibowl Tournament</h4>
               <p className="text-lg">Organized our own SciBowl tournament, recreating the excitement of a real science competition. Dozens of students participated in fast-paced, team-based rounds that challenged their knowledge in biology, chemistry, physics, earth science, and math. </p>
             </div>
@@ -141,7 +141,7 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-8 items-center py-8">
           <Image src="/landing/code-ninja.png" alt="codeninja" width={200} height={200} />
           <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/scarlet-serpents.png" alt="ftc" width={200} height={200} />
+          <Image src="/landing/scarlet-serpents.PNG" alt="ftc" width={200} height={200} />
         </div>
 
       </section>
