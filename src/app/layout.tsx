@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <PlausibleProvider domain="seed.tristangee.com">
+    <PlausibleProvider domain="stats.tristangee.com">
       <html lang="en">
         <body
           className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
