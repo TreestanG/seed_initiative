@@ -42,18 +42,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
-      >
-        <PlausibleProvider domain="seed.tristangee.com" />
-        <Header />
-        <main className="overflow-x-hidden">
-          {children}
-        </main>
-        <Footer />
+    <PlausibleProvider domain="seed.tristangee.com">
+      <html lang="en">
+        <body
+          className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
+        >
+          <Header />
+          <main className="overflow-x-hidden">
+            {children}
+          </main>
+          <Footer />
 
-      </body>
-    </html>
+        </body>
+      </html>
+    </PlausibleProvider>
+
   );
 }
