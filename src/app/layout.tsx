@@ -42,7 +42,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <PlausibleProvider domain="stats.tristangee.com">
+    <PlausibleProvider 
+    domain="seed.tristangee.com"
+    selfHosted
+    customDomain="https://stats.tristangee.com">
       <html lang="en">
         <body
           className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
