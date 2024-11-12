@@ -17,8 +17,7 @@ export default function Footer() {
                     <div className="flex gap-2 md:justify-center w-full underline">
                         <Link href="/" className="">Home</Link>
                         <Link href="/about" className="">About</Link>
-                        <Link href="/" className="">Get Involved</Link>
-                        <Link href="/" className="">Contact</Link>
+                        <Link href="/sponsors" className="">Sponsors</Link>
                     </div>
                 </div>
                 <div className="flex gap-2 md:justify-center items-center justify-self-center self-center pt-4">

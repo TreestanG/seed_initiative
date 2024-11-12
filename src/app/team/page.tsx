@@ -47,7 +47,7 @@ export default function About() {
         <div className="w-full flex flex-col justify-center">
             <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
-                <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">About Us</h1>
+                <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">Our Team</h1>
 
             </section>
             <h2 className="text-xl font-semibold md:text-center w-full px-4 pt-20">Meet the Team</h2>

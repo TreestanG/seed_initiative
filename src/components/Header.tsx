@@ -20,10 +20,6 @@ const items = [
     {
         href: "/sponsors",
         text: "Sponsors"
-    },
-    {
-        href: "/",
-        text: "Contact Us"
     }
 ]
 

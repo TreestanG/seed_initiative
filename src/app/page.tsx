@@ -84,9 +84,11 @@ export default function Home() {
           <h2 className="text-xl md:text-2xl font-bold text-white">Support Our Mission</h2>
           <p className="text-white text-lg md:text-xl font-medium max-w-[36rem]">Your donation helps us provide resources, mentorship, and support to under-resourced students in STEM competitions.</p>
 
-          <button className="py-4 px-6 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
-            Donate Now
-          </button>
+          <Link href="/sponsors">
+            <button className="py-4 px-6 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
+              Support Seed
+            </button>
+          </Link>
         </div>
       </section>
 

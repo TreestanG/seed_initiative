@@ -11,8 +11,8 @@ export default function About() {
                     <p className="text-yellow-400 font-bold uppercase text-2xl pt-8 text-center">Sponsors, Partners, + Donations</p>
                 </div>
             </section>
-            
-            <section className="w-full mx-auto py-24">
+
+            <section className="w-full mx-auto py-8 md:py-24">
                 <div className="mx-auto max-w-screen-xl px-4 py-6 ">
                     <h2 className="text-4xl font-bold">Program Sponsors:</h2>
                     <div className="grid grid-cols-3 gap-8 items-center py-8">
@@ -23,7 +23,7 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="w-full py-24">
+            <section className="w-full py-8 md:py-24">
                 <div className="mx-auto max-w-screen-xl px-4 lg:grid lg:grid-cols-2">
                     <div className="mb-6">
                         <h2 className="text-2xl uppercase font-bold text-bcyan">Want to join the club?</h2>
@@ -33,6 +33,14 @@ export default function About() {
                         <button className=" px-8 py-4 border-bcyan border-2 hover:bg-cyan-100 hover:border-transparent">Contact Us</button>
                     </Link>
                 </div>
+            </section>
+
+            <section className="mx-auto max-w-screen-xl px-4 lg:px-6 my-24 py-8 flex flex-col justify-center bg-indigo-700 rounded-none md:rounded-xl">
+                <h2 className="text-4xl font-bold text-white">Too Much?</h2>
+                <p className="text-lg leading-8 text-white max-w-[40rem] pt-8">We get it—becoming a full sponsor is a big commitment. But every donation, big or small, helps making STEM education more accessible and exciting for students. Whether it&apos;s covering materials for hands-on tournaments or supporting travel to competition, your gift makes an impact. Consider making a one-time or monthly donation to help the next generation of scientists!</p>
+                <Link href="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className=" self-stretch">
+                    <button className="px-8 py-4 bg-byellow text-white rounded-xl hover:bg-white hover:text-indigo-700 mt-8">Donate Now</button>
+                </Link>
             </section>
         </div>
     )
