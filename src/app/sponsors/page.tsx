@@ -14,7 +14,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
                 <div className="z-50 flex justify-center flex-col items-center">
                     <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug">Our Supporters</h1>
-                    <p className="text-yellow-400 font-bold uppercase text-2xl pt-8 text-center">Sponsors, Partners, + Donations</p>
+                    <p className="text-yellow-400 font-bold uppercase text-2xl pt-8 text-center">Sponsors, Partners, & Donations</p>
                 </div>
             </section>
 
@@ -41,16 +41,26 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="mx-auto max-w-screen-xl px-4 lg:px-6 my-24 py-8 bg-indigo-700 rounded-none md:rounded-xl grid lg:grid-cols-2">
-                <div>
-                    <h2 className="text-4xl font-bold text-white">Too Much?</h2>
-                    <p className="text-lg leading-8 text-white max-w-[40rem] pt-8">We get it—becoming a full sponsor is a big commitment. But every donation, big or small, helps making STEM education more accessible and exciting for students. Whether it&apos;s covering materials for hands-on tournaments or supporting travel to competition, your gift makes an impact. Consider making a one-time or monthly donation to help the next generation of scientists!</p>
-
+            <section className="mx-auto max-w-screen-xl px-4 lg:px-6 my-24 py-8 bg-indigo-700 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-8">
+                <div className="flex flex-col justify-between">
+                    <div>
+                        <h2 className="text-4xl font-bold text-white">Too Much?</h2>
+                        <p className="text-lg leading-8 text-white max-w-[40rem] pt-8">
+                            We get it—becoming a full sponsor is a big commitment. But every donation, big or small, helps making STEM education more accessible and exciting for students. Whether it&apos;s covering materials for hands-on tournaments or supporting travel to competition, your gift makes an impact. Consider making a one-time or monthly donation to help the next generation of scientists!
+                        </p>
+                    </div>
+                    <div className="relative h-full mt-8">
+                        <Image src="/sponsors/donate_arrow.svg" alt="donate" layout="fill" objectFit="contain" className="object-fill" />
+                    </div>
                 </div>
                 {
-                    isMobile ? <Link href="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className=" self-stretch">
-                        <button className="px-8 py-4 bg-byellow text-white rounded-xl hover:bg-white hover:text-indigo-700 mt-8">Donate Now</button>
-                    </Link> : <iframe src="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className="border-none rounded-xl justify-self-stretch h-[40rem]" name="donateFrame" scrolling="yes"></iframe>
+                    isMobile ? (
+                        <Link href="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className="self-stretch">
+                            <button className="px-8 py-4 bg-byellow text-white rounded-xl hover:bg-white hover:text-indigo-700 mt-8">Donate Now</button>
+                        </Link>
+                    ) : (
+                        <iframe src="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className="border-none rounded-xl justify-self-stretch h-[40rem]" name="donateFrame" scrolling="yes"></iframe>
+                    )
                 }
             </section>
 

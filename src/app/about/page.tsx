@@ -6,7 +6,7 @@ export default function About() {
 
             <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
-                <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">Our Team</h1>
+                <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">About Us</h1>
             </section>
 
 
