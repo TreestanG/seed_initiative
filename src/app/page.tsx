@@ -98,7 +98,7 @@ export default function Home() {
           <div className="lg:grid lg:grid-cols-3 xl:gap-16 space-y-4 items-center">
             <div className="lg:flex lg:items-center lg:flex-col ">
               <CoinsIcon size={96} strokeWidth={2} className="text-bpurple hidden md:block" />
-              <span className="text-3xl md:text-4xl lg:text-5xl font-bold pt-6">$<NumberTicker value={9000} className="" />+</span>
+              <span className="text-3xl md:text-4xl lg:text-5xl font-bold pt-6">$<NumberTicker value={10000} className="" />+</span>
               <p className=" text-lg font-medium md:pt-4">Raised Through Fundraisers</p>
             </div>
             <div className="lg:flex lg:items-center lg:flex-col ">
