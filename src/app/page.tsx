@@ -26,7 +26,7 @@ export default function Home() {
       <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/landing/background.png')]">
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
         <div className="flex flex-wrap md:flex-nowrap gap-4 relative z-10">
-          <div className="relative px-4 pb-16 pt-8 md:w-7/12 md:px-6">
+          <div className="relative px-4 pb-16 pt-8 mt-8 md:mt-0 md:w-7/12 md:px-6 ">
             <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-snug">
               Empowering the Next Generation of STEM leaders
             </h1>
@@ -114,7 +114,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full flex flex-col md:items-center">
-            <p className=" max-w-[50rem] md:text-center ">With the generous support of our fiscal sponsor, <Link className="font-bold" href="https://hackclub.com/">Hack Club</Link>, and sponsors like <Link href="https://www.codeninjas.com/" className="font-bold">Code Ninjas</Link> and FTC teams <span className="font-bold">TechnoWarriors and Scarlet Serpents</span>, we&apos;re making an impact in our community.</p>
+            <p className=" max-w-[50rem] md:text-center ">With the generous support of our fiscal sponsor, <Link className="font-bold underline" href="https://hackclub.com/">Hack Club</Link>, and sponsors like <Link href="https://www.codeninjas.com/" className="font-bold underline">Code Ninjas</Link> and FTC teams <span className="font-bold">TechnoWarriors and Scarlet Serpents</span>, we&apos;re making an impact in our community.</p>
           </div>
         </div>
       </section>
