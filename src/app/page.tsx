@@ -34,12 +34,12 @@ export default function Home() {
               SEED (Science Engagement and Educational Development) helps under-resourced students thrive in STEM competitions through classes, workshops, and financial support.
             </p>
             <div className="flex gap-4 mt-6">
-              <button className="py-2 px-4 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90">
+              <Link href="/sponsors" className="py-2 px-4 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90">
                 Support SEED
-              </button>
-              <button className="py-2 px-4 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-bcyan hover:brightness-90" onClick={onClickEnroll}>
+              </Link>
+              <Link href="https://forms.gle/kngC2LYh1YvzAx7Q7" className="py-2 px-4 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-bcyan hover:brightness-90">
                 Join Our Programs
-              </button>
+              </Link>
             </div>
           </div>
         </div>
