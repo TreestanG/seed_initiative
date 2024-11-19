@@ -23,10 +23,10 @@ export default function Home() {
     <div className="flex min-h-screen justify-center items-center flex-col">
       {/* Hero */}
 
-      <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/landing/background.png')]">
+      <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/landing/background.webp')]">
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
         <div className="flex flex-wrap md:flex-nowrap gap-4 relative z-10">
-          <div className="relative px-4 pb-16 pt-8 md:w-7/12 md:px-6">
+          <div className="relative px-4 pb-16 pt-8 mt-8 md:mt-0 md:w-7/12 md:px-6 ">
             <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-snug">
               Empowering the Next Generation of STEM leaders
             </h1>
@@ -98,7 +98,7 @@ export default function Home() {
           <div className="lg:grid lg:grid-cols-3 xl:gap-16 space-y-4 items-center">
             <div className="lg:flex lg:items-center lg:flex-col ">
               <CoinsIcon size={96} strokeWidth={2} className="text-bpurple hidden md:block" />
-              <span className="text-3xl md:text-4xl lg:text-5xl font-bold pt-6">$<NumberTicker value={9000} className="" />+</span>
+              <span className="text-3xl md:text-4xl lg:text-5xl font-bold pt-6">$<NumberTicker value={10000} className="" />+</span>
               <p className=" text-lg font-medium md:pt-4">Raised Through Fundraisers</p>
             </div>
             <div className="lg:flex lg:items-center lg:flex-col ">
@@ -114,7 +114,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full flex flex-col md:items-center">
-            <p className=" max-w-[50rem] md:text-center ">With the generous support of our fiscal sponsor, <Link className="font-bold" href="https://hackclub.com/">Hack Club</Link>, and sponsors like <Link href="https://www.codeninjas.com/" className="font-bold">Code Ninjas</Link> and FTC teams <span className="font-bold">TechnoWarriors and Scarlet Serpents</span>, we&apos;re making an impact in our community.</p>
+            <p className=" max-w-[50rem] md:text-center ">With the generous support of our fiscal sponsor, <Link className="font-bold underline" href="https://hackclub.com/">Hack Club</Link>, and sponsors like <Link href="https://www.codeninjas.com/" className="font-bold underline">Code Ninjas</Link> and FTC teams <span className="font-bold">TechnoWarriors and Scarlet Serpents</span>, we&apos;re making an impact in our community.</p>
           </div>
         </div>
       </section>

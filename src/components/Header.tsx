@@ -81,7 +81,7 @@ export default function Header() {
                 </div>
                 <div className="flex flex-col items-center justify-center pt-8 gap-4">
                     {items.map((item) => (
-                        <Link href={item.href} onClick={() => setMenuOpen(menuOpen)} key={item.text} className="uppercase font-medium w-full">
+                        <Link href={item.href} onClick={() => setMenuOpen(!menuOpen)} key={item.text} className="uppercase font-medium w-full">
                             {item.text}
                         </Link>
                     ))}
