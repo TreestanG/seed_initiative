@@ -7,27 +7,21 @@ import { Menu, X } from "lucide-react"
 import { useRef, useState } from "react"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { Header as HeaderType } from '@/payload-types'
 
-const items = [
-    {
-        href: "/about",
-        text: "About Us"
-    },
-    {
-        href: "/team",
-        text: "Our Team"
-    },
-    {
-        href: "/sponsors",
-        text: "Sponsors"
-    }
-]
-
-export default function Header() {
+export default function Header({
+    res
+}: {
+    res: HeaderType
+}) {
 
     const [menuOpen, setMenuOpen] = useState(false)
     const sidebarRef = useRef(null)
     const headerRef = useRef(null)
+
+    const items = res.navLinks ?? []
+    const image = typeof res.logo === 'object' && res.logo !== null ? res.logo.url : '/logo-header.png'
+
 
     useGSAP(() => {
         if (menuOpen) {
@@ -58,6 +52,7 @@ export default function Header() {
             ease: 'power3.out',
         });
     }
+
     return (
         <div
             className="flex justify-between w-full items-center p-6 z-50 overflow-x-hidden bg-transparent absolute top-0 left-0 group"
@@ -66,11 +61,11 @@ export default function Header() {
             onMouseLeave={handleMouseLeave}
         >
             <Link href="/" className="max-w-52 md:max-w-none">
-                <Image src="/logo-header.png" alt="logo" width={350} height={100} />
+                <Image src={image!} alt="logo" width={350} height={100} />
             </Link>
             <div className="hidden md:flex gap-4 font-semibold">
-                {items.map((item) => (
-                    <AnimatedNavLink key={item.text} href={item.href} text={item.text} />
+                {items.length && items.map((item) => (
+                    <AnimatedNavLink key={item.label} href={item.link!} text={item.label!} />
                 ))}
             </div>
             <Menu className="block md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)} />
@@ -80,9 +75,9 @@ export default function Header() {
                     <X className="" onClick={() => setMenuOpen(!menuOpen)} />
                 </div>
                 <div className="flex flex-col items-center justify-center pt-8 gap-4">
-                    {items.map((item) => (
-                        <Link href={item.href} onClick={() => setMenuOpen(!menuOpen)} key={item.text} className="uppercase font-medium w-full">
-                            {item.text}
+                    {items.length && items.map((item) => (
+                        <Link href={item.link!} onClick={() => setMenuOpen(!menuOpen)} key={item.label} className="uppercase font-medium w-full">
+                            {item.label}
                         </Link>
                     ))}
                 </div>

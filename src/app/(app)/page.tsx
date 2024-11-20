@@ -1,9 +1,6 @@
 "use client"
 
 import NumberTicker from "@/components/ui/number-ticker";
-import gsap from "gsap";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Clock, CoinsIcon, GraduationCap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

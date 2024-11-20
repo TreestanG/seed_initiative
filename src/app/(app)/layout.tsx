@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlausibleProvider from "next-plausible";
+import { getPayload } from "payload";
+import config from '@payload-config'
 
 const inter = Inter({
   subsets: ['latin']
@@ -36,11 +38,22 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const payload = await getPayload({config})
+  const headerResult = await payload.findGlobal({
+    slug: 'header',
+    depth: 1
+  })
+
+  const footerResult = await payload.findGlobal({
+    slug: 'footer',
+  })
+
   return (
     <PlausibleProvider 
     domain="seed.tristangee.com"
@@ -50,11 +63,11 @@ export default function RootLayout({
         <body
           className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
         >
-          <Header />
+          <Header res={headerResult}/>
           <main className="overflow-x-hidden">
             {children}
           </main>
-          <Footer />
+          <Footer res={footerResult}/>
 
         </body>
       </html>

@@ -13,20 +13,13 @@ export const Pages: CollectionConfig = {
             required: true
         },
         {
-            name: "metaDescription",
+            name: "header",
             type: "text",
+            required: true
         },
         {
-            name: "sections",
-            type: "array",
-            fields: [
-                {
-                    name: "section",
-                    type: "relationship",
-                    relationTo: ["sections"],
-                    required: true,
-                },
-            ],
-        },
+            name: "subheader",
+            type: "text",
+        }
     ]
 }
