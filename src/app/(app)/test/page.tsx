@@ -2,6 +2,7 @@ import { getPayload } from "payload";
 import config from '@payload-config'
 import Hero from "@/components/Blocks/Hero";
 import Features from "@/components/Blocks/Feature";
+import Sponsors from "@/components/Blocks/Sponsors";
 
 export default async function Page() {
     const payload = await getPayload({config})
@@ -17,10 +18,12 @@ export default async function Page() {
 
     const heroContent = res.docs[0].sections!.find((section) => section.blockType === 'hero')!
     const featureContent = res.docs[0].sections!.find((section) => section.blockType === 'features')!
+    const sponsorsContent = res.docs[0].sections!.find((section) => section.blockType === 'sponsors')!
 
     return (
         <div>
             <Hero res={heroContent} />
+            <Sponsors res={sponsorsContent} />
             <Features res={featureContent} />
         </div>
     )
