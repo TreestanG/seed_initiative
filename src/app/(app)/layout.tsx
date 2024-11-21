@@ -3,7 +3,9 @@ import { Inter } from 'next/font/google'
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PlausibleProvider from "next-plausible";
+import { getPayload } from "payload";
+import config from '@payload-config'
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ['latin']
@@ -36,29 +38,38 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const payload = await getPayload({ config })
+  const headerResult = await payload.findGlobal({
+    slug: 'header',
+    depth: 1
+  })
+
+  const footerResult = await payload.findGlobal({
+    slug: 'footer',
+  })
+
   return (
-    <PlausibleProvider 
-    domain="seed.tristangee.com"
-    selfHosted
-    customDomain="https://stats.tristangee.com">
-      <html lang="en">
-        <body
-          className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
-        >
-          <Header />
-          <main className="overflow-x-hidden">
-            {children}
-          </main>
-          <Footer />
+    <html lang="en">
+      <Head>
+        <script async defer data-domain="seed.tristangee.com" src="https://stats.tristangee.com/js/index.js"></script>
+      </Head>
 
-        </body>
-      </html>
-    </PlausibleProvider>
+      <body
+        className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
+      >
+        <Header res={headerResult} />
+        <main className="overflow-x-hidden">
+          {children}
+        </main>
+        <Footer res={footerResult} />
 
+      </body>
+    </html>
   );
 }
