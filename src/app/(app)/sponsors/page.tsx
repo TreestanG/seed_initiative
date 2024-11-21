@@ -14,7 +14,7 @@ export default function About() {
                 <div className="z-0 absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
                 <div className="z-20 flex justify-center flex-col items-center">
                     <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug">Our Supporters</h1>
-                    <p className="text-yellow-400 font-bold uppercase text-2xl pt-8 text-center">Sponsors, Partners, & Donations</p>
+                    <p className="text-yellow-400 font-bold uppercase text-2xl pt-8">Sponsors, Partners, & Donations</p>
                 </div>
             </section>
 

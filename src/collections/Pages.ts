@@ -1,4 +1,42 @@
-import type { CollectionConfig } from 'payload'
+import type { Block, CollectionConfig } from 'payload'
+
+const HeroBlock: Block = {
+    slug: 'hero',
+    labels: { singular: 'Hero Section', plural: 'Hero Sections' },
+    fields: [
+        { name: 'heading', type: 'text' },
+        { name: 'subheading', type: 'text' },
+        { name: 'background', type: 'upload', relationTo: 'media' },
+        {
+            name: 'cta',
+            type: 'array',
+            fields: [
+                { name: 'label', type: 'text' },
+                { name: 'link', type: 'text' },
+            ],
+            maxRows: 2,
+        }
+    ],
+}
+
+const FeaturesBlock: Block = {
+    slug: 'features',
+    labels: { singular: 'Features Section', plural: 'Features Sections' },
+    fields: [
+        { name: 'heading', type: 'text', required: true },
+        { name: 'subheading', type: 'text' },
+        { name: 'text', type: 'richText', required: true },
+        {
+            name: 'cta',
+            type: 'group',
+            fields: [
+                { name: 'label', type: 'text' },
+                { name: 'link', type: 'text' },
+            ],
+        },
+        { name: "image", type: "upload", relationTo: "media", required: true },
+    ],
+}
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -8,18 +46,17 @@ export const Pages: CollectionConfig = {
     },
     fields: [
         {
-            name: "title",
+            name: 'title',
             type: 'text',
-            required: true
+            required: true,
         },
         {
-            name: "header",
-            type: "text",
-            required: true
-        },
-        {
-            name: "subheader",
-            type: "text",
+            name: 'sections',
+            type: 'blocks',
+            blocks: [
+                HeroBlock,
+                FeaturesBlock,
+            ],
         }
-    ]
+    ],
 }

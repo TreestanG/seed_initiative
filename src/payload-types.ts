@@ -108,8 +108,52 @@ export interface Media {
 export interface Page {
   id: number;
   title: string;
-  header: string;
-  subheader?: string | null;
+  sections?:
+    | (
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            background?: (number | null) | Media;
+            cta?:
+              | {
+                  label?: string | null;
+                  link?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            heading: string;
+            subheading?: string | null;
+            text: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            cta?: {
+              label?: string | null;
+              link?: string | null;
+            };
+            image: number | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'features';
+          }
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -213,8 +257,42 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
-  header?: T;
-  subheader?: T;
+  sections?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              background?: T;
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        features?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              text?: T;
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                  };
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
