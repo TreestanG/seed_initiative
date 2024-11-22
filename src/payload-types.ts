@@ -152,6 +152,20 @@ export interface Page {
             blockName?: string | null;
             blockType: 'features';
           }
+        | {
+            heading: string;
+            subheading?: string | null;
+            sponsors?:
+              | {
+                  logo?: (number | null) | Media;
+                  link?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sponsors';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -289,6 +303,21 @@ export interface PagesSelect<T extends boolean = true> {
                     link?: T;
                   };
               image?: T;
+              id?: T;
+              blockName?: T;
+            };
+        sponsors?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              sponsors?:
+                | T
+                | {
+                    logo?: T;
+                    link?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

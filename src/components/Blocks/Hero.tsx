@@ -16,11 +16,12 @@ export default function Hero({
     res: HeroSection
 }) {
 
+    if (!res) return null
     const { heading, subheading, cta, background } = res
 
     if (!background) {
         return (
-            <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
+            <section className="relative w-screen py-28 flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
                 <div className="z-20 flex justify-center flex-col items-center">
                     <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug">{heading}</h1>
@@ -33,7 +34,7 @@ export default function Hero({
     const url = (background as Media).url
 
         return (
-        <section className={`relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed`} style={{ backgroundImage: `url(${url})` }}>
+        <section className={`relative w-screen py-28 flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed`} style={{ backgroundImage: `url(${url})` }}>
             <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
             <div className="flex flex-wrap md:flex-nowrap gap-4 relative z-10">
                 <div className="relative px-4 pb-16 pt-8 mt-8 md:mt-0 md:w-7/12 md:px-6 ">

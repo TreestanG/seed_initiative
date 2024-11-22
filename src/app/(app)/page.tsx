@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen justify-center items-center flex-col">
       {/* Hero */}
-      <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/landing/background.webp')]">
+      <section className="relative w-screen py-32 flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/landing/background.webp')]">
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
         <div className="flex flex-wrap md:flex-nowrap gap-4 relative z-10">
           <div className="relative px-4 pb-16 pt-8 mt-8 md:mt-0 md:w-7/12 md:px-6 ">
@@ -38,10 +38,16 @@ export default function Home() {
       <section className="w-full justify-center flex flex-col items-center py-8 md:pt-24 p-4">
         <h1 className="font-bold text-4xl">Our Sponsors</h1>
         <p className="pt-4 text-lg text-neutral-700">We are extremely thankful to each and every one of our sponsors who have helped us come this far.</p>
-        <div className="grid grid-cols-3 gap-8 items-center py-8">
+        <div className="flex justify-center items-center flex-wrap">
           <Image src="/landing/code-ninja.png" alt="codeninja" width={200} height={200} />
           <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
           <Image src="/landing/scarlet-serpents.PNG" alt="ftc" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
+          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
         </div>
       </section>
 

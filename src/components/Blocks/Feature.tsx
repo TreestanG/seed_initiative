@@ -13,6 +13,7 @@ export default async function Features({
     res: FeaturesSection
 }) {
 
+    if(!res) return null
     const { heading, subheading, image, text, cta } = res
 
     const url = (image as Media).url
