@@ -57,7 +57,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <script async defer data-domain="seed.tristangee.com" src="https://stats.tristangee.com/js/index.js"></script>
+        <script defer data-domain="seedinitiative.net" src="https://stats.tristangee.com/js/script.js"></script>
       </Head>
 
       <body
