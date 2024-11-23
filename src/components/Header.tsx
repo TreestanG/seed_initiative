@@ -60,7 +60,7 @@ export default function Header({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <Link href="/" className="max-w-52 md:max-w-none">
+            <Link href="/" className="max-w-40 md:max-w-none">
                 <Image src={image!} alt="logo" width={350} height={100} />
             </Link>
             <div className="hidden md:flex gap-4 font-semibold">

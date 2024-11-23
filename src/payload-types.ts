@@ -166,6 +166,18 @@ export interface Page {
             blockName?: string | null;
             blockType: 'sponsors';
           }
+        | {
+            heading: string;
+            description: string;
+            cta?: {
+              label?: string | null;
+              link?: string | null;
+            };
+            image: number | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'banner';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -318,6 +330,21 @@ export interface PagesSelect<T extends boolean = true> {
                     link?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        banner?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                  };
+              image?: T;
               id?: T;
               blockName?: T;
             };

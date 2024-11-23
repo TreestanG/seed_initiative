@@ -42,12 +42,6 @@ export default function Home() {
           <Image src="/landing/code-ninja.png" alt="codeninja" width={200} height={200} />
           <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
           <Image src="/landing/scarlet-serpents.PNG" alt="ftc" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
-          <Image src="/landing/techno-warriors.png" alt="codeninjas" width={200} height={200} />
         </div>
       </section>
 
@@ -71,14 +65,13 @@ export default function Home() {
 
       {/* Donations */}
 
-      <section className="w-full bg-bpurple py-6 md:py-12 grid md:grid-cols-2 gap-8 justify-center mx-auto items-center px-4">
+      <section className="w-full bg-bpurple py-6 md:py-8 xl:py-12 grid md:grid-cols-2 gap-8 justify-center mx-auto items-center px-4">
         <Image src="donations.svg" width={200} height={200} alt="donations" className="hidden md:block justify-self-end" />
         <div>
           <h2 className="text-xl md:text-2xl font-bold text-white">Support Our Mission</h2>
           <p className="text-white text-lg md:text-xl font-medium max-w-[36rem]">Your donation helps us provide resources, mentorship, and support to under-resourced students in STEM competitions.</p>
-
           <Link href="/sponsors">
-            <button className="py-4 px-6 md:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
+            <button className="py-2 px-4 md:px-6 xl:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
               Support Seed
             </button>
           </Link>
