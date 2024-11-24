@@ -12,5 +12,12 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
+  upload: {
+    modifyResponseHeaders({ headers }) {
+      if (headers.get('content-type') === 'application/xml') {
+        headers.set('content-type', 'image/svg+xml; charset=utf-8')
+      }
+      return headers
+    },
+  },
 }

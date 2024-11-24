@@ -128,7 +128,7 @@ export interface Page {
         | {
             heading: string;
             subheading?: string | null;
-            text: {
+            text?: {
               root: {
                 type: string;
                 children: {
@@ -142,10 +142,11 @@ export interface Page {
                 version: number;
               };
               [k: string]: unknown;
-            };
+            } | null;
             cta?: {
               label?: string | null;
               link?: string | null;
+              button?: boolean | null;
             };
             image: number | Media;
             id?: string | null;
@@ -177,6 +178,59 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'banner';
+          }
+        | {
+            heading: string;
+            stats: {
+              icon: 'coins' | 'graduation' | 'clock';
+              value: number;
+              label: string;
+              id?: string | null;
+            }[];
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'stats';
+          }
+        | {
+            heading: string;
+            achievements: {
+              image: number | Media;
+              title: string;
+              description: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'summer';
           }
       )[]
     | null;
@@ -313,6 +367,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     link?: T;
+                    button?: T;
                   };
               image?: T;
               id?: T;
@@ -345,6 +400,37 @@ export interface PagesSelect<T extends boolean = true> {
                     link?: T;
                   };
               image?: T;
+              id?: T;
+              blockName?: T;
+            };
+        stats?:
+          | T
+          | {
+              heading?: T;
+              stats?:
+                | T
+                | {
+                    icon?: T;
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        summer?:
+          | T
+          | {
+              heading?: T;
+              achievements?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

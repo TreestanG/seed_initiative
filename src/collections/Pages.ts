@@ -25,13 +25,17 @@ const FeaturesBlock: Block = {
     fields: [
         { name: 'heading', type: 'text', required: true },
         { name: 'subheading', type: 'text' },
-        { name: 'text', type: 'richText', required: true },
+        { name: 'text', type: 'richText' },
         {
             name: 'cta',
             type: 'group',
             fields: [
                 { name: 'label', type: 'text' },
                 { name: 'link', type: 'text' },
+                {
+                    name: 'button',
+                    type: 'checkbox'
+                }
             ],
         },
         { name: "image", type: "upload", relationTo: "media", required: true },
@@ -69,6 +73,93 @@ const BannerBlock: Block = {
     ]
 }
 
+const StatsBlock: Block = {
+    slug: 'stats',
+    labels: { singular: 'Stats Section', plural: 'Stats Sections' },
+    fields: [
+        {
+            name: 'heading',
+            type: 'text',
+            required: true
+        },
+        {
+            name: 'stats',
+            type: 'array',
+            required: true,
+            fields: [
+                {
+                    name: 'icon',
+                    type: 'select',
+                    required: true,
+                    options: [
+                        { label: 'Coins', value: 'coins' },
+                        { label: 'Graduation Cap', value: 'graduation' },
+                        { label: 'Clock', value: 'clock' }
+                    ]
+                },
+                {
+                    name: 'value',
+                    type: 'number',
+                    required: true
+                },
+                {
+                    name: 'label',
+                    type: 'text',
+                    required: true
+                }
+            ],
+            minRows: 3,
+            maxRows: 3,
+        },
+        {
+            name: 'description',
+            type: 'richText',
+        }
+    ]
+}
+
+const SummerBlock: Block = {
+    slug: 'summer',
+    labels: {
+        singular: 'Summer Section',
+        plural: 'Summer Sections',
+    },
+    fields: [
+        {
+            name: 'heading',
+            type: 'text',
+            required: true,
+            defaultValue: 'Summer Events:',
+        },
+        {
+            name: 'achievements',
+            type: 'array',
+            minRows: 2,
+            maxRows: 2,
+            required: true,
+            fields: [
+                {
+                    name: 'image',
+                    type: 'upload',
+                    relationTo: 'media',
+                    required: true,
+                },
+                {
+                    name: 'title',
+                    type: 'text',
+                    required: true,
+                },
+                {
+                    name: 'description',
+                    type: 'richText',
+                    required: true,
+                }
+            ]
+        }
+    ]
+}
+
+
 export const Pages: CollectionConfig = {
     slug: 'pages',
     labels: {
@@ -88,7 +179,9 @@ export const Pages: CollectionConfig = {
                 HeroBlock,
                 FeaturesBlock,
                 SponsorsBlock,
-                BannerBlock
+                BannerBlock,
+                StatsBlock,
+                SummerBlock
             ],
         }
     ],

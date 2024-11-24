@@ -16,21 +16,33 @@ export default async function Features({
     if(!res) return null
     const { heading, subheading, image, text, cta } = res
 
-    const url = (image as Media).url
+    const img = (image as Media)
 
     return (
         <section className="w-full py-8 lg:py-24">
             <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
                 <div className="lg:grid lg:grid-cols-2 xl:gap-16 ">
-                    <Image src={url!} alt="team" width={600} height={200} className="hidden md:block" />
+                    <Image src={img.url!} alt={img.alt!} width={600} height={200} className="hidden md:block" />
                     <div className=" place-content-center">
-                        <h3 className="text-4xl font-bold pb-4 ">{heading}</h3>
+                        <h3 className="text-4xl font-bold pb-2 ">{heading}</h3>
                         <p className="text-byellow font-bold text-2xl pb-4">{subheading}</p>
-                        <RichText content={text} />
+                        
                         {
-                            cta?.link && (
+                            text && (
+                                <RichText content={text} />
+                            )
+                        }
+                        {
+                            cta && (
                                 <Link href={cta.link!}>
-                                    <button className=" underline mt-4">{cta.label}</button>
+                                    {cta.button ? (
+                                        <button className="mt-8 bg-byellow px-8 rounded-full py-2 text-lg text-neutral-800 ">{cta.label}</button>
+
+                                    ) : (
+                                        <span className="underline mt-4 inline-block hover:text-blue-600">
+                                            {cta.label}
+                                        </span>
+                                    )}
                                 </Link>
                             )
                         }

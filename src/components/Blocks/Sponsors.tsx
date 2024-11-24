@@ -2,7 +2,6 @@ import { Page } from "@/payload-types";
 import Link from "next/link";
 import { Media } from '@/payload-types'
 import Image from "next/image";
-import RichText from "../RichText";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type SponsorsSection = Extract<SectionsType, { blockType: "sponsors" }>
@@ -31,11 +30,11 @@ export default async function Sponsors({
             <div className="flex justify-center items-center flex-wrap">
                 {
                     sponsors.map((sponsor, index) => {
-                        let image = (sponsor.logo as Media)
-                        let href = sponsor.link || '#'
+                        const image = (sponsor.logo as Media)
+                        const href = sponsor.link || '#'
                         return (
-                            <Link href={href}>
-                                <Image src={image.url!} alt={image.alt} width={200} height={200} key={index} />
+                            <Link key={index} href={href}>
+                                <Image src={image.url!} alt={image.alt} width={200} height={200} />
                             </Link>
                         )
                     })

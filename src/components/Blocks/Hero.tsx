@@ -34,7 +34,7 @@ export default function Hero({
     const url = (background as Media).url
 
         return (
-        <section className={`relative w-screen py-28 flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed`} style={{ backgroundImage: `url(${url})` }}>
+        <section className={`relative w-screen h-[90vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed`} style={{ backgroundImage: `url(${url})` }}>
             <div className="absolute inset-0 bg-gradient-to-b from-zinc-800 via-transparent to-zinc-800"></div>
             <div className="flex flex-wrap md:flex-nowrap gap-4 relative z-10">
                 <div className="relative px-4 pb-16 pt-8 mt-8 md:mt-0 md:w-7/12 md:px-6 ">

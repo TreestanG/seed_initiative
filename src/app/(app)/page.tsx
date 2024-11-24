@@ -89,7 +89,6 @@ export default function Home() {
             </div>
             <div className="lg:flex lg:items-center lg:flex-col ">
               <GraduationCap size={96} strokeWidth={2} className="text-bpurple hidden md:block" />
-
               <span className="text-3xl md:text-4xl lg:text-5xl font-bold pt-6"><NumberTicker value={150} className="" />+</span>
               <p className=" text-lg font-medium md:pt-4">Students Taught</p>
             </div>
