@@ -1,3 +1,5 @@
+'use client'
+
 // src/components/Blocks/Donate.tsx
 import Image from 'next/image'
 import Link from 'next/link'
@@ -28,9 +30,9 @@ export default function Donate({ res }: {
                     <Image
                         src={img.url!}
                         alt="donate"
-                        layout="fill"
-                        objectFit="contain"
-                        className="object-fill"
+                        className="object-contain"
+                        width={600}
+                        height={600}
                     />
                 </div>
             </div>

@@ -72,15 +72,23 @@ export default async function Page({ params }: PageProps) {
     )
 }
 
+export const dyanmic = 'force-dynamic'
+export const dynamicParams = true
+
 // Generate static paths at build time
 export async function generateStaticParams() {
-    const payload = await getPayload({ config })
-    const pages = await payload.find({
-        collection: 'pages',
-        depth: 1,
-    })
+    try {
+        const payload = await getPayload({ config })
+        const pages = await payload.find({
+            collection: 'pages',
+            limit: 100
+        })
 
-    return pages.docs.map((page) => ({
-        slug: page.slug,
-    }))
+        return pages.docs.map((page) => ({
+            slug: page.slug,
+        }))
+    } catch (error) {
+        console.error('Error generating paths:', error)
+        return []
+    }
 }
