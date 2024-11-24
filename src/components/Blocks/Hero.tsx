@@ -21,7 +21,7 @@ export default function Hero({
 
     if (!background) {
         return (
-            <section className="relative w-screen py-28 flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
+            <section className="relative w-screen h-[50vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
                 <div className="z-20 flex justify-center flex-col items-center">
                     <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug">{heading}</h1>

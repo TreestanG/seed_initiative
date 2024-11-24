@@ -29,11 +29,9 @@ export default function Summer({ res }: { res: SummerSection }) {
                                 <h4 className="text-2xl font-bold text-blue-700 pt-8">
                                     {achievement.title}
                                 </h4>
-                                <p className="text-lg">
                                     {achievement.description && (
-                                        <RichText content={achievement.description} className="max-w-[50rem]" />
+                                        <RichText content={achievement.description} className="max-w-[50rem] text-lg" />
                                     )}
-                                </p>
                             </div>
                         )
                     })}

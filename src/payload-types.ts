@@ -108,6 +108,7 @@ export interface Media {
 export interface Page {
   id: number;
   title: string;
+  slug: string;
   sections?:
     | (
         | {
@@ -126,7 +127,7 @@ export interface Page {
             blockType: 'hero';
           }
         | {
-            heading: string;
+            heading?: string | null;
             subheading?: string | null;
             text?: {
               root: {
@@ -149,6 +150,9 @@ export interface Page {
               button?: boolean | null;
             };
             image: number | Media;
+            headingClass?: string | null;
+            textClass?: string | null;
+            buttonClass?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'features';
@@ -231,6 +235,80 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'summer';
+          }
+        | {
+            heading: string;
+            text: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'description';
+          }
+        | {
+            heading: string;
+            founders: {
+              image?: (number | null) | Media;
+              name: string;
+              title: string;
+              id?: string | null;
+            }[];
+            officers: {
+              image?: (number | null) | Media;
+              name: string;
+              title: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'team';
+          }
+        | {
+            heading: string;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            buttonText: string;
+            email: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaContact';
+          }
+        | {
+            heading: string;
+            content: string;
+            arrowImage: number | Media;
+            donateButton: {
+              text: string;
+              email: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'donate';
           }
       )[]
     | null;
@@ -337,6 +415,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   sections?:
     | T
     | {
@@ -370,6 +449,9 @@ export interface PagesSelect<T extends boolean = true> {
                     button?: T;
                   };
               image?: T;
+              headingClass?: T;
+              textClass?: T;
+              buttonClass?: T;
               id?: T;
               blockName?: T;
             };
@@ -430,6 +512,62 @@ export interface PagesSelect<T extends boolean = true> {
                     title?: T;
                     description?: T;
                     id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        description?:
+          | T
+          | {
+              heading?: T;
+              text?: T;
+              id?: T;
+              blockName?: T;
+            };
+        team?:
+          | T
+          | {
+              heading?: T;
+              founders?:
+                | T
+                | {
+                    image?: T;
+                    name?: T;
+                    title?: T;
+                    id?: T;
+                  };
+              officers?:
+                | T
+                | {
+                    image?: T;
+                    name?: T;
+                    title?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ctaContact?:
+          | T
+          | {
+              heading?: T;
+              content?: T;
+              buttonText?: T;
+              email?: T;
+              id?: T;
+              blockName?: T;
+            };
+        donate?:
+          | T
+          | {
+              heading?: T;
+              content?: T;
+              arrowImage?: T;
+              donateButton?:
+                | T
+                | {
+                    text?: T;
+                    email?: T;
                   };
               id?: T;
               blockName?: T;
