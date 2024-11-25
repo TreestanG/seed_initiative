@@ -16,9 +16,14 @@ export const Pages: CollectionConfig = {
         singular: 'Page',
         plural: 'Pages',
     },
+    admin: {
+        useAsTitle: 'title',
+        defaultColumns: ['title', 'slug', 'status', 'updatedAt', 'sections'],
+    },
     versions: {
         drafts: {
-            autosave: true
+            autosave: true,
+            validate: true
         }
     },
     fields: [

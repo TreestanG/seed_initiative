@@ -34,8 +34,6 @@ export default async function Page({ params }: PageProps) {
         draft: true
     })
 
-    console.log(res)
-
     const page = res.docs[0]
 
     if (!page) {
