@@ -5,10 +5,8 @@ import RichText from "../RichText";
 type SectionsType = NonNullable<Page["sections"]>[number];
 type SummerSection = Extract<SectionsType, { blockType: "summer" }>
 
-
 export default function Summer({ res }: { res: SummerSection }) {
     const { heading, achievements } = res
-
 
     return (
         <section className="w-full bg-blue-700 py-8">
@@ -19,19 +17,19 @@ export default function Summer({ res }: { res: SummerSection }) {
                         const img = (achievement.image as Media)
                         return (
                             <div key={index} className="bg-white p-4 rounded-xl">
-                                <Image
+                                {img && <Image
                                     src={img.url!}
                                     alt={img.alt}
                                     width={600}
                                     height={200}
                                     className="rounded-xl"
-                                />
+                                />}
                                 <h4 className="text-2xl font-bold text-blue-700 pt-8">
                                     {achievement.title}
                                 </h4>
-                                    {achievement.description && (
-                                        <RichText content={achievement.description} className="max-w-[50rem] text-lg" />
-                                    )}
+                                {achievement.description && (
+                                    <RichText content={achievement.description} className="max-w-[50rem] text-lg" />
+                                )}
                             </div>
                         )
                     })}

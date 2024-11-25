@@ -11,7 +11,8 @@ import Team from "@/components/Blocks/Team";
 import CTAContact from "@/components/Blocks/CTAContact";
 import Donate from "@/components/Blocks/Donate";
 import { notFound } from "next/navigation";
-
+import { RefreshRouteOnSave } from "@/components/RefreshRouteOnSave"
+import { Fragment } from "react";
 interface PageProps {
     params: {
         slug: string;
@@ -29,8 +30,11 @@ export default async function Page({ params }: PageProps) {
             slug: {
                 equals: slug || 'home'
             }
-        }
+        },
+        draft: true
     })
+
+    console.log(res)
 
     const page = res.docs[0]
 
@@ -41,7 +45,8 @@ export default async function Page({ params }: PageProps) {
     const blocks = page?.sections || []
 
     return (
-        <div>
+        <Fragment>
+            <RefreshRouteOnSave />
             {blocks.map((block, index) => {
                 switch (block.blockType) {
                     case 'hero':
@@ -68,7 +73,7 @@ export default async function Page({ params }: PageProps) {
                         return null
                 }
             })}
-        </div>
+        </Fragment>
     )
 }
 

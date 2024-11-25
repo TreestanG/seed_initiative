@@ -23,7 +23,7 @@ export default async function Features({
         <section className="w-full py-8 lg:py-24">
             <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
                 <div className="lg:grid lg:grid-cols-2 xl:gap-16 ">
-                    <Image src={img.url!} alt={img.alt!} width={600} height={200} className="hidden md:block" />
+                    {img && <Image src={img.url!} alt={img.alt!} width={600} height={200} className="hidden md:block" />}
                     <div className=" place-content-center">
                         <h3 className={cn(headingClass, "text-4xl font-bold pb-2")}>{heading}</h3>
                         <p className="text-byellow font-bold text-2xl pb-4">{subheading}</p>

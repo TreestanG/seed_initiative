@@ -33,7 +33,7 @@ export default async function Sponsors({
                         const image = (sponsor.logo as Media)
                         const href = sponsor.link || '#'
                         return (
-                            <Link key={index} href={href}>
+                            (href && image) && <Link key={index} href={href}>
                                 <Image src={image.url!} alt={image.alt} width={200} height={200} />
                             </Link>
                         )

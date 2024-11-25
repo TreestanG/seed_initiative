@@ -27,13 +27,13 @@ export default function Donate({ res }: {
                     </p>
                 </div>
                 <div className="relative h-full mt-8">
-                    <Image
+                    {img && <Image
                         src={img.url!}
                         alt="donate"
                         className="object-contain"
                         width={600}
                         height={600}
-                    />
+                    />}
                 </div>
             </div>
 

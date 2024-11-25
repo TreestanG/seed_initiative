@@ -16,6 +16,11 @@ export const Pages: CollectionConfig = {
         singular: 'Page',
         plural: 'Pages',
     },
+    versions: {
+        drafts: {
+            autosave: true
+        }
+    },
     fields: [
         {
             name: 'title',

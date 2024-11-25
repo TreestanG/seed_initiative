@@ -4,7 +4,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import {postgresAdapter} from '@payloadcms/db-postgres'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -12,6 +12,10 @@ import { Pages } from './collections/Pages'
 
 import { Header } from './collections/Header-Global'
 import { Footer } from './collections/Footer-Global'
+
+const baseUrl = process.env.NODE_ENV === 'production'
+  ? process.env.URL!
+  : 'http://localhost:3000';
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,6 +26,18 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: ({
+        data
+      }) => {
+        if (data.slug === 'home') {
+          return baseUrl
+        }
+        console.log(baseUrl + '/' + data.slug)
+        return `${baseUrl}/${data.slug}`
+      },
+      collections: ['pages'],
+    }
   },
   collections: [Users, Media, Pages],
   globals: [Header, Footer],
@@ -35,5 +51,5 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL,
     }
   }),
-  sharp,
+  sharp
 })
