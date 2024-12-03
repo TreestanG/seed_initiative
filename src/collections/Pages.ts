@@ -9,6 +9,7 @@ import { DescriptionBlock } from './Blocks/Description'
 import { TeamBlock } from './Blocks/Team'
 import { CTAContactBlock } from './Blocks/CTAContact'
 import { DonateBlock } from './Blocks/Donate'
+import { revalidatePage } from './hooks/revalidatePage'
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -54,4 +55,7 @@ export const Pages: CollectionConfig = {
             ],
         }
     ],
+    hooks: {
+        afterChange: [revalidatePage],
+    }
 }
