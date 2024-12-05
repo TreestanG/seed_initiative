@@ -37,7 +37,7 @@ export default function Footer({
             <div className="mx-auto w-full">
                 <p className="text-neutral-600 text-sm">© 2024 Seed Initiative. All Rights Reserved.</p>
                 <p className="text-neutral-600 text-sm">Fiscally sponsored by <Link href="https://hackclub.com/" className="underline">The Hack Foundation</Link></p>
-                <p className="text-neutral-600 text-sm">Designed by Tristan</p>
+                <p className="text-neutral-600 text-sm">Designed by <Link href="mailto:tristangee@gmail.com" className="underline">Tristan</Link></p>
 
             </div>
         </div>
