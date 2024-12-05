@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getPayload } from "payload";
 import config from '@payload-config'
-import Head from "next/head";
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin']
@@ -56,10 +56,13 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <script defer data-domain="seedinitiative.net" src="https://stats.tristangee.com/js/script.js"></script>
-      </Head>
-
+      <head>
+        <Script
+          src="https://stats.tristangee.com/js/script.js"
+          data-domain="seedinitiative.net"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body
         className={`${inter.className} antialiased min-h-screen w-screen overflow-x-hidden`}
       >
@@ -70,6 +73,7 @@ export default async function RootLayout({
         <Footer res={footerResult} />
 
       </body>
+
     </html>
   );
 }
