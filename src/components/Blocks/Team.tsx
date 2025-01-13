@@ -43,6 +43,7 @@ export default function Team({ res }: { res: TeamSection }) {
                 <div className="responsive-grid">
                     {officers.map((officer) => {
                         const img = getImageUrl(officer.image)
+                        console.log(officer.image)
                         return (
                             <MeetTeamCard
                                 key={officer.name}
