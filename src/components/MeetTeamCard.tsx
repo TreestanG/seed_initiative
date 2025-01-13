@@ -13,7 +13,9 @@ export default function MeetTeamCard({
 
     return (
         <div className="pb-6 md:pb-0">
-            <Image src={image} alt={name} width={400} height={200} className=" object-cover" />
+            <div className="relative w-full h-[450px]">
+                <Image src={image} alt={name} fill className=" object-cover " />
+            </div>
             <p className="font-semibold pt-4">{name}</p>
             <p className="text-sm text-neutral-600 capitalize">{title}</p>
         </div>
