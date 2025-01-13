@@ -12,7 +12,7 @@ const getImageUrl = (image?: Media | number | null) => {
 }
 
 export default function Team({ res }: { res: TeamSection }) {
-    const { heading, founders, officers } = res
+    const { heading, founders, officers, teachers } = res
 
     return (
         <div className="w-full flex flex-col justify-center">
@@ -49,6 +49,21 @@ export default function Team({ res }: { res: TeamSection }) {
                                 image={img}
                                 name={officer.name}
                                 title={officer.title}
+                            />
+                        )
+                    })}
+                </div>
+
+                <h3 className="text-2xl font-bold">Teachers</h3>
+                <div className="responsive-grid">
+                    {teachers.map((teacher) => {
+                        const img = getImageUrl(teacher.image)
+                        return (
+                            <MeetTeamCard
+                                key={teacher.name}
+                                image={img}
+                                name={teacher.name}
+                                title={teacher.title}
                             />
                         )
                     })}

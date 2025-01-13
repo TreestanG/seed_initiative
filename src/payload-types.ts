@@ -271,6 +271,12 @@ export interface Page {
               title: string;
               id?: string | null;
             }[];
+            teachers: {
+              image?: (number | null) | Media;
+              name: string;
+              title: string;
+              id?: string | null;
+            }[];
             id?: string | null;
             blockName?: string | null;
             blockType: 'team';
@@ -538,6 +544,14 @@ export interface PagesSelect<T extends boolean = true> {
                     id?: T;
                   };
               officers?:
+                | T
+                | {
+                    image?: T;
+                    name?: T;
+                    title?: T;
+                    id?: T;
+                  };
+              teachers?:
                 | T
                 | {
                     image?: T;
