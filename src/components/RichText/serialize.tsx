@@ -144,7 +144,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                         const fields = node.fields
 
                         return (
-                            <Link key={index} href={fields.url}>{serializedChildren}</Link>
+                            <Link key={index} href={fields.url!}>{serializedChildren}</Link>
                         )
                     }
 
