@@ -18,7 +18,7 @@ export default function Donate({ res }: {
     const img = (arrowImage as Media)
 
     return (
-        <section className="mx-auto max-w-screen-xl px-4 lg:px-6 my-24 py-8 bg-indigo-700 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-8">
+        <section className="mx-auto max-w-(--breakpoint-xl) px-4 lg:px-6 my-24 py-8 bg-indigo-700 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-8">
             <div className="flex flex-col justify-between">
                 <div>
                     <h2 className="text-4xl font-bold text-white">{heading}</h2>

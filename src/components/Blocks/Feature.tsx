@@ -21,7 +21,7 @@ export default async function Features({
 
     return (
         <section className="w-full py-8 lg:py-24">
-            <div className="mx-auto max-w-screen-xl px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
+            <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
                 <div className="lg:grid lg:grid-cols-2 xl:gap-16 ">
                     {img && <Image src={img.url!} alt={img.alt!} width={600} height={200} className="hidden md:block" />}
                     <div className=" place-content-center">

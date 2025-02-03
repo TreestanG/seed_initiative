@@ -17,7 +17,7 @@ export default function Team({ res }: { res: TeamSection }) {
     return (
         <div className="w-full flex flex-col justify-center">
             <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed">
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-blue-700"></div>
+                <div className="absolute inset-0 bg-linear-to-b from-blue-900 to-blue-700"></div>
                 <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">
                     {heading}
                 </h1>

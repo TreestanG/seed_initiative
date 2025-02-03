@@ -11,7 +11,7 @@ export default function CTAContact({ res }: { res: CTAContactSection }) {
 
     return (
         <section className="w-full py-8 md:py-24">
-            <div className="mx-auto max-w-screen-xl px-4 lg:grid lg:grid-cols-2">
+            <div className="mx-auto max-w-(--breakpoint-xl) px-4 lg:grid lg:grid-cols-2">
                 <div className="mb-6">
                     <h2 className="text-2xl uppercase font-bold text-bcyan">{heading}</h2>
                     <RichText content={content} className="max-w-[40rem] pt-4 leading-7" />

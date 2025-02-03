@@ -11,7 +11,7 @@ export default function Stats({ res }: { res: StatsSection }) {
 
     return (
         <section className="w-full py-8 md:py-24">
-            <div className="mx-auto max-w-screen-xl px-4 py-6 space-y-6 lg:space-y-12 lg:px-4">
+            <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-6 space-y-6 lg:space-y-12 lg:px-4">
                 <h2 className="text-4xl font-bold md:text-center w-full text-bcyan">
                     {heading}
                 </h2>
