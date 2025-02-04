@@ -1,6 +1,7 @@
 import { Page } from "@/payload-types";
 import Link from "next/link";
 import { Media } from '@/payload-types'
+import FadeInOnScroll from "../FadeInOnScroll";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type HeroSection = Extract<SectionsType, { blockType: "hero" }>
@@ -23,10 +24,12 @@ export default function Hero({
         return (
             <section className="relative w-screen h-[50vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed ">
                 <div className="absolute inset-0 bg-linear-to-b from-blue-900 to-blue-700"></div>
-                <div className="z-20 flex justify-center flex-col items-center">
-                    <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug">{heading}</h1>
-                    <p className="text-yellow-400 font-bold uppercase text-2xl pt-8 text-center">{subheading}</p>
-                </div>
+                <FadeInOnScroll>
+                    <div className="z-20 flex justify-center flex-col items-center">
+                        <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug">{heading}</h1>
+                        <p className="text-yellow-400 font-bold uppercase text-2xl pt-8 text-center">{subheading}</p>
+                    </div>
+                </FadeInOnScroll>
             </section>
         )
     }
@@ -36,8 +39,10 @@ export default function Hero({
     return (
         <section className={`relative w-screen h-[90vh] bg-cover bg-center flex items-centerbg-no-repeat bg-fixed`} style={{ backgroundImage: `url(${url})` }}>
             <div className="absolute inset-0 bg-linear-to-b from-zinc-800 via-transparent to-zinc-800"></div>
-            <div className="grid grid-cols-12 mx-auto max-w-screen-2xl">
-                <div className="gap-4 relative z-10 col-span-12 md:col-span-8 md:col-start-3 self-center">
+            <FadeInOnScroll className="grid grid-cols-12 mx-auto max-w-screen-2xl">
+
+
+                <div className="gap-4 relative z-10 col-span-12 md:col-span-8 self-center">
                     <div className="relative px-4 pb-16 pt-8 mt-8 md:mt-0md:px-6 ">
                         <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-snug">
                             {heading}
@@ -60,7 +65,8 @@ export default function Hero({
                         }
                     </div>
                 </div>
-            </div>
+            </FadeInOnScroll>
         </section>
+
     )
 }
