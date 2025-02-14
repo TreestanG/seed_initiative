@@ -2,7 +2,6 @@ import { Page } from "@/payload-types";
 import Link from "next/link";
 import { Media } from '@/payload-types'
 import Image from "next/image";
-import FadeInOnScroll from "../FadeInOnScroll";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type Bannner = Extract<SectionsType, { blockType: "banner" }>
@@ -19,7 +18,6 @@ export default async function Banner({
     const img = (image as Media)
 
     return (
-        <FadeInOnScroll>
             <section className="w-full bg-bpurple py-6 md:py-8 xl:py-12 grid md:grid-cols-2 gap-8 justify-center mx-auto items-center px-4">
                 {img && <Image src={img.url!} width={200} height={200} alt={img.alt} className="hidden md:block justify-self-end" />}
                 <div>
@@ -37,7 +35,6 @@ export default async function Banner({
                     }
                 </div>
             </section>
-        </FadeInOnScroll>
     )
 
 }

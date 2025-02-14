@@ -5,13 +5,12 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
-
 import { Header } from './collections/Header-Global'
 import { Footer } from './collections/Footer-Global'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 const baseUrl = process.env.NODE_ENV === 'production'
   ? process.env.URL!
@@ -46,6 +45,24 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  plugins: [
+    s3Storage({
+      collections: {
+        media: true
+      },
+      bucket: process.env.MINIO_BUCKET!,
+      config: {
+        endpoint: process.env.MINIO_ENDPOINT!,
+        credentials: {
+          accessKeyId: process.env.MINIO_ACCESS_KEY!,
+          secretAccessKey: process.env.MINIO_SECRET_KEY!,
+        },
+        region: process.env.MINIO_REGION!,
+        tls: true,
+        forcePathStyle: true,
+      }
+    })
+  ],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL,

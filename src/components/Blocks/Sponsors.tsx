@@ -2,7 +2,6 @@ import { Page } from "@/payload-types";
 import Link from "next/link";
 import { Media } from '@/payload-types'
 import Image from "next/image";
-import FadeInOnScroll from "../FadeInOnScroll";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type SponsorsSection = Extract<SectionsType, { blockType: "sponsors" }>
@@ -25,7 +24,6 @@ export default async function Sponsors({
     }
 
     return (
-        <FadeInOnScroll>
             <section className="w-full justify-center flex flex-col items-center py-8 md:pt-24 p-4">
                 <h1 className="font-bold text-4xl">{heading}</h1>
                 <p className="pt-4 text-lg text-neutral-700">{subheading}</p>
@@ -43,7 +41,6 @@ export default async function Sponsors({
                     }
                 </div>
             </section>
-        </FadeInOnScroll>
     )
 
 }

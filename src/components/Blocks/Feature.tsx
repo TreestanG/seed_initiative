@@ -4,8 +4,6 @@ import { Media } from '@/payload-types'
 import Image from "next/image";
 import RichText from "../RichText";
 import { cn } from "@/lib/utils";
-import FadeInOnScroll from "../FadeInOnScroll";
-
 type SectionsType = NonNullable<Page["sections"]>[number];
 type FeaturesSection = Extract<SectionsType, { blockType: "features" }>
 
@@ -21,7 +19,6 @@ export default async function Features({
     const img = (image as Media)
 
     return (
-        <FadeInOnScroll>
             <section className="w-full py-8 lg:py-24">
                 <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-8 space-y-12 lg:space-y-20 lg:px-4">
                     <div className="lg:grid lg:grid-cols-2 xl:gap-16 ">
@@ -53,7 +50,6 @@ export default async function Features({
                     </div>
                 </div>
             </section>
-        </FadeInOnScroll>
     )
     
 }

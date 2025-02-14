@@ -1,7 +1,6 @@
 import { Media, Page } from "@/payload-types";
 import Image from "next/image"
 import RichText from "../RichText";
-import FadeInOnScroll from "../FadeInOnScroll";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type SummerSection = Extract<SectionsType, { blockType: "summer" }>
@@ -17,7 +16,7 @@ export default function Summer({ res }: { res: SummerSection }) {
                     {achievements.map((achievement, index) => {
                         const img = (achievement.image as Media)
                         return (
-                            <FadeInOnScroll key={index} className="bg-white p-4 rounded-xl">
+                            <div key={index} className="bg-white p-4 rounded-xl">
                                 {img && <Image
                                     src={img.url!}
                                     alt={img.alt}
@@ -31,7 +30,7 @@ export default function Summer({ res }: { res: SummerSection }) {
                                 {achievement.description && (
                                     <RichText content={achievement.description} className="max-w-[50rem] text-lg" />
                                 )}
-                            </FadeInOnScroll>
+                            </div>
                         )
                     })}
                 </div>
