@@ -13,10 +13,101 @@ import Donate from "@/components/Blocks/Donate";
 import { notFound } from "next/navigation";
 import { RefreshRouteOnSave } from "@/components/RefreshRouteOnSave"
 import { Fragment } from "react";
+import { Metadata } from "next";
+import { WebPageStructuredData, BreadcrumbStructuredData } from "@/components/StructuredData";
+import type { Page } from "@/payload-types";
+
 interface PageProps {
     params: {
         slug: string;
     };
+}
+
+// Extend the Page type to include meta properties
+interface PageWithMeta extends Page {
+    name?: string;
+    meta?: {
+        title?: string;
+        description?: string;
+        image?: {
+            url: string;
+            alt?: string;
+        };
+    };
+}
+
+// Generate dynamic metadata for each page
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = params;
+    
+    try {
+        const payload = await getPayload({ config });
+        const res = await payload.find({
+            collection: 'pages',
+            depth: 1,
+            where: {
+                slug: {
+                    equals: slug || 'home'
+                }
+            }
+        });
+        
+        const page = res.docs[0] as PageWithMeta;
+        
+        if (!page) {
+            return {
+                title: 'Page Not Found | Seed Initiative',
+                description: 'The requested page could not be found.'
+            };
+        }
+        
+        // Get the base URL from environment variables
+        const baseUrl = process.env.NODE_ENV === 'production'
+            ? process.env.URL!
+            : 'http://localhost:3000';
+        
+        return {
+            title: `${page.title || page.name || ''} | Seed Initiative`,
+            description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
+            openGraph: {
+                title: page.meta?.title || `${page.title || page.name || ''} | Seed Initiative`,
+                description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
+                url: `${baseUrl}/${slug}`,
+                siteName: "Seed Initiative",
+                images: page.meta?.image ? [
+                    {
+                        url: page.meta.image.url || '/ogbanner.png',
+                        width: 1200,
+                        height: 630,
+                        alt: page.meta.image.alt || `${page.title || page.name || ''} - Seed Initiative`,
+                    }
+                ] : [
+                    {
+                        url: '/ogbanner.png',
+                        width: 1200,
+                        height: 630,
+                        alt: "Seed Initiative Banner",
+                    }
+                ],
+                type: "website",
+            },
+            twitter: {
+                card: "summary_large_image",
+                title: page.meta?.title || `${page.title || page.name || ''} | Seed Initiative`,
+                description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
+                images: page.meta?.image ? [page.meta.image.url] : ['/ogbanner.png'],
+            },
+            alternates: {
+                canonical: `${baseUrl}/${slug}`,
+            }
+        };
+    } catch (error) {
+        console.error('Error generating metadata:', error);
+        return {
+            title: 'Seed Initiative',
+            description: "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
+        };
+    }
 }
 
 export default async function Page({ params }: PageProps) {
@@ -34,17 +125,51 @@ export default async function Page({ params }: PageProps) {
         draft: true
     })
 
-    const page = res.docs[0]
+    const page = res.docs[0] as PageWithMeta;
 
     if (!page) {
         notFound()
     }
 
     const blocks = page?.sections || []
+    
+    // Get the base URL from environment variables
+    const baseUrl = process.env.NODE_ENV === 'production'
+        ? process.env.URL!
+        : 'http://localhost:3000';
+    
+    // Create breadcrumb items
+    const breadcrumbItems = [
+        {
+            name: 'Home',
+            item: baseUrl,
+        }
+    ];
+    
+    // Add current page to breadcrumbs if not home
+    if (slug !== 'home') {
+        breadcrumbItems.push({
+            name: page.title || page.name || slug,
+            item: `${baseUrl}/${slug}`,
+        });
+    }
 
     return (
         <Fragment>
             <RefreshRouteOnSave />
+            
+            {/* Add structured data */}
+            <WebPageStructuredData
+                name={page.title || page.name || slug}
+                description={page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions."}
+                url={`${baseUrl}/${slug === 'home' ? '' : slug}`}
+                image={page.meta?.image?.url || `${baseUrl}/ogbanner.png`}
+                datePublished={page.createdAt}
+                dateModified={page.updatedAt || page.createdAt}
+            />
+            
+            <BreadcrumbStructuredData items={breadcrumbItems} />
+            
             {blocks.map((block, index) => {
                 switch (block.blockType) {
                     case 'hero':
