@@ -16,7 +16,7 @@ import { Fragment } from "react";
 import { Metadata } from "next";
 import { WebPageStructuredData, BreadcrumbStructuredData } from "@/components/StructuredData";
 import type { Page } from "@/payload-types";
-
+import ImageComponent from "@/components/Blocks/Image";
 interface PageProps {
     params: {
         slug: string;
@@ -192,6 +192,8 @@ export default async function Page({ params }: PageProps) {
                         return <CTAContact key={index} res={block} />
                     case 'donate':
                         return <Donate key={index} res={block} />
+                    case 'image':
+                        return <ImageComponent key={index} res={block} />
                     default:
                         return null
                 }

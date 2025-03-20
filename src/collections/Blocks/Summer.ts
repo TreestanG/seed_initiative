@@ -35,6 +35,18 @@ export const SummerBlock: Block = {
                     name: 'description',
                     type: 'richText',
                     required: true,
+                },
+                {
+                    name: 'date',
+                    type: 'date',
+                    required: true,
+                    defaultValue: new Date(),
+                },
+                {
+                    name: "endDate",
+                    type: "date",
+                    required: false,
+                    defaultValue: new Date(),
                 }
             ]
         }

@@ -27,6 +27,7 @@ export default function Summer({ res }: { res: SummerSection }) {
                                 <h4 className="text-2xl font-bold text-blue-700 pt-8">
                                     {achievement.title}
                                 </h4>
+                                <p className="text-sm text-gray-500 pb-4">{new Date(achievement.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} {achievement.endDate ? `- ${new Date(achievement.endDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : ''}</p>
                                 {achievement.description && (
                                     <RichText content={achievement.description} className="max-w-[50rem] text-lg" />
                                 )}

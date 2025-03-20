@@ -284,6 +284,8 @@ export interface Page {
                 };
                 [k: string]: unknown;
               };
+              date: string;
+              endDate?: string | null;
               id?: string | null;
             }[];
             id?: string | null;
@@ -369,6 +371,13 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'donate';
+          }
+        | {
+            image?: (number | null) | Media;
+            heading: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'image';
           }
       )[]
     | null;
@@ -572,6 +581,8 @@ export interface PagesSelect<T extends boolean = true> {
                     image?: T;
                     title?: T;
                     description?: T;
+                    date?: T;
+                    endDate?: T;
                     id?: T;
                   };
               id?: T;
@@ -638,6 +649,14 @@ export interface PagesSelect<T extends boolean = true> {
                     text?: T;
                     email?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        image?:
+          | T
+          | {
+              image?: T;
+              heading?: T;
               id?: T;
               blockName?: T;
             };
