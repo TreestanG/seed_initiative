@@ -68,11 +68,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   verification: {
     // Add your verification tokens if you have them
     // google: 'your-google-verification-code',

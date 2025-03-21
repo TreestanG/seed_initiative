@@ -379,6 +379,22 @@ export interface Page {
             blockName?: string | null;
             blockType: 'image';
           }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            cards?:
+              | {
+                  heading?: string | null;
+                  link?: string | null;
+                  icon?: ('student' | 'volunteer' | 'sponsor') | null;
+                  id?: string | null;
+                }[]
+              | null;
+            image: number | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'getInvolved';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -657,6 +673,23 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               image?: T;
               heading?: T;
+              id?: T;
+              blockName?: T;
+            };
+        getInvolved?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              cards?:
+                | T
+                | {
+                    heading?: T;
+                    link?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              image?: T;
               id?: T;
               blockName?: T;
             };

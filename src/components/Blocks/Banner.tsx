@@ -22,12 +22,12 @@ export default async function Banner({
                 {img && <Image src={img.url!} width={200} height={200} alt={img.alt} className="hidden md:block justify-self-end" />}
                 <div>
                     <h2 className="text-xl md:text-2xl font-bold text-white">{heading}</h2>
-                    <p className="text-white text-lg md:text-xl font-medium max-w-[36rem]">{description}</p>
+                    <p className="text-white text-lg md:text-xl max-w-[36rem]">{description}</p>
 
                     {
                         (cta && cta.link) && (
                             <Link href={cta.link!}>
-                                <button className="py-2 px-4 md:px-6 xl:px-8 md:text-lg lg:text-xl rounded-full text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
+                                <button className="py-2 px-4 md:px-6 xl:px-8 md:text-lg lg:text-xl text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
                                     {cta.label!}
                                 </button>
                             </Link>

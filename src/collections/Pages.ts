@@ -11,6 +11,7 @@ import { CTAContactBlock } from './Blocks/CTAContact'
 import { DonateBlock } from './Blocks/Donate'
 import { revalidatePage } from './hooks/revalidatePage'
 import { ImageBlock } from './Blocks/Image'
+import { GetInvolvedBlock } from './Blocks/GetInvolved'
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -53,7 +54,8 @@ export const Pages: CollectionConfig = {
                 TeamBlock,
                 CTAContactBlock,
                 DonateBlock,
-                ImageBlock
+                ImageBlock,
+                GetInvolvedBlock
             ],
         }
     ],
