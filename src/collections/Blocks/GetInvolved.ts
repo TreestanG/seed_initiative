@@ -13,9 +13,10 @@ export const GetInvolvedBlock: Block = {
             fields: [
                 { name: 'heading', type: 'text' },
                 { name: 'link', type: 'text' },
-                { name: 'icon', type: 'select', options: ['student', 'volunteer', 'sponsor'] }
+                { name: 'icon', type: 'select', options: ['student', 'volunteer', 'sponsor'] },
+                { name: 'cardBackground', type: "text" },
+                { name: "image", type: "upload", relationTo: "media" },
             ]
         },
-        { name: "image", type: "upload", relationTo: "media", required: true },
     ],
 }

@@ -37,8 +37,13 @@ export default function Header({
                     </button>
                 </Link>
             </div>
-            <Menu className="block md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)} />
-            <div ref={sidebarRef} className={`fixed md:hidden top-0 left-0 w-screen h-screen p-6 z-50 overflow-x-hidden bg-white `}>
+            <Menu className="block md:hidden " onClick={() => setMenuOpen(!menuOpen)} />
+            <div 
+                ref={sidebarRef} 
+                className={`fixed md:hidden top-0 left-0 w-screen h-screen p-6 z-50 overflow-x-hidden bg-white transition-transform duration-300 ease-in-out ${
+                    menuOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
+            >
                 <div className="flex justify-between">
                     <span className="text-sm font-bold text-neutral-500">Seed Initiative</span>
                     <X className="" onClick={() => setMenuOpen(!menuOpen)} />

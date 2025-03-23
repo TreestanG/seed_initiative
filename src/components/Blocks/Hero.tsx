@@ -76,7 +76,7 @@ export default function Hero({
                                 <Link
                                     key={index}
                                     href={item.link ?? '#'}
-                                    className={`${colors[index]} px-8 py-3 text-lg font-medium text-white rounded-full 
+                                    className={`${colors[index]} px-8 py-3 text-lg font-medium text-white  
                                     transition-all duration-200 hover:opacity-90 hover:transform hover:scale-105 
                                     shadow-lg hover:shadow-xl`}
                                 >

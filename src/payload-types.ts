@@ -387,10 +387,11 @@ export interface Page {
                   heading?: string | null;
                   link?: string | null;
                   icon?: ('student' | 'volunteer' | 'sponsor') | null;
+                  cardBackground?: string | null;
+                  image?: (number | null) | Media;
                   id?: string | null;
                 }[]
               | null;
-            image: number | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'getInvolved';
@@ -687,9 +688,10 @@ export interface PagesSelect<T extends boolean = true> {
                     heading?: T;
                     link?: T;
                     icon?: T;
+                    cardBackground?: T;
+                    image?: T;
                     id?: T;
                   };
-              image?: T;
               id?: T;
               blockName?: T;
             };

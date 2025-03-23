@@ -9,7 +9,7 @@ export default function Summer({ res }: { res: SummerSection }) {
     const { heading, achievements } = res
 
     return (
-        <section className="w-full bg-amber-50 py-8">
+        <section className="w-full py-8">
             <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-8 space-y-10 lg:px-4">
                 <h3 className="text-4xl font-bold text-black">{heading}</h3>
                 <div className="lg:grid lg:grid-cols-2 space-y-8 lg:space-y-0 gap-16">
@@ -32,7 +32,7 @@ export default function Summer({ res }: { res: SummerSection }) {
                                     </h4>
                                     <p className="text-sm text-gray-500 pb-4">{new Date(achievement.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} {achievement.endDate ? `- ${new Date(achievement.endDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : ''}</p>
                                     {achievement.description && (
-                                        <RichText content={achievement.description} className="max-w-[50rem] text-lg" />
+                                        <RichText content={achievement.description} className="max-w-[50rem] text-base lg:text-lg" />
                                     )}
                                 </div>
                             </div>

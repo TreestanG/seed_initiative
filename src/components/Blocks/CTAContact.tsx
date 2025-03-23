@@ -17,7 +17,7 @@ export default function CTAContact({ res }: { res: CTAContactSection }) {
                         <RichText content={content} className="max-w-[40rem] pt-4 leading-7" />
                     </div>
                     <Link href={`mailto:${email}`} className="justify-self-end self-center">
-                        <button className="px-8 py-4 border-bcyan border-2 hover:bg-cyan-100 hover:border-transparent">
+                        <button className="px-8 py-4 hover:cursor-pointer border-bcyan border-2 hover:bg-cyan-100 hover:border-transparent transition-all duration-300 hover:scale-105">
                             {buttonText}
                         </button>
                     </Link>

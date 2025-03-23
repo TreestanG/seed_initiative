@@ -37,7 +37,7 @@ export default async function Features({
                                 (cta!.link && cta) && (
                                     <Link href={cta.link!}>
                                         {cta.button ? (
-                                            <button className="mt-8 bg-byellow px-8 rounded-full py-2 text-lg text-neutral-800 ">{cta.label}</button>
+                                            <button className="mt-8 bg-byellow px-8 hover:cursor-pointer transition-all duration-300 hover:scale-105 py-2 text-lg text-neutral-800 text-white ">{cta.label}</button>
 
                                         ) : (
                                             <span className="underline mt-4 inline-block hover:text-blue-600">

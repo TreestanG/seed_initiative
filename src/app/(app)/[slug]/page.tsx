@@ -17,6 +17,7 @@ import { Metadata } from "next";
 import { WebPageStructuredData, BreadcrumbStructuredData } from "@/components/StructuredData";
 import type { Page } from "@/payload-types";
 import ImageComponent from "@/components/Blocks/Image";
+import GetInvolved from "@/components/Blocks/GetInvolved";
 interface PageProps {
     params: {
         slug: string;
@@ -38,7 +39,7 @@ interface PageWithMeta extends Page {
 
 // Generate dynamic metadata for each page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = params;
+    const { slug } = await params;
     
     try {
         const payload = await getPayload({ config });
@@ -194,6 +195,8 @@ export default async function Page({ params }: PageProps) {
                         return <Donate key={index} res={block} />
                     case 'image':
                         return <ImageComponent key={index} res={block} />
+                    case 'getInvolved':
+                        return <GetInvolved key={index} res={block} />
                     default:
                         return null
                 }
