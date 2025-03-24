@@ -31,7 +31,7 @@ export default function Header({
                         {item.label}
                     </Link>
                 ))}
-                <Link href="/donate" className="" >
+                <Link href="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className="" target="_blank" >
                     <button className="bg-primary-600 py-2 px-4 text-lg text-white uppercase hover:cursor-pointer bg-amber-400 hover:scale-105 transition-all duration-300">
                         Donate
                     </button>

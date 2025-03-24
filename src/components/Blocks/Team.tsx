@@ -12,17 +12,10 @@ const getImageUrl = (image?: Media | number | null) => {
 }
 
 export default function Team({ res }: { res: TeamSection }) {
-    const { heading, founders, officers, teachers } = res
+    const { founders, officers, teachers } = res
 
     return (
         <div className="w-full flex flex-col justify-center">
-            <section className="relative w-screen h-[70vh] flex justify-center items-center bg-cover bg-center bg-no-repeat bg-fixed">
-                <div className="absolute inset-0 bg-linear-to-b from-blue-900 to-blue-700"></div>
-                <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-snug z-50">
-                    {heading}
-                </h1>
-            </section>
-
             <section className="px-4 py-8 space-y-12 lg:space-y-20 lg:py-8 lg:px-24 w-full">
                 <h3 className="text-2xl font-bold">Founders</h3>
                 <div className="responsive-grid">

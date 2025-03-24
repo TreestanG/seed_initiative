@@ -27,6 +27,8 @@ export default function Footer({
                         <Link href="/" className="">Home</Link>
                         <Link href="/about" className="">About</Link>
                         <Link href="/sponsors" className="">Sponsors</Link>
+                        <Link href="https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative" className="">Donate</Link>
+                        <Link href="/get-involved" className="">Get Involved</Link>
                     </div>
                 </div>
                 <div className="flex gap-2 md:justify-center items-center justify-self-end self-center pt-4">
@@ -35,7 +37,7 @@ export default function Footer({
                 </div>
             </div>
             <div className="mx-auto w-full">
-                <p className="text-neutral-600 text-sm">© 2024 Seed Initiative. All Rights Reserved.</p>
+                <p className="text-neutral-600 text-sm">© 2025 Seed Initiative. All Rights Reserved.</p>
                 <p className="text-neutral-600 text-sm">Fiscally sponsored by <Link href="https://hackclub.com/" className="underline">The Hack Foundation</Link> EIN: 81-2908499</p>
                 <p className="text-neutral-600 text-sm">Designed by <Link href="mailto:tristangee@gmail.com" className="underline">Tristan</Link></p>
 

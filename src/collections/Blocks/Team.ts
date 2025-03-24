@@ -8,12 +8,6 @@ export const TeamBlock: Block = {
     },
     fields: [
         {
-            name: 'heading',
-            type: 'text',
-            required: true,
-            defaultValue: 'Meet the Team'
-        },
-        {
             name: 'founders',
             type: 'array',
             label: 'Founders',

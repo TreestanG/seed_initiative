@@ -18,6 +18,7 @@ import { WebPageStructuredData, BreadcrumbStructuredData } from "@/components/St
 import type { Page } from "@/payload-types";
 import ImageComponent from "@/components/Blocks/Image";
 import GetInvolved from "@/components/Blocks/GetInvolved";
+import Buffer from "@/components/Blocks/Buffer";
 interface PageProps {
     params: {
         slug: string;
@@ -197,6 +198,8 @@ export default async function Page({ params }: PageProps) {
                         return <ImageComponent key={index} res={block} />
                     case 'getInvolved':
                         return <GetInvolved key={index} res={block} />
+                    case 'buffer':
+                        return <Buffer key={index} res={block} />
                     default:
                         return null
                 }

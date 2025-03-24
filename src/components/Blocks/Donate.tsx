@@ -38,7 +38,7 @@ export default function Donate({ res }: {
                 </div>
 
                 {isMobile ? (
-                    <Link href={`mailto:${donateButton.email}`} className="self-stretch">
+                    <Link href={`mailto:${donateButton.email}`} className="self-stretch hover:cursor-pointer">
                         <button className="px-8 py-4 bg-byellow text-white rounded-xl hover:bg-white hover:text-indigo-700 mt-8">
                             {donateButton.text}
                         </button>

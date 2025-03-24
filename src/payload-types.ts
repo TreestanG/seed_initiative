@@ -176,6 +176,7 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
+            heroType?: ('main' | 'sub') | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero';
@@ -314,7 +315,6 @@ export interface Page {
             blockType: 'description';
           }
         | {
-            heading: string;
             founders: {
               image?: (number | null) | Media;
               name: string;
@@ -395,6 +395,12 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'getInvolved';
+          }
+        | {
+            height: number;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'buffer';
           }
       )[]
     | null;
@@ -519,6 +525,7 @@ export interface PagesSelect<T extends boolean = true> {
                     link?: T;
                     id?: T;
                   };
+              heroType?: T;
               id?: T;
               blockName?: T;
             };
@@ -616,7 +623,6 @@ export interface PagesSelect<T extends boolean = true> {
         team?:
           | T
           | {
-              heading?: T;
               founders?:
                 | T
                 | {
@@ -692,6 +698,13 @@ export interface PagesSelect<T extends boolean = true> {
                     image?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        buffer?:
+          | T
+          | {
+              height?: T;
               id?: T;
               blockName?: T;
             };

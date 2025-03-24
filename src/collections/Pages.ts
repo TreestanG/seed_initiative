@@ -12,7 +12,7 @@ import { DonateBlock } from './Blocks/Donate'
 import { revalidatePage } from './hooks/revalidatePage'
 import { ImageBlock } from './Blocks/Image'
 import { GetInvolvedBlock } from './Blocks/GetInvolved'
-
+import { BufferBlock } from './Blocks/Buffer'
 export const Pages: CollectionConfig = {
     slug: 'pages',
     labels: {
@@ -55,7 +55,8 @@ export const Pages: CollectionConfig = {
                 CTAContactBlock,
                 DonateBlock,
                 ImageBlock,
-                GetInvolvedBlock
+                GetInvolvedBlock,
+                BufferBlock
             ],
         }
     ],

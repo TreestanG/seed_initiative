@@ -26,9 +26,9 @@ export default async function Banner({
 
                     {
                         (cta && cta.link) && (
-                            <Link href={cta.link!}>
-                                <button className="py-2 px-4 md:px-6 xl:px-8 md:text-lg lg:text-xl text-white font-semibold uppercase bg-byellow hover:brightness-90 m-4 ml-0">
-                                    {cta.label!}
+                            <Link href={cta.link!} className="hover:cursor-pointer">
+                                <button className="py-2 px-4 md:px-6 xl:px-8 md:text-lg lg:text-xl text-white font-semibold uppercase bg-byellow hover:brightness-90 hover:cursor-pointer m-4 ml-0">
+                  {cta.label!}
                                 </button>
                             </Link>
                         )
