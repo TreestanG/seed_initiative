@@ -199,6 +199,7 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
+            style?: ('left' | 'right') | null;
             cta?: {
               label?: string | null;
               link?: string | null;
@@ -535,6 +536,7 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               subheading?: T;
               text?: T;
+              style?: T;
               cta?:
                 | T
                 | {

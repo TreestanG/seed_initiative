@@ -7,6 +7,7 @@ export const FeaturesBlock: Block = {
         { name: 'heading', type: 'text', },
         { name: 'subheading', type: 'text' },
         { name: 'text', type: 'richText' },
+        { name: 'style', type: 'select', options: ['left', 'right'], defaultValue: 'right' },
         {
             name: 'cta',
             type: 'group',
