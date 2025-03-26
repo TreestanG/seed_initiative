@@ -367,7 +367,7 @@ export interface Page {
             arrowImage: number | Media;
             donateButton: {
               text: string;
-              email: string;
+              link: string;
             };
             id?: string | null;
             blockName?: string | null;
@@ -672,7 +672,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     text?: T;
-                    email?: T;
+                    link?: T;
                   };
               id?: T;
               blockName?: T;

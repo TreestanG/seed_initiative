@@ -68,7 +68,7 @@ export default function Hero({
             {/* Overlay gradient */}
             {url && <div className="absolute inset-0 bg-black/35" />}
 
-            <div className="container mx-auto px-4 py-20 relative w-full">
+            <div className="md:container mx-auto md:px-4 py-20 relative w-full">
                 <div className={`
                     bg-white md:rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl translate-y-60 z-20
                     w-full
