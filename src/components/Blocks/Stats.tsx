@@ -1,4 +1,4 @@
-import { Clock, CoinsIcon, GraduationCap } from "lucide-react";
+import { Clock, CoinsIcon, GraduationCap, Heart } from "lucide-react";
 import NumberTicker from '@/components/ui/number-ticker'
 import RichText from "../RichText";
 import { Page } from "@/payload-types";
@@ -10,36 +10,44 @@ export default function Stats({ res }: { res: StatsSection }) {
     const { heading, stats, description } = res;
 
     return (
-        <section className="w-full py-8 md:py-24">
-            <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-6 space-y-6 lg:space-y-12 lg:px-4">
-                <h2 className="text-4xl font-bold md:text-center w-full text-bcyan">
+        <section className="w-full py-8 md:py-12 ">
+            <div className="container mx-auto px-4 py-6 space-y-8 lg:space-y-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-center w-full ">
                     {heading}
                 </h2>
 
-                <div className="lg:grid lg:grid-cols-3 xl:gap-16 space-y-4 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     {stats.map((stat, index) => (
-                        <div key={index} className="lg:flex lg:items-center lg:flex-col">
-                            {stat.icon === 'coins' && (
-                                <CoinsIcon size={96} strokeWidth={2} className="text-bpurple hidden md:block" />
-                            )}
-                            {stat.icon === 'graduation' && (
-                                <GraduationCap size={96} strokeWidth={2} className="text-bpurple hidden md:block" />
-                            )}
-                            {stat.icon === 'clock' && (
-                                <Clock size={96} strokeWidth={2} className="text-bpurple hidden md:block" />
-                            )}
-                            <span className="text-3xl md:text-4xl lg:text-5xl font-bold pt-6">
-                                {stat.icon === 'coins' && '$'}
-                                <NumberTicker value={stat.value} className="" />+
+                        <div key={index} className="flex flex-col items-center p-6 rounded-lg bg-white shadow-sm border border-slate-100 transition-transform hover:transform hover:-translate-y-1">
+                            <div className="p-4 mb-4 rounded-full bg-amber-50">
+                                {stat.icon === 'coins' && (
+                                    <CoinsIcon size={48} strokeWidth={1.5} className="text-amber-600" />
+                                )}
+                                {stat.icon === 'graduation' && (
+                                    <GraduationCap size={48} strokeWidth={1.5} className="text-amber-600" />
+                                )}
+                                {stat.icon === 'clock' && (
+                                    <Clock size={48} strokeWidth={1.5} className="text-amber-600" />
+                                )}
+                                {!['coins', 'graduation', 'clock'].includes(stat.icon) && (
+                                    <Heart size={48} strokeWidth={1.5} className="text-amber-600" />
+                                )}
+                            </div>
+                            <span className="text-3xl md:text-4xl font-bold text-slate-800 flex items-center">
+                                {stat.icon === 'coins' && <span className="mr-1">$</span>}
+                                <NumberTicker value={stat.value} className="" />
+                                <span className="ml-1">+</span>
                             </span>
-                            <p className="text-lg font-medium md:pt-4">{stat.label}</p>
+                            <p className="text-lg font-medium mt-2 text-slate-600 text-center">{stat.label}</p>
                         </div>
                     ))}
                 </div>
 
                 {description && (
-                    <div className="w-full flex flex-col md:items-center">
-                        <RichText content={description} className="max-w-[50rem] md:text-center" />
+                    <div className="w-full flex flex-col items-center mt-8">
+                        <div className="max-w-3xl">
+                            <RichText content={description} className="text-center text-slate-700" />
+                        </div>
                     </div>
                 )}
             </div>

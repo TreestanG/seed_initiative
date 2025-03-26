@@ -15,53 +15,59 @@ export default function Team({ res }: { res: TeamSection }) {
     const { founders, officers, teachers } = res
 
     return (
-        <div className="w-full flex flex-col justify-center">
-            <section className="px-4 py-8 space-y-12 lg:space-y-20 lg:py-8 lg:px-24 w-full">
-                <h3 className="text-2xl font-bold">Founders</h3>
-                <div className="responsive-grid">
-                    {founders.map((founder) => {
-                        const img = getImageUrl(founder.image)
-                        return (
-                            <MeetTeamCard
-                                key={founder.name}
-                                image={img}
-                                name={founder.name}
-                                title={founder.title}
-                            />
-                        )
-                    })}
+        <section className="w-full py-8 md:py-12">
+            <div className="container mx-auto px-4 space-y-8 md:space-y-12">
+                <div className="space-y-8">
+                    <h3 className="text-2xl md:text-3xl font-bold ">Founders</h3>
+                    <div className="responsive-grid">
+                        {founders.map((founder) => {
+                            const img = getImageUrl(founder.image)
+                            return (
+                                <MeetTeamCard
+                                    key={founder.name}
+                                    image={img}
+                                    name={founder.name}
+                                    title={founder.title}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
 
-                <h3 className="text-2xl font-bold">Officers</h3>
-                <div className="responsive-grid">
-                    {officers.map((officer) => {
-                        const img = getImageUrl(officer.image)
-                        return (
-                            <MeetTeamCard
-                                key={officer.name}
-                                image={img}
-                                name={officer.name}
-                                title={officer.title}
-                            />
-                        )
-                    })}
+                <div className="space-y-8">
+                    <h3 className="text-2xl md:text-3xl font-bold ">Officers</h3>
+                    <div className="responsive-grid">
+                        {officers.map((officer) => {
+                            const img = getImageUrl(officer.image)
+                            return (
+                                <MeetTeamCard
+                                    key={officer.name}
+                                    image={img}
+                                    name={officer.name}
+                                    title={officer.title}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
 
-                <h3 className="text-2xl font-bold">Teachers</h3>
-                <div className="responsive-grid">
-                    {teachers.map((teacher) => {
-                        const img = getImageUrl(teacher.image)
-                        return (
-                            <MeetTeamCard
-                                key={teacher.name}
-                                image={img}
-                                name={teacher.name}
-                                title={teacher.title}
-                            />
-                        )
-                    })}
+                <div className="space-y-8">
+                    <h3 className="text-2xl md:text-3xl font-bold ">Teachers</h3>
+                    <div className="responsive-grid">
+                        {teachers.map((teacher) => {
+                            const img = getImageUrl(teacher.image)
+                            return (
+                                <MeetTeamCard
+                                    key={teacher.name}
+                                    image={img}
+                                    name={teacher.name}
+                                    title={teacher.title}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     )
 }

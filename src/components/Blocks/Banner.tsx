@@ -18,23 +18,32 @@ export default async function Banner({
     const img = (image as Media)
 
     return (
-            <section className="w-full bg-bpurple py-6 md:py-8 xl:py-12 grid md:grid-cols-2 gap-8 justify-center mx-auto items-center px-4">
-                {img && <Image src={img.url!} width={200} height={200} alt={img.alt} className="hidden md:block justify-self-end" />}
-                <div>
-                    <h2 className="text-xl md:text-2xl font-bold text-white">{heading}</h2>
-                    <p className="text-white text-lg md:text-xl max-w-[36rem]">{description}</p>
+        <section className="w-full bg-amber-700 py-8 md:py-12 px-6 md:px-8">
+            <div className="container mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div className="md:w-3/5 space-y-4">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">{heading}</h2>
+                    <p className="text-white text-lg opacity-90 max-w-[36rem] leading-relaxed">{description}</p>
 
-                    {
-                        (cta && cta.link) && (
-                            <Link href={cta.link!} className="hover:cursor-pointer">
-                                <button className="py-2 px-4 md:px-6 xl:px-8 md:text-lg lg:text-xl text-white font-semibold uppercase bg-byellow hover:brightness-90 hover:cursor-pointer m-4 ml-0">
-                  {cta.label!}
-                                </button>
-                            </Link>
-                        )
-                    }
+                    {(cta && cta.link) && (
+                        <Link href={cta.link!} className="inline-block mt-2">
+                            <button className="py-3 px-6 text-amber-800 font-semibold bg-white hover:cursor-pointer shadow-sm transition-all hover:bg-amber-50 hover:shadow-md">
+                                {cta.label!}
+                            </button>
+                        </Link>
+                    )}
                 </div>
-            </section>
+                {img && (
+                    <div className="md:w-2/5 flex justify-center md:justify-end">
+                        <Image 
+                            src={img.url!} 
+                            width={300} 
+                            height={300} 
+                            alt={img.alt} 
+                            className="object-contain"
+                        />
+                    </div>
+                )}
+            </div>
+        </section>
     )
-
 }

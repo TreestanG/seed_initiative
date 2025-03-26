@@ -7,16 +7,16 @@ export default function ImageComponent({ res }: { res: ImageSection }) {
     const { heading, image } = res
     const img = (image as Media)
     return (
-        <section className="w-full py-8">
-            <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-8 space-y-10 lg:px-4">
-                <h3 className="text-4xl font-bold text-gray-800 text-center">{heading}</h3>
+        <section className="w-full py-8 md:py-12">
+            <div className="container mx-auto px-4 py-8 space-y-10">
+                <h3 className="text-3xl md:text-4xl font-bold text-amber-700 text-center">{heading}</h3>
                 <div className="relative h-[32rem] mt-8">
                     {img && <Image
                         src={img.url!}
                         alt={img.alt}
                         width={600}
                         height={600}
-                        className="rounded-lg w-full h-full object-contain"
+                        className=" w-full h-full object-contain"
                     />}
                 </div>
             </div>

@@ -21,16 +21,16 @@ export default async function Features({
     const isContentRight = style === 'right'
 
     return (
-        <section className="w-full py-16">
+        <section className="w-full py-8 md:py-12">
             <div className="container mx-auto px-4">
                 <div className={cn(
                     "grid gap-8 lg:gap-16 items-center",
-                    "grid-cols-1 lg:grid-cols-2",
-                    isContentRight && "lg:grid-flow-dense"
+                    "grid-cols-1 lg:grid-cols-2"
                 )}>
+                    {/* Image Container */}
                     <div className={cn(
                         "relative h-[400px] lg:h-[600px]",
-                        isContentRight ? "lg:col-start-1" : "lg:col-start-2"
+                        isContentRight ? "lg:order-1" : "lg:order-2"
                     )}>
                         {img && (
                             <Image 
@@ -43,9 +43,10 @@ export default async function Features({
                         )}
                     </div>
 
+                    {/* Content Container */}
                     <div className={cn(
                         "flex flex-col",
-                        isContentRight ? "lg:col-start-2" : "lg:col-start-1"
+                        isContentRight ? "lg:order-2" : "lg:order-1"
                     )}>
                         {subheading && (
                             <p className="text-amber-600 font-semibold text-lg tracking-wide uppercase ">
@@ -81,8 +82,8 @@ export default async function Features({
                                         <button className={cn(
                                             "inline-flex items-center px-6 py-3",
                                             "text-white bg-amber-600 hover:bg-amber-700",
-                                            "font-medium text-lg rounded-md",
-                                            "transition-all duration-300 transform hover:scale-[1.02]",
+                                            "font-medium text-lg hover:cursor-pointer",
+                                            "transition-all duration-300 ",
                                             "shadow-md hover:shadow-lg"
                                         )}>
                                             {cta.label}

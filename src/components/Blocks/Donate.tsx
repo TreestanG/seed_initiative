@@ -18,10 +18,11 @@ export default function Donate({ res }: {
     const img = (arrowImage as Media)
 
     return (
-        <section className="mx-auto max-w-(--breakpoint-xl) px-4 lg:px-6 my-24 py-8 bg-indigo-700 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-8">
-            <div className="flex flex-col justify-between">
-                <div>
-                        <h2 className="text-4xl font-bold text-white">{heading}</h2>
+        <section className="w-full py-8 md:py-12">
+            <div className="container mx-auto px-4 lg:px-6 bg-amber-800 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-8 p-8 md:p-12">
+                <div className="flex flex-col justify-between">
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white">{heading}</h2>
                         <p className="text-lg leading-8 text-white max-w-[40rem] pt-8">
                             {content}
                         </p>
@@ -39,18 +40,19 @@ export default function Donate({ res }: {
 
                 {isMobile ? (
                     <Link href={`mailto:${donateButton.email}`} className="self-stretch hover:cursor-pointer">
-                        <button className="px-8 py-4 bg-byellow text-white rounded-xl hover:bg-white hover:text-indigo-700 mt-8">
+                        <button className="px-8 py-4 bg-white text-amber-800 font-semibold rounded-md shadow-sm hover:bg-amber-50 hover:shadow-md transition-all duration-300 mt-8">
                             {donateButton.text}
                         </button>
                     </Link>
                 ) : (
                     <iframe
                         src='https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative'
-                        className="border-none rounded-xl justify-self-stretch h-[40rem]"
+                        className="border-none rounded-lg justify-self-stretch h-[40rem] shadow-md"
                         name="donateFrame"
                         scrolling="yes"
                     />
                 )}
+            </div>
         </section>
     )
 } 
