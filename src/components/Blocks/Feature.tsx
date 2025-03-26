@@ -27,7 +27,6 @@ export default async function Features({
                     "grid gap-8 lg:gap-16 items-center",
                     "grid-cols-1 lg:grid-cols-2"
                 )}>
-                    {/* Image Container */}
                     <div className={cn(
                         "relative h-[400px] lg:h-[600px]",
                         isContentRight ? "lg:order-1" : "lg:order-2"
@@ -43,7 +42,6 @@ export default async function Features({
                         )}
                     </div>
 
-                    {/* Content Container */}
                     <div className={cn(
                         "flex flex-col",
                         isContentRight ? "lg:order-2" : "lg:order-1"
@@ -61,7 +59,6 @@ export default async function Features({
                             {heading}
                         </h3>
 
-                        {/* Rich Text Content */}
                         {text && (
                             <div className="prose prose-lg max-w-none">
                                 <RichText 
@@ -74,15 +71,14 @@ export default async function Features({
                             </div>
                         )}
 
-                        {/* CTA Button/Link */}
-                        {(cta?.link && cta) && (
+                        {(cta?.link && cta?.label) && (
                             <div className="pt-4">
                                 <Link href={cta.link}>
                                     {cta.button ? (
                                         <button className={cn(
-                                            "inline-flex items-center px-6 py-3",
+                                            "inline-flex items-center w-full md:w-auto px-6 py-3",
                                             "text-white bg-brand-600 hover:bg-brand-700",
-                                            "font-medium text-lg hover:cursor-pointer",
+                                            "font-medium text-lg hover:cursor-pointer text-center md:text-left",
                                             "transition-all duration-300 ",
                                             "shadow-md hover:shadow-lg"
                                         )}>

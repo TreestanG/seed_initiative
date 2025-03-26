@@ -78,16 +78,16 @@ export default function Hero({
                         <p className="font-medium">Our 2025 Program is here! Click to learn more </p>
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-all duration-200 text-black" />
                     </Link>
-                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 text-center md:text-left leading-tight">
                         {heading}
                     </h1>
                     {subheading && (
-                        <p className="mt-6 text-base md:text-xl text-gray-700">
+                        <p className="mt-6 text-base md:text-xl text-gray-700 text-center md:text-left">
                             {subheading}
                         </p>
                     )}
                     {cta && cta.length > 0 && (
-                        <div className="mt-10 flex flex-wrap gap-4">
+                        <div className="mt-10 grid grid-cols-2 gap-4">
                             {cta.map((item, index) => (
                                 <Link
                                     key={index}

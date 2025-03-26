@@ -12,7 +12,7 @@ export default function Stats({ res }: { res: StatsSection }) {
     return (
         <section className="w-full py-8 md:py-12 ">
             <div className="container mx-auto px-4 py-6 space-y-8 lg:space-y-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-center w-full ">
+                <h2 className="text-3xl md:text-4xl font-bold text-left md:text-center w-full ">
                     {heading}
                 </h2>
 
