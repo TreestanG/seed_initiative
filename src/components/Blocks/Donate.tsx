@@ -19,7 +19,7 @@ export default function Donate({ res }: {
 
     return (
         <section className="w-full py-8 md:py-12">
-            <div className="container mx-auto px-4 lg:px-6 bg-amber-800 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-4 md:gap-8 p-8 md:p-12">
+            <div className="container mx-auto px-4 lg:px-6 bg-brand-800 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-4 md:gap-8 p-8 md:p-12">
                 <div className="flex flex-col justify-between">
                     <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-white">{heading}</h2>
@@ -32,7 +32,7 @@ export default function Donate({ res }: {
 
                 {isMobile ? (
                     <Link href={donateButton.link} className="self-stretch hover:cursor-pointer">
-                        <button className="px-8 py-4 bg-white text-amber-800 font-semibold shadow-sm hover:bg-amber-50 hover:shadow-md transition-all duration-300 mt-8">
+                        <button className="px-8 py-4 bg-white text-brand-800 font-semibold shadow-sm hover:bg-brand-50 hover:shadow-md transition-all duration-300 mt-8">
                             {donateButton.text}
                         </button>
                     </Link>

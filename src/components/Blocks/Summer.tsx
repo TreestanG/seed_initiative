@@ -29,10 +29,10 @@ export default function Summer({ res }: { res: SummerSection }) {
                                     </div>
                                 }
                                 <div className="p-6 md:p-8">
-                                    <h4 className="text-xl md:text-2xl font-bold text-amber-700">
+                                    <h4 className="text-xl md:text-2xl font-bold text-brand-700">
                                         {achievement.title}
                                     </h4>
-                                    <p className="text-sm pb-4 text-amber-600 font-medium">
+                                    <p className="text-sm pb-4 text-brand-600 font-medium">
                                         {new Date(achievement.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} 
                                         {achievement.endDate ? 
                                             ` - ${new Date(achievement.endDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` 

@@ -68,11 +68,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             ? process.env.URL!
             : 'http://localhost:3000';
         
+        const pageTitle = page.meta?.title || page.title || page.name || '';
+        const formattedTitle = pageTitle ? `${pageTitle} | Seed Initiative` : 'Seed Initiative';
+        
         return {
-            title: `${page.title || page.name || ''} | Seed Initiative`,
+            title: formattedTitle,
             description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
             openGraph: {
-                title: page.meta?.title || `${page.title || page.name || ''} | Seed Initiative`,
+                title: formattedTitle,
                 description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
                 url: `${baseUrl}/${slug}`,
                 siteName: "Seed Initiative",
@@ -81,7 +84,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                         url: page.meta.image.url || '/ogbanner.png',
                         width: 1200,
                         height: 630,
-                        alt: page.meta.image.alt || `${page.title || page.name || ''} - Seed Initiative`,
+                        alt: page.meta.image.alt || `${pageTitle} - Seed Initiative`,
                     }
                 ] : [
                     {
@@ -95,7 +98,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             },
             twitter: {
                 card: "summary_large_image",
-                title: page.meta?.title || `${page.title || page.name || ''} | Seed Initiative`,
+                title: formattedTitle,
                 description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
                 images: page.meta?.image ? [page.meta.image.url] : ['/ogbanner.png'],
             },
@@ -140,6 +143,9 @@ export default async function Page({ params }: PageProps) {
         ? process.env.URL!
         : 'http://localhost:3000';
     
+    // Create page title to avoid repetition
+    const pageTitle = page.meta?.title || page.title || page.name || slug;
+    
     // Create breadcrumb items
     const breadcrumbItems = [
         {
@@ -151,7 +157,7 @@ export default async function Page({ params }: PageProps) {
     // Add current page to breadcrumbs if not home
     if (slug !== 'home') {
         breadcrumbItems.push({
-            name: page.title || page.name || slug,
+            name: pageTitle,
             item: `${baseUrl}/${slug}`,
         });
     }
@@ -162,7 +168,7 @@ export default async function Page({ params }: PageProps) {
             
             {/* Add structured data */}
             <WebPageStructuredData
-                name={page.title || page.name || slug}
+                name={pageTitle}
                 description={page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions."}
                 url={`${baseUrl}/${slug === 'home' ? '' : slug}`}
                 image={page.meta?.image?.url || `${baseUrl}/ogbanner.png`}

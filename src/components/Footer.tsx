@@ -51,13 +51,13 @@ export default function Footer({
                     
                     {/* Quick links column */}
                     <div>
-                        <h3 className="text-amber-700 font-bold text-lg mb-4">Quick Links</h3>
+                        <h3 className="text-brand-700 font-bold text-lg mb-4">Quick Links</h3>
                         <ul className="space-y-2">
                             {footerLinks.map((link, index) => (
                                 <li key={index}>
                                     <Link 
                                         href={link.href} 
-                                        className="text-slate-600 hover:text-amber-700 transition-colors text-sm"
+                                        className="text-slate-600 hover:text-brand-700 transition-colors text-sm"
                                     >
                                         {link.label}
                                     </Link>
@@ -68,13 +68,13 @@ export default function Footer({
                     
                     {/* Resources column */}
                     <div>
-                        <h3 className="text-amber-700 font-bold text-lg mb-4">Resources</h3>
+                        <h3 className="text-brand-700 font-bold text-lg mb-4">Resources</h3>
                         <ul className="space-y-2">
                             {resources.map((resource, index) => (
                                 <li key={index}>
                                     <Link 
                                         href={resource.href} 
-                                        className="text-slate-600 hover:text-amber-700 transition-colors text-sm inline-flex items-center"
+                                        className="text-slate-600 hover:text-brand-700 transition-colors text-sm inline-flex items-center"
                                         target={resource.external ? "_blank" : undefined}
                                         rel={resource.external ? "noopener noreferrer" : undefined}
                                     >
@@ -88,16 +88,16 @@ export default function Footer({
                     
                     {/* Contact column */}
                     <div>
-                        <h3 className="text-amber-700 font-bold text-lg mb-4">Contact Us</h3>
+                        <h3 className="text-brand-700 font-bold text-lg mb-4">Contact Us</h3>
                         <ul className="space-y-3">
                             <li className="flex items-start space-x-2">
-                                <Mail className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                                <Link href={`mailto:${email}`} className="text-slate-600 hover:text-amber-700 transition-colors text-sm">
+                                <Mail className="h-5 w-5 text-brand-600 mt-0.5 flex-shrink-0" />
+                                <Link href={`mailto:${email}`} className="text-slate-600 hover:text-brand-700 transition-colors text-sm">
                                     {email}
                                 </Link>
                             </li>
                             <li className="flex items-start space-x-2">
-                                <MapPin className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                                <MapPin className="h-5 w-5 text-brand-600 mt-0.5 flex-shrink-0" />
                                 <span className="text-slate-600 text-sm">Bay Area, California</span>
                             </li>
                             <li className="flex items-center space-x-3 pt-2">
@@ -106,7 +106,7 @@ export default function Footer({
                                         href={`https://www.instagram.com/${instagram}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-amber-100 p-2 rounded-full text-amber-700 hover:bg-amber-200 transition-colors"
+                                        className="bg-brand-100 p-2 rounded-full text-brand-700 hover:bg-brand-200 transition-colors"
                                         aria-label="Instagram"
                                     >
                                         <Instagram className="h-4 w-4" />
@@ -114,7 +114,7 @@ export default function Footer({
                                 )}
                                 <Link 
                                     href={`mailto:${email}`}
-                                    className="bg-amber-100 p-2 rounded-full text-amber-700 hover:bg-amber-200 transition-colors"
+                                    className="bg-brand-100 p-2 rounded-full text-brand-700 hover:bg-brand-200 transition-colors"
                                     aria-label="Email"
                                 >
                                     <Mail className="h-4 w-4" />
@@ -123,7 +123,7 @@ export default function Footer({
                                     href="https://seedinitiative.net"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-amber-100 p-2 rounded-full text-amber-700 hover:bg-amber-200 transition-colors"
+                                    className="bg-brand-100 p-2 rounded-full text-brand-700 hover:bg-brand-200 transition-colors"
                                     aria-label="Website"
                                 >
                                     <Globe className="h-4 w-4" />
@@ -140,10 +140,10 @@ export default function Footer({
                 <div className="md:flex md:justify-between md:items-center text-sm text-slate-500">
                     <div className="space-y-2 md:space-y-0 mb-4 md:mb-0">
                         <p>© {currentYear} Seed Initiative. All Rights Reserved.</p>
-                        <p>Fiscally sponsored by <Link href="https://hackclub.com/" className="text-amber-700 hover:underline" target="_blank" rel="noopener noreferrer">The Hack Foundation</Link> EIN: 81-2908499</p>
+                        <p>Fiscally sponsored by <Link href="https://hackclub.com/" className="text-brand-700 hover:underline" target="_blank" rel="noopener noreferrer">The Hack Foundation</Link> EIN: 81-2908499</p>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <p>Designed with 💛 by <Link href="tristangee@gmail.com" className="text-amber-700 hover:underline">Tristan</Link></p>
+                        <p>Designed with 💙 by <Link href="tristangee@gmail.com" className="text-brand-700 hover:underline">Tristan</Link></p>
                     </div>
                 </div>
             </div>

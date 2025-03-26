@@ -7,8 +7,8 @@ type SectionsType = NonNullable<Page["sections"]>[number];
 type HeroSection = Extract<SectionsType, { blockType: "hero" }>;
 
 const colors = [
-    'bg-amber-700 border-amber-700',
-    'bg-amber-300 border-amber-300'
+    'bg-brand-700 border-brand-700',
+    'bg-brand-300 border-brand-300'
 ];
 
 export default function Hero({
@@ -70,19 +70,19 @@ export default function Hero({
 
             <div className="md:container mx-auto md:px-4 py-20 relative w-full">
                 <div className={`
-                    bg-white md:rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl translate-y-60 z-20
+                    bg-white md:rounded-lg shadow-2xl p-4 py-8 md:p-12 max-w-2xl translate-y-60 z-20
                     w-full
                 `}>
-                    <Link href="/programs/2025" className="px-4 py-2 border-2 border-amber-600 group transition-all duration-300 hover:bg-amber-50 hover:text-amber-600 rounded-lg flex items-center gap-2 mb-6">
-                        <p className="text-amber-600 font-bold text-sm uppercase">new</p>
+                    <Link href="/programs/2025" className="px-4 py-2 border-2 border-brand-600 group transition-all duration-300 hover:bg-brand-50 hover:text-brand-600 rounded-lg flex items-center gap-2 mb-6">
+                        <p className="text-brand-600 font-bold text-sm uppercase">new</p>
                         <p className="font-medium">Our 2025 Program is here! Click to learn more </p>
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-all duration-200 text-black" />
                     </Link>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
                         {heading}
                     </h1>
                     {subheading && (
-                        <p className="mt-6 text-xl text-gray-700">
+                        <p className="mt-6 text-base md:text-xl text-gray-700">
                             {subheading}
                         </p>
                     )}

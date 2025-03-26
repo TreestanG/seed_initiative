@@ -56,7 +56,7 @@ export default async function Sponsors({
                 </div>
                 
                 <div className="mt-12 text-center">
-                    <p className="text-slate-500 italic">Want to support our mission? <Link href="/sponsors" className="text-amber-600 hover:underline">Become a sponsor</Link></p>
+                    <p className="text-slate-500 italic">Want to support our mission? <Link href="/sponsors" className="text-brand-600 hover:underline">Become a sponsor</Link></p>
                 </div>
             </div>
         </section>

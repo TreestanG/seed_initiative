@@ -19,21 +19,21 @@ export default function Stats({ res }: { res: StatsSection }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     {stats.map((stat, index) => (
                         <div key={index} className="flex flex-col items-center p-6 rounded-lg bg-white shadow-sm border border-slate-100 transition-transform hover:transform hover:-translate-y-1">
-                            <div className="p-4 mb-4 rounded-full bg-amber-50">
+                            <div className="p-4 mb-4 rounded-full bg-brand-50">
                                 {stat.icon === 'coins' && (
-                                    <CoinsIcon size={48} strokeWidth={1.5} className="text-amber-600" />
+                                    <CoinsIcon size={48} strokeWidth={1.5} className="text-brand-600" />
                                 )}
                                 {stat.icon === 'graduation' && (
-                                    <GraduationCap size={48} strokeWidth={1.5} className="text-amber-600" />
+                                    <GraduationCap size={48} strokeWidth={1.5} className="text-brand-600" />
                                 )}
                                 {stat.icon === 'clock' && (
-                                    <Clock size={48} strokeWidth={1.5} className="text-amber-600" />
+                                    <Clock size={48} strokeWidth={1.5} className="text-brand-600" />
                                 )}
                                 {stat.icon === 'land-plot' && (
-                                    <LandPlot size={48} strokeWidth={1.5} className="text-amber-600" />
+                                    <LandPlot size={48} strokeWidth={1.5} className="text-brand-600" />
                                 )}
                                 {!['coins', 'graduation', 'clock', 'land-plot'].includes(stat.icon) && (
-                                    <Heart size={48} strokeWidth={1.5} className="text-amber-600" />
+                                    <Heart size={48} strokeWidth={1.5} className="text-brand-600" />
                                 )}
                             </div>
                             <span className="text-3xl md:text-4xl font-bold text-slate-800 flex items-center font-serif">

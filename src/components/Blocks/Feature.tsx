@@ -49,7 +49,7 @@ export default async function Features({
                         isContentRight ? "lg:order-2" : "lg:order-1"
                     )}>
                         {subheading && (
-                            <p className="text-amber-600 font-semibold text-lg tracking-wide uppercase ">
+                            <p className="text-brand-600 font-semibold text-lg tracking-wide uppercase ">
                                 {subheading}
                             </p>
                         )}
@@ -81,7 +81,7 @@ export default async function Features({
                                     {cta.button ? (
                                         <button className={cn(
                                             "inline-flex items-center px-6 py-3",
-                                            "text-white bg-amber-600 hover:bg-amber-700",
+                                            "text-white bg-brand-600 hover:bg-brand-700",
                                             "font-medium text-lg hover:cursor-pointer",
                                             "transition-all duration-300 ",
                                             "shadow-md hover:shadow-lg"
@@ -90,8 +90,8 @@ export default async function Features({
                                         </button>
                                     ) : (
                                         <span className={cn(
-                                            "inline-flex items-center text-amber-600",
-                                            "hover:text-amber-700 font-medium",
+                                            "inline-flex items-center text-brand-600",
+                                            "hover:text-brand-700 font-medium",
                                             "underline underline-offset-4"
                                         )}>
                                             {cta.label}
