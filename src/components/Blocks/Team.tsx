@@ -15,10 +15,10 @@ export default function Team({ res }: { res: TeamSection }) {
     const { founders, officers, teachers } = res
 
     return (
-        <section className="w-full py-8 md:py-12">
-            <div className="container mx-auto px-4 space-y-8 md:space-y-12">
-                <div className="space-y-8">
-                    <h3 className="text-2xl md:text-3xl font-bold ">Founders</h3>
+        <section className="w-full py-12 md:py-16">
+            <div className="container mx-auto px-4 md:px-6 space-y-8">
+                <div className="space-y-6">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Founders</h2>
                     <div className="responsive-grid">
                         {founders.map((founder) => {
                             const img = getImageUrl(founder.image)
@@ -34,8 +34,8 @@ export default function Team({ res }: { res: TeamSection }) {
                     </div>
                 </div>
 
-                <div className="space-y-8">
-                    <h3 className="text-2xl md:text-3xl font-bold ">Officers</h3>
+                <div className="space-y-6">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Officers</h2>
                     <div className="responsive-grid">
                         {officers.map((officer) => {
                             const img = getImageUrl(officer.image)
@@ -51,8 +51,8 @@ export default function Team({ res }: { res: TeamSection }) {
                     </div>
                 </div>
 
-                <div className="space-y-8">
-                    <h3 className="text-2xl md:text-3xl font-bold ">Teachers</h3>
+                <div className="space-y-6">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Teachers</h2>
                     <div className="responsive-grid">
                         {teachers.map((teacher) => {
                             const img = getImageUrl(teacher.image)

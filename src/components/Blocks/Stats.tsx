@@ -10,15 +10,15 @@ export default function Stats({ res }: { res: StatsSection }) {
     const { heading, stats, description } = res;
 
     return (
-        <section className="w-full py-8 md:py-12 ">
-            <div className="container mx-auto px-4 py-6 space-y-8 lg:space-y-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-left md:text-center w-full ">
+        <section className="w-full py-12 md:py-16">
+            <div className="container mx-auto px-4 md:px-6 space-y-8">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center w-full leading-tight">
                     {heading}
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {stats.map((stat, index) => (
-                        <div key={index} className="flex flex-col items-center p-6 rounded-lg bg-white shadow-sm border border-slate-100 transition-transform hover:transform hover:-translate-y-1">
+                        <div key={index} className="flex flex-col items-center p-6 rounded-lg bg-white shadow-md border border-slate-100">
                             <div className="p-4 mb-4 rounded-full bg-brand-50">
                                 {stat.icon === 'coins' && (
                                     <CoinsIcon size={48} strokeWidth={1.5} className="text-brand-600" />
@@ -36,12 +36,12 @@ export default function Stats({ res }: { res: StatsSection }) {
                                     <Heart size={48} strokeWidth={1.5} className="text-brand-600" />
                                 )}
                             </div>
-                            <span className="text-3xl md:text-4xl font-bold text-slate-800 flex items-center font-serif">
+                            <span className="text-3xl md:text-4xl font-bold text-slate-800 flex items-center">
                                 {stat.icon === 'coins' && <span className="mr-1">$</span>}
                                 <NumberTicker value={stat.value} className="" />
                                 <span className="ml-1">+</span>
                             </span>
-                            <p className="text-lg font-medium mt-2 text-slate-600 text-center">{stat.label}</p>
+                            <p className="text-base md:text-lg font-medium mt-2 text-slate-600 text-center leading-relaxed">{stat.label}</p>
                         </div>
                     ))}
                 </div>
@@ -49,7 +49,7 @@ export default function Stats({ res }: { res: StatsSection }) {
                 {description && (
                     <div className="w-full flex flex-col items-center mt-8">
                         <div className="max-w-3xl">
-                            <RichText content={description} className="text-center text-slate-700" />
+                            <RichText content={description} className="text-center text-slate-700 text-base md:text-lg leading-relaxed" />
                         </div>
                     </div>
                 )}

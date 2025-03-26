@@ -9,7 +9,7 @@ export default function Summer({ res }: { res: SummerSection }) {
     const { heading, achievements } = res
 
     return (
-        <section className="w-full py-8 md:py-12 bg-slate-50">
+        <section className="w-full py-8 md:py-12">
             <div className="container mx-auto px-4 space-y-8 md:space-y-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-left">{heading}</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
