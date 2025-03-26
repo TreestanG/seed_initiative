@@ -143,7 +143,7 @@ export default function Footer({
                         <p>Fiscally sponsored by <Link href="https://hackclub.com/" className="text-brand-700 hover:underline" target="_blank" rel="noopener noreferrer">The Hack Foundation</Link> EIN: 81-2908499</p>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <p>Designed with 💙 by <Link href="tristangee@gmail.com" className="text-brand-700 hover:underline">Tristan</Link></p>
+                        <p>Designed with 💙 by <Link href="https://www.tristangee.com"  className="text-brand-700 hover:underline" target="_blank" rel="noopener noreferrer">Tristan</Link></p>
                     </div>
                 </div>
             </div>
