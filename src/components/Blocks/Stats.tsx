@@ -1,4 +1,4 @@
-import { Clock, CoinsIcon, GraduationCap, Heart } from "lucide-react";
+import { Clock, CoinsIcon, GraduationCap, Heart, LandPlot } from "lucide-react";
 import NumberTicker from '@/components/ui/number-ticker'
 import RichText from "../RichText";
 import { Page } from "@/payload-types";
@@ -29,11 +29,14 @@ export default function Stats({ res }: { res: StatsSection }) {
                                 {stat.icon === 'clock' && (
                                     <Clock size={48} strokeWidth={1.5} className="text-amber-600" />
                                 )}
-                                {!['coins', 'graduation', 'clock'].includes(stat.icon) && (
+                                {stat.icon === 'land-plot' && (
+                                    <LandPlot size={48} strokeWidth={1.5} className="text-amber-600" />
+                                )}
+                                {!['coins', 'graduation', 'clock', 'land-plot'].includes(stat.icon) && (
                                     <Heart size={48} strokeWidth={1.5} className="text-amber-600" />
                                 )}
                             </div>
-                            <span className="text-3xl md:text-4xl font-bold text-slate-800 flex items-center">
+                            <span className="text-3xl md:text-4xl font-bold text-slate-800 flex items-center font-serif">
                                 {stat.icon === 'coins' && <span className="mr-1">$</span>}
                                 <NumberTicker value={stat.value} className="" />
                                 <span className="ml-1">+</span>

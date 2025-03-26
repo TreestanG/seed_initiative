@@ -55,7 +55,7 @@ export default async function Features({
                         )}
 
                         <h3 className={cn(
-                            "text-3xl lg:text-4xl font-bold text-gray-900 leading-tight pb-6",
+                            "text-3xl lg:text-4xl font-bold text-gray-900 leading-tight pb-6 font-serif",
                             headingClass
                         )}>
                             {heading}

@@ -242,7 +242,7 @@ export interface Page {
         | {
             heading: string;
             stats: {
-              icon: 'coins' | 'graduation' | 'clock';
+              icon: 'coins' | 'graduation' | 'clock' | 'land-plot';
               value: number;
               label: string;
               id?: string | null;
@@ -295,7 +295,7 @@ export interface Page {
             blockType: 'summer';
           }
         | {
-            heading: string;
+            heading?: string | null;
             text: {
               root: {
                 type: string;

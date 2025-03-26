@@ -21,7 +21,8 @@ export const StatsBlock: Block = {
                     options: [
                         { label: 'Coins', value: 'coins' },
                         { label: 'Graduation Cap', value: 'graduation' },
-                        { label: 'Clock', value: 'clock' }
+                        { label: 'Clock', value: 'clock' },
+                        { label: "Land Plot", value: "land-plot"}
                     ]
                 },
                 {
