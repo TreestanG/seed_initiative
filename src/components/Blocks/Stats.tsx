@@ -10,7 +10,7 @@ export default function Stats({ res }: { res: StatsSection }) {
     const { heading, stats, description } = res;
 
     return (
-        <section className="w-full py-12 md:py-16">
+        <section className="w-full py-8 md:py-12">
             <div className="container mx-auto px-4 md:px-6 space-y-8">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center w-full leading-tight">
                     {heading}
@@ -18,7 +18,7 @@ export default function Stats({ res }: { res: StatsSection }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {stats.map((stat, index) => (
-                        <div key={index} className="flex flex-col items-center p-6 rounded-lg bg-white shadow-md border border-slate-100">
+                        <div key={index} className="flex flex-col items-center p-6 bg-white shadow-md border border-slate-100">
                             <div className="p-4 mb-4 rounded-full bg-brand-50">
                                 {stat.icon === 'coins' && (
                                     <CoinsIcon size={48} strokeWidth={1.5} className="text-brand-600" />

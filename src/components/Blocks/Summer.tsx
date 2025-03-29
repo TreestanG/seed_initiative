@@ -16,7 +16,7 @@ export default function Summer({ res }: { res: SummerSection }) {
                     {achievements.map((achievement, index) => {
                         const img = (achievement.image as Media)
                         return (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div key={index} className="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                                 {img && 
                                     <div className="w-full h-64 md:h-72 relative">
                                         <Image

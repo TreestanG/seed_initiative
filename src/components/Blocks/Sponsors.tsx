@@ -39,7 +39,7 @@ export default async function Sponsors({
                                 <Link 
                                     key={index} 
                                     href={href}
-                                    className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex items-center justify-center w-full h-full"
+                                    className="bg-white p-4 shadow-sm hover:shadow-md transition-shadow duration-300 flex items-center justify-center w-full h-full"
                                     target="_blank"
                                 >
                                     <Image 

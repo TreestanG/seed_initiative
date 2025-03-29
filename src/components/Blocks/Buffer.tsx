@@ -1,4 +1,3 @@
-
 import { Page } from "@/payload-types";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
@@ -14,7 +13,9 @@ export default async function Buffer({
     const { height } = res
 
     return (
-            <section style={{ height: `${height}rem` }}></section>
+        <section>
+            <div className="container mx-auto px-4 md:px-6" style={{ height: `${height}rem` }}></div>
+        </section>
     )
 
 }
