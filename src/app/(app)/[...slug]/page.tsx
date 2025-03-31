@@ -23,11 +23,11 @@ import Timeline from "@/components/Blocks/Timeline";
 import Testimonials from "@/components/Blocks/Testimonials";
 import PastWorkShowcase from "@/components/Blocks/PastWorkShowcase";
 import ProgramDetails from "@/components/Blocks/ProgramDetails";
-interface PageProps {
-    params: {
-        slug: string[];
-    };
-}
+
+type PageParams = {
+    params: Promise<{ slug: string[] }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 // Extend the Page type to include meta properties
 interface PageWithMeta extends Page {
@@ -43,11 +43,12 @@ interface PageWithMeta extends Page {
 }
 
 // Generate dynamic metadata for each page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const slugArray = (await params).slug || ['home'];
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+    const awaitedParams = await params;
+    const slugArray = awaitedParams.slug || ['home'];
     const slugPath = slugArray.join('/');
     const slugValue = slugArray.length === 0 ? 'home' : slugPath;
-    
+
     try {
         const payload = await getPayload({ config });
         const res = await payload.find({
@@ -59,25 +60,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 }
             }
         });
-        
+
         const page = res.docs[0] as PageWithMeta;
-        
+
         if (!page) {
             return {
                 title: 'Page Not Found | Seed Initiative',
                 description: 'The requested page could not be found.'
             };
         }
-        
+
         // Get the base URL from environment variables
         const baseUrl = process.env.NODE_ENV === 'production'
             ? process.env.URL!
             : 'http://localhost:3000';
-        
+
         const pageTitle = page.meta?.title || page.title || page.name || '';
         const formattedTitle = pageTitle ? `${pageTitle} | Seed Initiative` : 'Seed Initiative';
         const pageUrl = slugValue === 'home' ? baseUrl : `${baseUrl}/${slugPath}`;
-        
+
         return {
             title: formattedTitle,
             description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
@@ -122,8 +123,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 }
 
-export default async function Page({ params }: PageProps) {
-    const slugArray = (await params).slug || ['home'];
+export default async function Page({ params }: PageParams) {
+    const awaitedParams = await params;
+    const slugArray = awaitedParams.slug || ['home'];
     const slugPath = slugArray instanceof Array ? slugArray.join('/') : slugArray;
     const slugValue = slugArray.length === 0 ? 'home' : slugPath;
 
@@ -146,15 +148,15 @@ export default async function Page({ params }: PageProps) {
     }
 
     const blocks = page?.sections || []
-    
+
     // Get the base URL from environment variables
     const baseUrl = process.env.NODE_ENV === 'production'
         ? process.env.URL!
         : 'http://localhost:3000';
-    
+
     // Create page title to avoid repetition
     const pageTitle = page.meta?.title || page.title || page.name || slugPath;
-    
+
     // Create breadcrumb items
     const breadcrumbItems = [
         {
@@ -162,7 +164,7 @@ export default async function Page({ params }: PageProps) {
             item: baseUrl,
         }
     ];
-    
+
     // Handle nested breadcrumbs if nested path
     if (slugValue !== 'home') {
         // For nested paths, create intermediate breadcrumbs
@@ -170,12 +172,12 @@ export default async function Page({ params }: PageProps) {
             let currentPath = '';
             for (let i = 0; i < slugArray.length; i++) {
                 currentPath += (i === 0 ? '' : '/') + slugArray[i];
-                
+
                 // For the last item, use the page title
-                const name = i === slugArray.length - 1 
+                const name = i === slugArray.length - 1
                     ? pageTitle
                     : slugArray[i].charAt(0).toUpperCase() + slugArray[i].slice(1);
-                
+
                 breadcrumbItems.push({
                     name,
                     item: `${baseUrl}/${currentPath}`,
@@ -193,7 +195,7 @@ export default async function Page({ params }: PageProps) {
     return (
         <Fragment>
             <RefreshRouteOnSave />
-            
+
             {/* Add structured data */}
             <WebPageStructuredData
                 name={pageTitle}
@@ -203,9 +205,9 @@ export default async function Page({ params }: PageProps) {
                 datePublished={page.createdAt}
                 dateModified={page.updatedAt || page.createdAt}
             />
-            
+
             <BreadcrumbStructuredData items={breadcrumbItems} />
-            
+
             {blocks.map((block, index) => {
                 switch (block.blockType) {
                     case 'hero':
@@ -250,7 +252,6 @@ export default async function Page({ params }: PageProps) {
     )
 }
 
-export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 
 // Generate static paths at build time
@@ -259,18 +260,27 @@ export async function generateStaticParams() {
         const payload = await getPayload({ config })
         const pages = await payload.find({
             collection: 'pages',
-            limit: 100
+            limit: 100,
+            // Ensure we don't fetch the 'home' page slug
+            where: {
+                slug: {
+                    not_equals: 'home'
+                }
+            }
         })
 
-        return pages.docs.map((page) => {
-            // Handle both simple and nested slugs
-            const slugPath = page.slug === 'home' ? [] : page.slug.split('/');
-            return {
-                slug: slugPath,
-            };
-        })
+        return pages.docs
+            // Filter again just in case the query wasn't precise enough or if 'home' might still slip through
+            .filter(page => page.slug && page.slug !== 'home') 
+            .map((page) => {
+                // Handle both simple and nested slugs
+                const slugPath = page.slug.split('/');
+                return {
+                    slug: slugPath,
+                };
+            })
     } catch (error) {
-        console.error('Error generating paths:', error)
+        console.error('Error generating non-home paths:', error)
         return []
     }
 }
