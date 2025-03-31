@@ -15,16 +15,16 @@ export default async function Features({
 }) {
     if(!res) return null
 
-    const { heading, subheading, image, text, cta, headingClass, textClass, style } = res
+    const { heading, subheading, image, text, cta, headingClass, textClass, style, imageClass } = res
     const img = (image as Media)
     
     const isContentRight = style === 'right'
 
     return (
-        <section className="w-full py-8 md:py-12">
+        <section className="w-full py-12 md:py-16 lg:py-20">
             <div className="container mx-auto px-4">
                 <div className={cn(
-                    "grid gap-8 lg:gap-16 items-center",
+                    "grid gap-10 lg:gap-16 items-center",
                     "grid-cols-1 lg:grid-cols-2"
                 )}>
                     <div className={cn(
@@ -36,31 +36,34 @@ export default async function Features({
                                 src={img.url!} 
                                 alt={img.alt!} 
                                 fill
-                                className="object-contain rounded-lg"
+                                className={cn(
+                                    "object-contain rounded-lg",
+                                    imageClass
+                                )}
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         )}
                     </div>
 
                     <div className={cn(
-                        "flex flex-col",
+                        "flex flex-col space-y-4",
                         isContentRight ? "lg:order-2" : "lg:order-1"
                     )}>
                         {subheading && (
-                            <p className="text-brand-600 font-semibold text-lg tracking-wide uppercase ">
+                            <p className="text-brand-600 font-semibold text-lg tracking-wide uppercase mb-1">
                                 {subheading}
                             </p>
                         )}
 
                         <h3 className={cn(
-                            "text-3xl lg:text-4xl font-bold text-gray-900 leading-tight pb-6 font-serif",
+                            "text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-serif",
                             headingClass
                         )}>
                             {heading}
                         </h3>
 
                         {text && (
-                            <div className="prose prose-lg max-w-none">
+                            <div className="prose prose-lg max-w-none pt-2">
                                 <RichText 
                                     content={text} 
                                     className={cn(
@@ -72,7 +75,7 @@ export default async function Features({
                         )}
 
                         {(cta?.link && cta?.label) && (
-                            <div className="pt-4">
+                            <div className="pt-6">
                                 <Link href={cta.link}>
                                     {cta.button ? (
                                         <button className={cn(

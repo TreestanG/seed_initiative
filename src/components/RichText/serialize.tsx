@@ -105,7 +105,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
                     case 'list': {
                         const Tag = node?.tag
                         return (
-                            <Tag className="list col-start-2" key={index}>
+                            <Tag className={`list col-start-2 ${node?.tag === 'ul' ? 'list-disc' : 'list-decimal'} pl-6`} key={index}>
                                 {serializedChildren}
                             </Tag>
                         )

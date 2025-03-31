@@ -15,9 +15,9 @@ export default function Team({ res }: { res: TeamSection }) {
     const { founders, officers, teachers } = res
 
     return (
-        <section className="w-full py-12 md:py-16">
-            <div className="container mx-auto px-4 md:px-6 space-y-8">
-                <div className="space-y-6">
+        <section className="w-full py-14 md:py-18 lg:py-24">
+            <div className="container mx-auto px-4 md:px-6 space-y-14 md:space-y-20">
+                <div className="space-y-8">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Founders</h2>
                     <div className="responsive-grid">
                         {founders.map((founder) => {
@@ -34,7 +34,7 @@ export default function Team({ res }: { res: TeamSection }) {
                     </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Officers</h2>
                     <div className="responsive-grid">
                         {officers.map((officer) => {
@@ -51,7 +51,7 @@ export default function Team({ res }: { res: TeamSection }) {
                     </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">Teachers</h2>
                     <div className="responsive-grid">
                         {teachers.map((teacher) => {

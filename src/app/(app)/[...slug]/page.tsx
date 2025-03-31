@@ -19,9 +19,13 @@ import type { Page } from "@/payload-types";
 import ImageComponent from "@/components/Blocks/Image";
 import GetInvolved from "@/components/Blocks/GetInvolved";
 import Buffer from "@/components/Blocks/Buffer";
+import Timeline from "@/components/Blocks/Timeline";
+import Testimonials from "@/components/Blocks/Testimonials";
+import PastWorkShowcase from "@/components/Blocks/PastWorkShowcase";
+import ProgramDetails from "@/components/Blocks/ProgramDetails";
 interface PageProps {
     params: {
-        slug: string;
+        slug: string[];
     };
 }
 
@@ -40,7 +44,9 @@ interface PageWithMeta extends Page {
 
 // Generate dynamic metadata for each page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = await params;
+    const slugArray = (await params).slug || ['home'];
+    const slugPath = slugArray.join('/');
+    const slugValue = slugArray.length === 0 ? 'home' : slugPath;
     
     try {
         const payload = await getPayload({ config });
@@ -49,7 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             depth: 1,
             where: {
                 slug: {
-                    equals: slug || 'home'
+                    equals: slugValue
                 }
             }
         });
@@ -70,6 +76,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         
         const pageTitle = page.meta?.title || page.title || page.name || '';
         const formattedTitle = pageTitle ? `${pageTitle} | Seed Initiative` : 'Seed Initiative';
+        const pageUrl = slugValue === 'home' ? baseUrl : `${baseUrl}/${slugPath}`;
         
         return {
             title: formattedTitle,
@@ -77,7 +84,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             openGraph: {
                 title: formattedTitle,
                 description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
-                url: `${baseUrl}/${slug}`,
+                url: pageUrl,
                 siteName: "Seed Initiative",
                 images: page.meta?.image ? [
                     {
@@ -103,7 +110,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
                 images: page.meta?.image ? [page.meta.image.url] : ['/ogbanner.png'],
             },
             alternates: {
-                canonical: `${baseUrl}/${slug}`,
+                canonical: pageUrl,
             }
         };
     } catch (error) {
@@ -116,7 +123,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function Page({ params }: PageProps) {
-    const { slug } = await params;
+    const slugArray = (await params).slug || ['home'];
+    const slugPath = slugArray instanceof Array ? slugArray.join('/') : slugArray;
+    const slugValue = slugArray.length === 0 ? 'home' : slugPath;
 
     const payload = await getPayload({ config })
     const res = await payload.find({
@@ -124,7 +133,7 @@ export default async function Page({ params }: PageProps) {
         depth: 2,
         where: {
             slug: {
-                equals: slug || 'home'
+                equals: slugValue
             }
         },
         draft: true
@@ -144,7 +153,7 @@ export default async function Page({ params }: PageProps) {
         : 'http://localhost:3000';
     
     // Create page title to avoid repetition
-    const pageTitle = page.meta?.title || page.title || page.name || slug;
+    const pageTitle = page.meta?.title || page.title || page.name || slugPath;
     
     // Create breadcrumb items
     const breadcrumbItems = [
@@ -154,12 +163,31 @@ export default async function Page({ params }: PageProps) {
         }
     ];
     
-    // Add current page to breadcrumbs if not home
-    if (slug !== 'home') {
-        breadcrumbItems.push({
-            name: pageTitle,
-            item: `${baseUrl}/${slug}`,
-        });
+    // Handle nested breadcrumbs if nested path
+    if (slugValue !== 'home') {
+        // For nested paths, create intermediate breadcrumbs
+        if (slugArray.length > 1) {
+            let currentPath = '';
+            for (let i = 0; i < slugArray.length; i++) {
+                currentPath += (i === 0 ? '' : '/') + slugArray[i];
+                
+                // For the last item, use the page title
+                const name = i === slugArray.length - 1 
+                    ? pageTitle
+                    : slugArray[i].charAt(0).toUpperCase() + slugArray[i].slice(1);
+                
+                breadcrumbItems.push({
+                    name,
+                    item: `${baseUrl}/${currentPath}`,
+                });
+            }
+        } else {
+            // Single level breadcrumb
+            breadcrumbItems.push({
+                name: pageTitle,
+                item: `${baseUrl}/${slugPath}`,
+            });
+        }
     }
 
     return (
@@ -170,7 +198,7 @@ export default async function Page({ params }: PageProps) {
             <WebPageStructuredData
                 name={pageTitle}
                 description={page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions."}
-                url={`${baseUrl}/${slug === 'home' ? '' : slug}`}
+                url={`${baseUrl}/${slugValue === 'home' ? '' : slugPath}`}
                 image={page.meta?.image?.url || `${baseUrl}/ogbanner.png`}
                 datePublished={page.createdAt}
                 dateModified={page.updatedAt || page.createdAt}
@@ -206,6 +234,14 @@ export default async function Page({ params }: PageProps) {
                         return <GetInvolved key={index} res={block} />
                     case 'buffer':
                         return <Buffer key={index} res={block} />
+                    case 'pastWorkShowcase':
+                        return <PastWorkShowcase key={index} res={block} />
+                    case 'timeline':
+                        return <Timeline key={index} res={block} />
+                    case 'testimonials':
+                        return <Testimonials key={index} res={block} />
+                    case 'programDetails':
+                        return <ProgramDetails key={index} res={block} />
                     default:
                         return null
                 }
@@ -214,7 +250,7 @@ export default async function Page({ params }: PageProps) {
     )
 }
 
-export const dyanmic = 'force-dynamic'
+export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 
 // Generate static paths at build time
@@ -226,9 +262,13 @@ export async function generateStaticParams() {
             limit: 100
         })
 
-        return pages.docs.map((page) => ({
-            slug: page.slug,
-        }))
+        return pages.docs.map((page) => {
+            // Handle both simple and nested slugs
+            const slugPath = page.slug === 'home' ? [] : page.slug.split('/');
+            return {
+                slug: slugPath,
+            };
+        })
     } catch (error) {
         console.error('Error generating paths:', error)
         return []

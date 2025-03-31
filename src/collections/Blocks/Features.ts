@@ -25,7 +25,8 @@ export const FeaturesBlock: Block = {
             label: 'advanced', type: 'collapsible', fields: [
                 { name: "headingClass", type: "text" },
                 { name: "textClass", type: "text" },
-                { name: "buttonClass", type: "text" }
+                { name: "buttonClass", type: "text" },
+                { name: "imageClass", type: "text" }
             ]
         }
     ],

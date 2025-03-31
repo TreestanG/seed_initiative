@@ -24,10 +24,10 @@ export const CTAContactBlock: Block = {
             defaultValue: 'Contact Us'
         },
         {
-            name: 'email',
+            name: 'link',
             type: 'text',
             required: true,
-            defaultValue: 'sucseedinitiative@gmail.com'
+            defaultValue: 'mailto:sucseedinitiative@gmail.com'
         }
     ]
 }

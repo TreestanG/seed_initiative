@@ -13,6 +13,11 @@ import { revalidatePage } from './hooks/revalidatePage'
 import { ImageBlock } from './Blocks/Image'
 import { GetInvolvedBlock } from './Blocks/GetInvolved'
 import { BufferBlock } from './Blocks/Buffer'
+import { PastWorkShowcaseBlock } from './Blocks/PastWorkShowcase'
+import { TimelineBlock } from './Blocks/Timeline'
+import { TestimonialsBlock } from './Blocks/Testimonials'
+import { ProgramDetailsBlock } from './Blocks/ProgramDetails'
+
 export const Pages: CollectionConfig = {
     slug: 'pages',
     labels: {
@@ -56,7 +61,11 @@ export const Pages: CollectionConfig = {
                 DonateBlock,
                 ImageBlock,
                 GetInvolvedBlock,
-                BufferBlock
+                BufferBlock,
+                PastWorkShowcaseBlock,
+                TimelineBlock,
+                TestimonialsBlock,
+                ProgramDetailsBlock
             ],
         }
     ],
