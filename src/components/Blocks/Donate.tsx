@@ -1,10 +1,9 @@
 'use client'
 
 // src/components/Blocks/Donate.tsx
-import Image from 'next/image'
 import Link from 'next/link'
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Media, Page } from "@/payload-types";
+import { Page } from "@/payload-types";
 import { ArrowRight } from "lucide-react";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
@@ -13,10 +12,9 @@ type DonateSection = Extract<SectionsType, { blockType: "donate" }>
 export default function Donate({ res }: {
     res: DonateSection
 }) {
-    const { heading, content, arrowImage, donateButton } = res
+    const { heading, content, donateButton } = res
 
     const isMobile = useIsMobile()
-    const img = (arrowImage as Media)
 
     return (
         <section className="w-full py-12 md:py-16">

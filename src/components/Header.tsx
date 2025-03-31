@@ -61,12 +61,15 @@ export default function Header({
 
         document.addEventListener("mousedown", handleClickOutside);
 
+        // Capture the current timeout references to use in cleanup
+        const currentTimeouts = { ...hoverTimeoutRef.current };
+
         return () => {
             window.removeEventListener('scroll', handleScroll)
             document.removeEventListener("mousedown", handleClickOutside);
 
-            // Clear any remaining timeouts
-            Object.values(hoverTimeoutRef.current).forEach(timeout => {
+            // Clear any remaining timeouts using the captured reference
+            Object.values(currentTimeouts).forEach(timeout => {
                 if (timeout) clearTimeout(timeout);
             });
         }
