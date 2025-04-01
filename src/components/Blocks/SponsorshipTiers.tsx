@@ -90,7 +90,7 @@ export default function SponsorshipTiers({ res }: { res: SponsorshipTiersSection
                 </div>
                 
                 <div className="mt-8 text-center text-stone-600 text-sm">
-                    <p>Your support helps us achieve our mission and create sustainable impact.</p>
+                    <p>Have any questions? Send an email to <a href="mailto:sucseedinitiative@gmail.com" className="text-brand-600 hover:text-brand-700 transition duration-200">sucseedinitiative@gmail.com</a></p>
                 </div>
             </div>
         </section>
