@@ -23,7 +23,7 @@ import Timeline from "@/components/Blocks/Timeline";
 import Testimonials from "@/components/Blocks/Testimonials";
 import PastWorkShowcase from "@/components/Blocks/PastWorkShowcase";
 import ProgramDetails from "@/components/Blocks/ProgramDetails";
-
+import SponsorshipTiers from "@/components/Blocks/SponsorshipTiers";
 // Type definition specific to this page (not using PageParams from slug)
 interface PageWithMeta extends Page {
     name?: string;
@@ -202,6 +202,8 @@ export default async function HomePage() {
                         return <Testimonials key={index} res={block} />
                     case 'programDetails':
                         return <ProgramDetails key={index} res={block} />
+                    case 'sponsorshipTiers':
+                        return <SponsorshipTiers key={index} res={block} />
                     default:
                         return null
                 }

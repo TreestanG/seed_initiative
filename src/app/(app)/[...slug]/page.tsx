@@ -23,7 +23,7 @@ import Timeline from "@/components/Blocks/Timeline";
 import Testimonials from "@/components/Blocks/Testimonials";
 import PastWorkShowcase from "@/components/Blocks/PastWorkShowcase";
 import ProgramDetails from "@/components/Blocks/ProgramDetails";
-
+import SponsorshipTiers from "@/components/Blocks/SponsorshipTiers";
 type PageParams = {
     params: Promise<{ slug: string[] }>;
     searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -244,6 +244,8 @@ export default async function Page({ params }: PageParams) {
                         return <Testimonials key={index} res={block} />
                     case 'programDetails':
                         return <ProgramDetails key={index} res={block} />
+                    case 'sponsorshipTiers':
+                        return <SponsorshipTiers key={index} res={block} />
                     default:
                         return null
                 }

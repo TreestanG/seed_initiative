@@ -618,6 +618,32 @@ export interface Page {
             blockName?: string | null;
             blockType: 'programDetails';
           }
+        | {
+            heading: string;
+            subheading?: string | null;
+            tiers: {
+              /**
+               * e.g., Bronze, Silver, Gold
+               */
+              name: string;
+              /**
+               * e.g., $500, $1000/year, Contact Us
+               */
+              price: string;
+              description?: string | null;
+              perks?:
+                | {
+                    perkDescription: string;
+                    included?: boolean | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sponsorshipTiers';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -1030,6 +1056,29 @@ export interface PagesSelect<T extends boolean = true> {
               headingClass?: T;
               textClass?: T;
               buttonClass?: T;
+              id?: T;
+              blockName?: T;
+            };
+        sponsorshipTiers?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              tiers?:
+                | T
+                | {
+                    name?: T;
+                    price?: T;
+                    description?: T;
+                    perks?:
+                      | T
+                      | {
+                          perkDescription?: T;
+                          included?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

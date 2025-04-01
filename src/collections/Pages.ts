@@ -17,6 +17,7 @@ import { PastWorkShowcaseBlock } from './Blocks/PastWorkShowcase'
 import { TimelineBlock } from './Blocks/Timeline'
 import { TestimonialsBlock } from './Blocks/Testimonials'
 import { ProgramDetailsBlock } from './Blocks/ProgramDetails'
+import { SponsorshipTiersBlock } from './Blocks/SponsorshipTiers'
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -65,7 +66,8 @@ export const Pages: CollectionConfig = {
                 PastWorkShowcaseBlock,
                 TimelineBlock,
                 TestimonialsBlock,
-                ProgramDetailsBlock
+                ProgramDetailsBlock,
+                SponsorshipTiersBlock
             ],
         }
     ],
