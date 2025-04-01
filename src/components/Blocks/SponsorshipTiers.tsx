@@ -4,8 +4,6 @@ import { Check, X, Info } from 'lucide-react';
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type SponsorshipTiersSection = Extract<SectionsType, { blockType: "sponsorshipTiers" }>;
-type Tier = SponsorshipTiersSection['tiers'][number];
-type Perk = NonNullable<Tier['perks']>[number];
 
 interface UniquePerk {
     description: string;
@@ -19,9 +17,8 @@ const getAllUniquePerks = (tiers: SponsorshipTiersSection['tiers'] = []): Unique
         tier.perks?.forEach(perk => {
             if (perk.perkDescription) {
                 // If perk already exists, only update tooltip if the current one has it and the stored one doesn't
-                // Use type assertion `as any` as a temporary workaround until types are regenerated
-                if (!allPerksMap.has(perk.perkDescription) || ((perk as any).tooltip && !allPerksMap.get(perk.perkDescription)?.tooltip)) {
-                    allPerksMap.set(perk.perkDescription, { description: perk.perkDescription, tooltip: (perk as any).tooltip });
+                if (!allPerksMap.has(perk.perkDescription) || (perk.tooltip && !allPerksMap.get(perk.perkDescription)?.tooltip)) {
+                    allPerksMap.set(perk.perkDescription, { description: perk.perkDescription, tooltip: perk.tooltip });
                 }
             }
         });
