@@ -1,10 +1,10 @@
 'use client'
 
 // src/components/Blocks/Donate.tsx
-import Image from 'next/image'
 import Link from 'next/link'
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Media, Page } from "@/payload-types";
+import { Page } from "@/payload-types";
+import { ArrowRight } from "lucide-react";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type DonateSection = Extract<SectionsType, { blockType: "donate" }>
@@ -12,45 +12,55 @@ type DonateSection = Extract<SectionsType, { blockType: "donate" }>
 export default function Donate({ res }: {
     res: DonateSection
 }) {
-    const { heading, content, arrowImage, donateButton } = res
+    const { heading, content, donateButton } = res
 
     const isMobile = useIsMobile()
-    const img = (arrowImage as Media)
 
     return (
-        <section className="mx-auto max-w-(--breakpoint-xl) px-4 lg:px-6 my-24 py-8 bg-indigo-700 rounded-none md:rounded-xl grid lg:grid-cols-2 gap-8">
-            <div className="flex flex-col justify-between">
-                <div>
-                        <h2 className="text-4xl font-bold text-white">{heading}</h2>
-                        <p className="text-lg leading-8 text-white max-w-[40rem] pt-8">
-                            {content}
-                        </p>
+        <section className="w-full py-12 md:py-16">
+            <div className="container mx-auto px-4 md:px-6 relative">
+                <div className="bg-white overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+                    <div className="bg-brand-700 p-8">
+                        <div className="flex flex-col h-full justify-center text-center lg:text-left">
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">{heading}</h2>
+                            <p className="text-base md:text-lg leading-relaxed text-brand-100 max-w-[40rem] pt-6 mx-auto lg:mx-0">
+                                {content}
+                            </p>
+
+                            {isMobile && (
+                                <div className="flex justify-center lg:justify-start mt-8">
+                                    <Link href={donateButton.link} className="inline-flex items-center">
+                                        <button className="px-6 py-3 bg-white text-brand-700 font-medium shadow-sm hover:shadow-md transition-all duration-300 flex items-center">
+                                            <span>{donateButton.text}</span>
+                                            <ArrowRight className="w-4 h-4 ml-2" />
+                                        </button>
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                    <div className="relative h-full mt-8">
-                        {img && <Image
-                            src={img.url!}
-                            alt="donate"
-                            className="object-contain"
-                            width={600}
-                            height={600}
-                        />}
-                    </div>
+
+                    {!isMobile && (
+                        <div className="h-full w-full">
+                            <iframe
+                                src='https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative'
+                                className="border-none w-full h-[600px]"
+                                name="donateFrame"
+                                style={{
+                                    height: 'calc(100% - 2px)',
+                                    maxHeight: '600px'
+                                }}
+                            />
+                        </div>
+                    )}
                 </div>
 
-                {isMobile ? (
-                    <Link href={`mailto:${donateButton.email}`} className="self-stretch">
-                        <button className="px-8 py-4 bg-byellow text-white rounded-xl hover:bg-white hover:text-indigo-700 mt-8">
-                            {donateButton.text}
-                        </button>
-                    </Link>
-                ) : (
-                    <iframe
-                        src='https://hcb.hackclub.com/donations/start/seed-science-engagement-and-educational-development-initiative'
-                        className="border-none rounded-xl justify-self-stretch h-[40rem]"
-                        name="donateFrame"
-                        scrolling="yes"
-                    />
-                )}
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 hidden md:block">
+                    <div className="bg-brand-800 text-white px-4 py-2 text-sm font-medium shadow-sm text-center">
+                        Your donation makes a difference
+                    </div>
+                </div>
+            </div>
         </section>
     )
 } 

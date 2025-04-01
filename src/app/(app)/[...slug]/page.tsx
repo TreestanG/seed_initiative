@@ -18,11 +18,16 @@ import { WebPageStructuredData, BreadcrumbStructuredData } from "@/components/St
 import type { Page } from "@/payload-types";
 import ImageComponent from "@/components/Blocks/Image";
 import GetInvolved from "@/components/Blocks/GetInvolved";
-interface PageProps {
-    params: {
-        slug: string;
-    };
-}
+import Buffer from "@/components/Blocks/Buffer";
+import Timeline from "@/components/Blocks/Timeline";
+import Testimonials from "@/components/Blocks/Testimonials";
+import PastWorkShowcase from "@/components/Blocks/PastWorkShowcase";
+import ProgramDetails from "@/components/Blocks/ProgramDetails";
+import SponsorshipTiers from "@/components/Blocks/SponsorshipTiers";
+type PageParams = {
+    params: Promise<{ slug: string[] }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 // Extend the Page type to include meta properties
 interface PageWithMeta extends Page {
@@ -38,9 +43,12 @@ interface PageWithMeta extends Page {
 }
 
 // Generate dynamic metadata for each page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = await params;
-    
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+    const awaitedParams = await params;
+    const slugArray = awaitedParams.slug || ['home'];
+    const slugPath = slugArray.join('/');
+    const slugValue = slugArray.length === 0 ? 'home' : slugPath;
+
     try {
         const payload = await getPayload({ config });
         const res = await payload.find({
@@ -48,39 +56,43 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             depth: 1,
             where: {
                 slug: {
-                    equals: slug || 'home'
+                    equals: slugValue
                 }
             }
         });
-        
+
         const page = res.docs[0] as PageWithMeta;
-        
+
         if (!page) {
             return {
                 title: 'Page Not Found | Seed Initiative',
                 description: 'The requested page could not be found.'
             };
         }
-        
+
         // Get the base URL from environment variables
         const baseUrl = process.env.NODE_ENV === 'production'
             ? process.env.URL!
             : 'http://localhost:3000';
-        
+
+        const pageTitle = page.meta?.title || page.title || page.name || '';
+        const formattedTitle = pageTitle ? `${pageTitle} | Seed Initiative` : 'Seed Initiative';
+        const pageUrl = slugValue === 'home' ? baseUrl : `${baseUrl}/${slugPath}`;
+
         return {
-            title: `${page.title || page.name || ''} | Seed Initiative`,
+            title: formattedTitle,
             description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
             openGraph: {
-                title: page.meta?.title || `${page.title || page.name || ''} | Seed Initiative`,
+                title: formattedTitle,
                 description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
-                url: `${baseUrl}/${slug}`,
+                url: pageUrl,
                 siteName: "Seed Initiative",
                 images: page.meta?.image ? [
                     {
                         url: page.meta.image.url || '/ogbanner.png',
                         width: 1200,
                         height: 630,
-                        alt: page.meta.image.alt || `${page.title || page.name || ''} - Seed Initiative`,
+                        alt: page.meta.image.alt || `${pageTitle} - Seed Initiative`,
                     }
                 ] : [
                     {
@@ -94,12 +106,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             },
             twitter: {
                 card: "summary_large_image",
-                title: page.meta?.title || `${page.title || page.name || ''} | Seed Initiative`,
+                title: formattedTitle,
                 description: page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",
                 images: page.meta?.image ? [page.meta.image.url] : ['/ogbanner.png'],
             },
             alternates: {
-                canonical: `${baseUrl}/${slug}`,
+                canonical: pageUrl,
             }
         };
     } catch (error) {
@@ -111,8 +123,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 }
 
-export default async function Page({ params }: PageProps) {
-    const { slug } = await params;
+export default async function Page({ params }: PageParams) {
+    const awaitedParams = await params;
+    const slugArray = awaitedParams.slug || ['home'];
+    const slugPath = slugArray instanceof Array ? slugArray.join('/') : slugArray;
+    const slugValue = slugArray.length === 0 ? 'home' : slugPath;
 
     const payload = await getPayload({ config })
     const res = await payload.find({
@@ -120,7 +135,7 @@ export default async function Page({ params }: PageProps) {
         depth: 2,
         where: {
             slug: {
-                equals: slug || 'home'
+                equals: slugValue
             }
         },
         draft: true
@@ -133,12 +148,15 @@ export default async function Page({ params }: PageProps) {
     }
 
     const blocks = page?.sections || []
-    
+
     // Get the base URL from environment variables
     const baseUrl = process.env.NODE_ENV === 'production'
         ? process.env.URL!
         : 'http://localhost:3000';
-    
+
+    // Create page title to avoid repetition
+    const pageTitle = page.meta?.title || page.title || page.name || slugPath;
+
     // Create breadcrumb items
     const breadcrumbItems = [
         {
@@ -146,31 +164,50 @@ export default async function Page({ params }: PageProps) {
             item: baseUrl,
         }
     ];
-    
-    // Add current page to breadcrumbs if not home
-    if (slug !== 'home') {
-        breadcrumbItems.push({
-            name: page.title || page.name || slug,
-            item: `${baseUrl}/${slug}`,
-        });
+
+    // Handle nested breadcrumbs if nested path
+    if (slugValue !== 'home') {
+        // For nested paths, create intermediate breadcrumbs
+        if (slugArray.length > 1) {
+            let currentPath = '';
+            for (let i = 0; i < slugArray.length; i++) {
+                currentPath += (i === 0 ? '' : '/') + slugArray[i];
+
+                // For the last item, use the page title
+                const name = i === slugArray.length - 1
+                    ? pageTitle
+                    : slugArray[i].charAt(0).toUpperCase() + slugArray[i].slice(1);
+
+                breadcrumbItems.push({
+                    name,
+                    item: `${baseUrl}/${currentPath}`,
+                });
+            }
+        } else {
+            // Single level breadcrumb
+            breadcrumbItems.push({
+                name: pageTitle,
+                item: `${baseUrl}/${slugPath}`,
+            });
+        }
     }
 
     return (
         <Fragment>
             <RefreshRouteOnSave />
-            
+
             {/* Add structured data */}
             <WebPageStructuredData
-                name={page.title || page.name || slug}
+                name={pageTitle}
                 description={page.meta?.description || "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions."}
-                url={`${baseUrl}/${slug === 'home' ? '' : slug}`}
+                url={`${baseUrl}/${slugValue === 'home' ? '' : slugPath}`}
                 image={page.meta?.image?.url || `${baseUrl}/ogbanner.png`}
                 datePublished={page.createdAt}
                 dateModified={page.updatedAt || page.createdAt}
             />
-            
+
             <BreadcrumbStructuredData items={breadcrumbItems} />
-            
+
             {blocks.map((block, index) => {
                 switch (block.blockType) {
                     case 'hero':
@@ -197,6 +234,18 @@ export default async function Page({ params }: PageProps) {
                         return <ImageComponent key={index} res={block} />
                     case 'getInvolved':
                         return <GetInvolved key={index} res={block} />
+                    case 'buffer':
+                        return <Buffer key={index} res={block} />
+                    case 'pastWorkShowcase':
+                        return <PastWorkShowcase key={index} res={block} />
+                    case 'timeline':
+                        return <Timeline key={index} res={block} />
+                    case 'testimonials':
+                        return <Testimonials key={index} res={block} />
+                    case 'programDetails':
+                        return <ProgramDetails key={index} res={block} />
+                    case 'sponsorshipTiers':
+                        return <SponsorshipTiers key={index} res={block} />
                     default:
                         return null
                 }
@@ -205,7 +254,6 @@ export default async function Page({ params }: PageProps) {
     )
 }
 
-export const dyanmic = 'force-dynamic'
 export const dynamicParams = true
 
 // Generate static paths at build time
@@ -214,14 +262,27 @@ export async function generateStaticParams() {
         const payload = await getPayload({ config })
         const pages = await payload.find({
             collection: 'pages',
-            limit: 100
+            limit: 100,
+            // Ensure we don't fetch the 'home' page slug
+            where: {
+                slug: {
+                    not_equals: 'home'
+                }
+            }
         })
 
-        return pages.docs.map((page) => ({
-            slug: page.slug,
-        }))
+        return pages.docs
+            // Filter again just in case the query wasn't precise enough or if 'home' might still slip through
+            .filter(page => page.slug && page.slug !== 'home') 
+            .map((page) => {
+                // Handle both simple and nested slugs
+                const slugPath = page.slug.split('/');
+                return {
+                    slug: slugPath,
+                };
+            })
     } catch (error) {
-        console.error('Error generating paths:', error)
+        console.error('Error generating non-home paths:', error)
         return []
     }
 }

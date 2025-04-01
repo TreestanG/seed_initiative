@@ -8,9 +8,13 @@ export default function Description({ res }: { res: DescriptionSection }) {
     const { heading, text } = res
 
     return (
-            <section className="py-24 flex items-center flex-col">
-                <h2 className="text-4xl font-bold text-center">{heading}</h2>
-                <RichText content={text} className="max-w-[40rem] pt-8 leading-8 text-center" />
-            </section>
+        <section className="w-full py-8 md:py-12">
+            <div className="container mx-auto px-4 flex flex-col items-center">
+                {heading && (
+                    <h2 className="text-3xl md:text-4xl font-bold text-center">{heading}</h2>
+                )}
+                <RichText content={text} className="max-w-[40rem] pt-8 leading-8 text-center text-slate-700" />
+            </div>
+        </section>
     )
 }

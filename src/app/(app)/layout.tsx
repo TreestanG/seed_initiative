@@ -20,7 +20,7 @@ const baseUrl = process.env.NODE_ENV === 'production'
 export const metadata: Metadata = {
   title: {
     default: "Seed Initiative",
-    template: "%s | Seed Initiative"
+    template: "%s"
   },
   metadataBase: new URL(baseUrl),
   description: "Seed Initiative is a 501(c)(3) nonprofit organization created by passionate high schoolers dedicated to providing the resources for students to compete in academic competitions.",

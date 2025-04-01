@@ -16,13 +16,12 @@ export const StatsBlock: Block = {
             fields: [
                 {
                     name: 'icon',
-                    type: 'select',
+                    type: 'text',
                     required: true,
-                    options: [
-                        { label: 'Coins', value: 'coins' },
-                        { label: 'Graduation Cap', value: 'graduation' },
-                        { label: 'Clock', value: 'clock' }
-                    ]
+                    admin: {
+                        description: 'Enter a Lucide icon name (see https://lucide.dev/icons/ for all available icons)',
+                    },
+                    defaultValue: 'coins',
                 },
                 {
                     name: 'value',

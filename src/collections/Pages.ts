@@ -12,6 +12,12 @@ import { DonateBlock } from './Blocks/Donate'
 import { revalidatePage } from './hooks/revalidatePage'
 import { ImageBlock } from './Blocks/Image'
 import { GetInvolvedBlock } from './Blocks/GetInvolved'
+import { BufferBlock } from './Blocks/Buffer'
+import { PastWorkShowcaseBlock } from './Blocks/PastWorkShowcase'
+import { TimelineBlock } from './Blocks/Timeline'
+import { TestimonialsBlock } from './Blocks/Testimonials'
+import { ProgramDetailsBlock } from './Blocks/ProgramDetails'
+import { SponsorshipTiersBlock } from './Blocks/SponsorshipTiers'
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -55,7 +61,13 @@ export const Pages: CollectionConfig = {
                 CTAContactBlock,
                 DonateBlock,
                 ImageBlock,
-                GetInvolvedBlock
+                GetInvolvedBlock,
+                BufferBlock,
+                PastWorkShowcaseBlock,
+                TimelineBlock,
+                TestimonialsBlock,
+                ProgramDetailsBlock,
+                SponsorshipTiersBlock
             ],
         }
     ],

@@ -176,6 +176,7 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
+            heroType?: ('main' | 'sub') | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero';
@@ -198,6 +199,7 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
+            style?: ('left' | 'right') | null;
             cta?: {
               label?: string | null;
               link?: string | null;
@@ -207,6 +209,7 @@ export interface Page {
             headingClass?: string | null;
             textClass?: string | null;
             buttonClass?: string | null;
+            imageClass?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'features';
@@ -240,7 +243,10 @@ export interface Page {
         | {
             heading: string;
             stats: {
-              icon: 'coins' | 'graduation' | 'clock';
+              /**
+               * Enter a Lucide icon name (see https://lucide.dev/icons/ for all available icons)
+               */
+              icon: string;
               value: number;
               label: string;
               id?: string | null;
@@ -293,7 +299,7 @@ export interface Page {
             blockType: 'summer';
           }
         | {
-            heading: string;
+            heading?: string | null;
             text: {
               root: {
                 type: string;
@@ -314,7 +320,6 @@ export interface Page {
             blockType: 'description';
           }
         | {
-            heading: string;
             founders: {
               image?: (number | null) | Media;
               name: string;
@@ -355,7 +360,7 @@ export interface Page {
               [k: string]: unknown;
             };
             buttonText: string;
-            email: string;
+            link: string;
             id?: string | null;
             blockName?: string | null;
             blockType: 'ctaContact';
@@ -366,7 +371,7 @@ export interface Page {
             arrowImage: number | Media;
             donateButton: {
               text: string;
-              email: string;
+              link: string;
             };
             id?: string | null;
             blockName?: string | null;
@@ -395,6 +400,253 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'getInvolved';
+          }
+        | {
+            height: number;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'buffer';
+          }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            layout?: ('grid' | 'list') | null;
+            projects?:
+              | {
+                  title: string;
+                  date: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  featuredImage?: (number | null) | Media;
+                  gallery?:
+                    | {
+                        image: number | Media;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  link?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            cta?: {
+              label?: string | null;
+              link?: string | null;
+              button?: boolean | null;
+            };
+            headingClass?: string | null;
+            textClass?: string | null;
+            itemsPerRow?: ('2' | '3' | '4') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'pastWorkShowcase';
+          }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            events?:
+              | {
+                  title: string;
+                  date: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  image?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            headingClass?: string | null;
+            textClass?: string | null;
+            backgroundColor?: ('light' | 'dark' | 'brand') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'timeline';
+          }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            testimonials?:
+              | {
+                  quote: string;
+                  author: string;
+                  authorTitle?: string | null;
+                  authorImage?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            headingClass?: string | null;
+            textClass?: string | null;
+            backgroundColor?: ('light' | 'dark' | 'brand') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'testimonials';
+          }
+        | {
+            heading?: string | null;
+            subheading?: string | null;
+            overview?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            programs?:
+              | {
+                  programTitle: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  schedule?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  eligibility?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  signupLink?: string | null;
+                  image?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            cta?: {
+              label?: string | null;
+              link?: string | null;
+              button?: boolean | null;
+            };
+            headingClass?: string | null;
+            textClass?: string | null;
+            buttonClass?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'programDetails';
+          }
+        | {
+            heading: string;
+            subheading?: string | null;
+            tiers: {
+              /**
+               * e.g., Bronze, Silver, Gold
+               */
+              name: string;
+              /**
+               * e.g., $500, $1000/year, Contact Us
+               */
+              price: string;
+              description?: string | null;
+              perks?:
+                | {
+                    perkDescription: string;
+                    /**
+                     * Provide additional context that appears on hover.
+                     */
+                    tooltip?: string | null;
+                    included?: boolean | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sponsorshipTiers';
           }
       )[]
     | null;
@@ -519,6 +771,7 @@ export interface PagesSelect<T extends boolean = true> {
                     link?: T;
                     id?: T;
                   };
+              heroType?: T;
               id?: T;
               blockName?: T;
             };
@@ -528,6 +781,7 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               subheading?: T;
               text?: T;
+              style?: T;
               cta?:
                 | T
                 | {
@@ -539,6 +793,7 @@ export interface PagesSelect<T extends boolean = true> {
               headingClass?: T;
               textClass?: T;
               buttonClass?: T;
+              imageClass?: T;
               id?: T;
               blockName?: T;
             };
@@ -616,7 +871,6 @@ export interface PagesSelect<T extends boolean = true> {
         team?:
           | T
           | {
-              heading?: T;
               founders?:
                 | T
                 | {
@@ -650,7 +904,7 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               content?: T;
               buttonText?: T;
-              email?: T;
+              link?: T;
               id?: T;
               blockName?: T;
             };
@@ -664,7 +918,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     text?: T;
-                    email?: T;
+                    link?: T;
                   };
               id?: T;
               blockName?: T;
@@ -690,6 +944,144 @@ export interface PagesSelect<T extends boolean = true> {
                     icon?: T;
                     cardBackground?: T;
                     image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        buffer?:
+          | T
+          | {
+              height?: T;
+              id?: T;
+              blockName?: T;
+            };
+        pastWorkShowcase?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              description?: T;
+              layout?: T;
+              projects?:
+                | T
+                | {
+                    title?: T;
+                    date?: T;
+                    description?: T;
+                    featuredImage?: T;
+                    gallery?:
+                      | T
+                      | {
+                          image?: T;
+                          id?: T;
+                        };
+                    link?: T;
+                    id?: T;
+                  };
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                    button?: T;
+                  };
+              headingClass?: T;
+              textClass?: T;
+              itemsPerRow?: T;
+              id?: T;
+              blockName?: T;
+            };
+        timeline?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              description?: T;
+              events?:
+                | T
+                | {
+                    title?: T;
+                    date?: T;
+                    description?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              headingClass?: T;
+              textClass?: T;
+              backgroundColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        testimonials?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              testimonials?:
+                | T
+                | {
+                    quote?: T;
+                    author?: T;
+                    authorTitle?: T;
+                    authorImage?: T;
+                    id?: T;
+                  };
+              headingClass?: T;
+              textClass?: T;
+              backgroundColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        programDetails?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              overview?: T;
+              programs?:
+                | T
+                | {
+                    programTitle?: T;
+                    description?: T;
+                    schedule?: T;
+                    eligibility?: T;
+                    signupLink?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                    button?: T;
+                  };
+              headingClass?: T;
+              textClass?: T;
+              buttonClass?: T;
+              id?: T;
+              blockName?: T;
+            };
+        sponsorshipTiers?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              tiers?:
+                | T
+                | {
+                    name?: T;
+                    price?: T;
+                    description?: T;
+                    perks?:
+                      | T
+                      | {
+                          perkDescription?: T;
+                          tooltip?: T;
+                          included?: T;
+                          id?: T;
+                        };
                     id?: T;
                   };
               id?: T;
@@ -741,8 +1133,16 @@ export interface Header {
   logo?: (number | null) | Media;
   navLinks?:
     | {
-        label?: string | null;
+        label: string;
+        type?: ('link' | 'dropdown') | null;
         link?: string | null;
+        dropdownItems?:
+          | {
+              label: string;
+              link: string;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -772,7 +1172,15 @@ export interface HeaderSelect<T extends boolean = true> {
     | T
     | {
         label?: T;
+        type?: T;
         link?: T;
+        dropdownItems?:
+          | T
+          | {
+              label?: T;
+              link?: T;
+              id?: T;
+            };
         id?: T;
       };
   updatedAt?: T;

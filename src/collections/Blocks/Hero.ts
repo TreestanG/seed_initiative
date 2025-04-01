@@ -15,6 +15,12 @@ export const HeroBlock: Block = {
                 { name: 'link', type: 'text' },
             ],
             maxRows: 2,
+        },
+        {
+            name: 'heroType',
+            type: 'select',
+            options: ['main', 'sub'],
+            defaultValue: 'sub',
         }
     ],
 }

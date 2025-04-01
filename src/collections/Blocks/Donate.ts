@@ -34,7 +34,7 @@ export const DonateBlock: Block = {
                     defaultValue: 'Donate Now'
                 },
                 {
-                    name: 'email',
+                    name: 'link',
                     type: 'text',
                     required: true,
                 }
