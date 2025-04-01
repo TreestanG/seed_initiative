@@ -634,6 +634,10 @@ export interface Page {
               perks?:
                 | {
                     perkDescription: string;
+                    /**
+                     * Provide additional context that appears on hover.
+                     */
+                    tooltip?: string | null;
                     included?: boolean | null;
                     id?: string | null;
                   }[]
@@ -1074,6 +1078,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           perkDescription?: T;
+                          tooltip?: T;
                           included?: T;
                           id?: T;
                         };

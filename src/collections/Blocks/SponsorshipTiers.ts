@@ -61,6 +61,14 @@ export const SponsorshipTiersBlock: Block = {
                             required: true,
                         },
                         {
+                            name: 'tooltip',
+                            label: 'Tooltip (Optional)',
+                            type: 'text',
+                            admin: {
+                                description: 'Provide additional context that appears on hover.'
+                            }
+                        },
+                        {
                             name: 'included',
                             label: 'Included in this tier?',
                             type: 'checkbox',
