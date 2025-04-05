@@ -97,8 +97,7 @@ export default async function RootLayout({
       <head>
         <Script
           src="https://stats.tristangee.com/js/script.js"
-          data-domain="seedinitiative.net"
-          strategy="beforeInteractive"
+          data-website-id="c68d0dfb-c56d-4595-826d-c64c5d39569c"
         />
         <OrganizationStructuredData
           name="Seed Initiative"
