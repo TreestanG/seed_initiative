@@ -96,7 +96,7 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <Script
-          src="https://stats.tristangee.com/js/script.js"
+          src="https://stats.tristangee.com/script.js"
           data-website-id="c68d0dfb-c56d-4595-826d-c64c5d39569c"
         />
         <OrganizationStructuredData
