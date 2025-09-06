@@ -14,6 +14,6 @@ const nextConfig = {
     experimental: {
         reactCompiler: false
     }
-};
+    };
 
 export default withPayload(nextConfig);
