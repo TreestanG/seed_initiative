@@ -16,29 +16,6 @@ export const DonateBlock: Block = {
             name: 'content',
             type: 'textarea',
             required: true,
-        },
-        {
-            name: 'arrowImage',
-            type: 'upload',
-            relationTo: 'media',
-            required: true,
-        },
-        {
-            name: 'donateButton',
-            type: 'group',
-            fields: [
-                {
-                    name: 'text',
-                    type: 'text',
-                    required: true,
-                    defaultValue: 'Donate Now'
-                },
-                {
-                    name: 'link',
-                    type: 'text',
-                    required: true,
-                }
-            ]
         }
     ]
 }
