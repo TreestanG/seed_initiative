@@ -16,6 +16,7 @@ export default function ImageComponent({ res }: { res: ImageSection }) {
                         alt={img.alt}
                         width={600}
                         height={600}
+                        quality={65}
                         className=" w-full h-full object-contain"
                     />}
                 </div>

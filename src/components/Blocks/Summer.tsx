@@ -23,6 +23,7 @@ export default function Summer({ res }: { res: SummerSection }) {
                                             src={img.url!}
                                             alt={img.alt}
                                             fill
+                                            quality={65}
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                             className="object-cover"
                                         />

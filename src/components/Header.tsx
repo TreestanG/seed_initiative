@@ -122,7 +122,7 @@ export default function Header({
                 <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between w-full items-center">
                     <div className="flex w-full md:w-auto mb-2 md:mb-0">
                         <Link href="/" className={`w-48 md:w-60 relative transition-all duration-300 ${isScrolled ? 'md:w-48' : 'md:w-60'}`}>
-                            <Image src={image!} alt="logo" width={350} height={100} className="w-full h-full object-contain" />
+                            <Image src={image!} alt="logo" width={350} height={100} quality={65} className="w-full h-full object-contain" />
                         </Link>
                     </div>
                     <div className="flex justify-center md:justify-end gap-4 items-center">

@@ -136,6 +136,7 @@ export default async function Timeline({
                                                     src={eventImg.url!} 
                                                     alt={event.title} 
                                                     fill
+                                                    quality={65}
                                                     className="object-cover"
                                                     sizes="(max-width: 768px) 100vw, 50vw"
                                                 />

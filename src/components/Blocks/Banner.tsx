@@ -32,17 +32,18 @@ export default async function Banner({
                         </Link>
                     )}
                 </div>
-                {img && (
-                    <div className="md:w-2/5 flex justify-center md:justify-end">
-                        <Image 
-                            src={img.url!} 
-                            width={300} 
-                            height={300} 
-                            alt={img.alt} 
-                            className="object-contain"
-                        />
-                    </div>
-                )}
+                    {img && (
+                        <div className="md:w-2/5 flex justify-center md:justify-end">
+                            <Image 
+                                src={img.url!} 
+                                width={300} 
+                                height={300} 
+                                alt={img.alt} 
+                                quality={65}
+                                className="object-contain"
+                            />
+                        </div>
+                    )}
             </div>
         </section>
     )

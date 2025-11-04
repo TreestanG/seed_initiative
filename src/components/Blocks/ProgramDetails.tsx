@@ -66,6 +66,7 @@ export default async function ProgramDetails({
                                                     src={img.url!} 
                                                     alt={program.programTitle} 
                                                     fill
+                                                    quality={65}
                                                     className="object-cover"
                                                     sizes="(max-width: 768px) 100vw, 40vw"
                                                 />

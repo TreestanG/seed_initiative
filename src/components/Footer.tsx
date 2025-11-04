@@ -42,6 +42,7 @@ export default function Footer({
                                     alt="Seed Initiative" 
                                     width={180} 
                                     height={120} 
+                                    quality={65}
                                     className="mb-4"
                                 />
                             </Link>

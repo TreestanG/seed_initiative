@@ -47,6 +47,7 @@ export default async function Sponsors({
                                         alt={image.alt} 
                                         width={180} 
                                         height={120} 
+                                        quality={65}
                                         className="object-contain max-h-24"
                                     />
                                 </Link>

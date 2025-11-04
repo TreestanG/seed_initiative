@@ -76,6 +76,7 @@ export default async function Testimonials({
                                                         src={authorImg.url!} 
                                                         alt={testimonial.author}
                                                         fill
+                                                        quality={65}
                                                         className="object-cover"
                                                     />
                                                 </div>

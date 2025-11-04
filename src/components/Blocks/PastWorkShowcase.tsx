@@ -81,6 +81,7 @@ export default async function PastWorkShowcase({
                                                         src={featuredImg.url!} 
                                                         alt={project.title} 
                                                         fill
+                                                        quality={65}
                                                         className="object-cover"
                                                         sizes="(max-width: 768px) 100vw, 33vw"
                                                     />
@@ -129,6 +130,7 @@ export default async function PastWorkShowcase({
                                                             src={featuredImg.url!} 
                                                             alt={project.title} 
                                                             fill
+                                                            quality={65}
                                                             className="object-cover"
                                                             sizes="(max-width: 768px) 100vw, 33vw"
                                                         />

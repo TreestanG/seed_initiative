@@ -36,6 +36,7 @@ export default async function Features({
                                 src={img.url!} 
                                 alt={img.alt!} 
                                 fill
+                                quality={65}
                                 className={cn(
                                     "object-contain rounded-lg",
                                     imageClass
