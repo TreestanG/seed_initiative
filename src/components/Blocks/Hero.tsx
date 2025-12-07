@@ -1,7 +1,7 @@
 import { Page } from "@/payload-types";
 import Link from "next/link";
 import { Media } from '@/payload-types'
-import { ChevronRight } from "lucide-react";
+// import { ChevronRight } from "lucide-react";
 
 type SectionsType = NonNullable<Page["sections"]>[number];
 type HeroSection = Extract<SectionsType, { blockType: "hero" }>;
@@ -73,11 +73,11 @@ export default function Hero({
                     bg-white md:rounded-lg shadow-md p-8 md:p-10 max-w-2xl translate-y-60 z-10
                     w-full
                 `}>
-                    <Link href="/programs/2025-summer" className="px-4 py-2 border-2 border-brand-600 group transition-all duration-300 hover:bg-brand-50 hover:text-brand-600 rounded-lg flex items-center gap-2 mb-8">
+                    {/* <Link href="/" className="px-4 py-2 border-2 border-brand-600 group transition-all duration-300 hover:bg-brand-50 hover:text-brand-600 rounded-lg flex items-center gap-2 mb-8">
                         <p className="text-brand-600 font-bold text-sm uppercase">new</p>
                         <p className="font-medium">Our 2025 Program is here! Click to learn more </p>
                         <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-all duration-300 text-black" />
-                    </Link>
+                    </Link> */}
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center md:text-left leading-tight">
                         {heading}
                     </h1>

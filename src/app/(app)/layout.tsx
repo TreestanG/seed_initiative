@@ -97,7 +97,7 @@ export default async function RootLayout({
       <head>
         <Script
           src="https://stats.tristangee.com/script.js"
-          data-website-id="c68d0dfb-c56d-4595-826d-c64c5d39569c"
+          data-website-id="080ca243-dac4-48b6-9dae-2e8c2c173728"
         />
         <OrganizationStructuredData
           name="Seed Initiative"
