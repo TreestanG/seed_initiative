@@ -15,7 +15,7 @@ export function HomePage() {
 			<Hero
 				title="Empowering the Next Generation of STEM Leaders"
 				body="Seed Initiative helps middle school students thrive in STEM competitions through classes, workshops, and financial support."
-				image="/media/hero-1.jpg"
+				image="/media/hero-1.webp"
 				actions={[
 					{ label: "Get Involved", href: "/get-involved" },
 					{ label: "Donate Now", href: site.links.donation, external: true },
