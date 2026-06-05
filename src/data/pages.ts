@@ -7,7 +7,6 @@ import {
 	Waypoints,
 } from "lucide-react";
 import type {
-	Feature,
 	PageMeta,
 	Person,
 	SponsorshipBenefit,
@@ -18,7 +17,6 @@ import type {
 	TimelineItem,
 	WorkItem,
 } from "@/types/content";
-import { site } from "./site";
 
 export const pageMeta: Record<string, PageMeta> = {
 	home: {
@@ -111,38 +109,6 @@ export const aboutStats: Stat[] = [
 			"Student-led chapters in the Bay Area, each one started by a high-schooler who wanted to bring Science Bowl to their middle school.",
 		value: "3+",
 		Icon: Waypoints,
-	},
-];
-
-export const homeFeatures: Feature[] = [
-	{
-		eyebrow: "Free Online Program — Spring 2026",
-		title: "Announcing 2026 spring program",
-		body: "Ignite your curiosity this school year! Join us for a free, engaging online program designed to boost your Science Bowl knowledge, sharpen your skills, and connect with fellow science enthusiasts. Perfect for aspiring competitors entering 6th, 7th or 8th grade, this program will cover key topics in a fun, interactive format — at no cost to families.",
-		image: {
-			src: "/media/new-feature.webp",
-			alt: "Seed Initiative students working through STEM lessons",
-		},
-		imageFit: "contain",
-		spacing: "tight",
-		imageSide: "right",
-		cta: { label: "View Program Details", href: "/programs" },
-	},
-	{
-		title: "Join Us Today",
-		body: "Ready to take your STEM skills to the next level? Join lessons, participate in tournaments, and gain the support you need to succeed.",
-		image: {
-			src: "/media/tournament.webp",
-			alt: "Students gathered at a Seed Initiative tournament",
-		},
-		imageFit: "cover",
-		spacing: "closing",
-		imageSide: "left",
-		cta: {
-			label: "Join Our Newsletter",
-			href: site.links.studentForm,
-			external: true,
-		},
 	},
 ];
 

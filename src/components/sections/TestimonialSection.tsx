@@ -11,15 +11,6 @@ type Props = {
 	moreLabel?: string;
 };
 
-function initialsFor(name: string) {
-	return name
-		.split(/\s+/)
-		.filter(Boolean)
-		.slice(0, 2)
-		.map((part) => part[0]?.toUpperCase() ?? "")
-		.join("");
-}
-
 export function TestimonialSection({
 	testimonials,
 	eyebrow = "Words from families",
@@ -48,9 +39,6 @@ export function TestimonialSection({
 						/>
 						<blockquote>{featured.quote}</blockquote>
 						<figcaption>
-							<span className="testimonial-avatar" aria-hidden="true">
-								{initialsFor(featured.name)}
-							</span>
 							<span className="testimonial-meta">
 								<strong>{featured.name}</strong>
 								<span>{featured.context}</span>
@@ -65,12 +53,6 @@ export function TestimonialSection({
 							<figure className="testimonial testimonial--compact" key={t.name}>
 								<blockquote>{t.quote}</blockquote>
 								<figcaption>
-									<span
-										className="testimonial-avatar testimonial-avatar--sm"
-										aria-hidden="true"
-									>
-										{initialsFor(t.name)}
-									</span>
 									<span className="testimonial-meta">
 										<strong>{t.name}</strong>
 										<span>{t.context}</span>

@@ -1,5 +1,4 @@
 import { CTA } from "@/components/sections/CTA";
-import { FeatureSection } from "@/components/sections/FeatureSection";
 import { Hero } from "@/components/sections/Hero";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { PageMeta } from "@/components/sections/PageMeta";
@@ -8,7 +7,6 @@ import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WorkGrid } from "@/components/sections/WorkGrid";
 import { Reveal } from "@/components/Reveal";
 import {
-	homeFeatures,
 	impactStats,
 	impactStatsIntro,
 	latestWork,
@@ -45,10 +43,6 @@ export function HomePage() {
 					cta={{ label: "Learn How We Work", href: "/programs" }}
 				/>
 			</Reveal>
-
-			{homeFeatures.slice(0, 1).map((feature) => (
-				<FeatureSection key={feature.title} feature={feature} />
-			))}
 
 			<Reveal>
 				<StatsSection
