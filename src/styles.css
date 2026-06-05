@@ -32,6 +32,16 @@
 	--radius-sm: 0.25rem;
 	--radius-md: 0.375rem;
 
+	/* Spacing scale (4pt grid) */
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-6: 1.5rem;
+	--space-8: 2rem;
+	--space-12: 3rem;
+	--space-16: 4rem;
+
 	font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
 	font-feature-settings:
 		"cv01" 1,
@@ -127,8 +137,8 @@ p {
 	border-bottom: 2px solid var(--line);
 	overflow: visible;
 	transition:
-		box-shadow 180ms ease,
-		border-color 180ms ease;
+		box-shadow 180ms var(--ease-out),
+		border-color 180ms var(--ease-out);
 }
 
 .site-header--scrolled {
@@ -845,9 +855,9 @@ h3 {
 	border: 2px solid var(--white);
 	background: transparent;
 	transition:
-		background 180ms ease,
-		color 180ms ease,
-		transform 180ms ease;
+		background 180ms var(--ease-out),
+		color 180ms var(--ease-out),
+		transform 180ms var(--ease-out);
 }
 
 .involvement-btn:hover {
@@ -902,7 +912,7 @@ h3 {
 	border: 1px solid var(--line);
 	border-radius: var(--radius-md);
 	box-shadow: 0 1px 3px rgb(15 23 42 / 0.08);
-	transition: box-shadow 200ms ease;
+	transition: box-shadow 200ms var(--ease-out);
 }
 
 .sponsor-logo-card:hover {
@@ -957,7 +967,7 @@ h3 {
 	color: var(--brand-700);
 	font-weight: 600;
 	font-size: 0.82rem;
-	transition: transform 150ms ease;
+	transition: transform 150ms var(--ease-out);
 }
 
 .button-white:hover {
@@ -972,6 +982,9 @@ h3 {
 	background: var(--surface);
 	box-shadow: var(--shadow);
 	border-radius: var(--radius-md);
+}
+
+.benefit-table {
 	width: 100%;
 	border-collapse: collapse;
 	font-size: 0.92rem;
@@ -1014,7 +1027,7 @@ h3 {
 }
 
 .benefit-table tbody tr {
-	transition: background 150ms ease;
+	transition: background 150ms var(--ease-out);
 }
 
 .benefit-table tbody tr:nth-child(even) {
@@ -1056,7 +1069,7 @@ h3 {
 	display: inline-flex;
 	color: var(--stone-400);
 	cursor: help;
-	transition: color 150ms ease;
+	transition: color 150ms var(--ease-out);
 }
 
 .benefit-info:hover {
@@ -1109,7 +1122,9 @@ h3 {
 .footer h2 {
 	margin: 0 0 1rem;
 	color: var(--brand-700);
-	font-size: 1rem;
+	font-size: 0.95rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
 }
 
 .footer ul {
@@ -1186,6 +1201,11 @@ h3 {
 
 .footer-bottom a:hover {
 	color: var(--brand-600);
+}
+
+.footer-bottom p {
+	margin: 0;
+	font-size: 0.82rem;
 }
 
 @media (max-width: 880px) {
