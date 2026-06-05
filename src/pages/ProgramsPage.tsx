@@ -23,7 +23,7 @@ export function ProgramsPage() {
 						title: "Spring Science Bowl Prep",
 						body: "An online program designed to boost Science Bowl knowledge, sharpen skills, and connect aspiring competitors. Program details and registration updates are shared here as they are finalized.",
 						image: {
-							src: "/media/group-picture.jpg",
+							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
 						},
 						imageSide: "left",
