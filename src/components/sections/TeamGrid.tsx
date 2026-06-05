@@ -15,7 +15,7 @@ export function TeamGrid({ groups }: { groups: TeamGroup[] }) {
 								>
 									<div className="person-image">
 										<img
-											src={person.image?.src ?? "/placeholder-team.png"}
+											src={person.image?.src ?? "/placeholder-team.webp"}
 											alt={person.image?.alt ?? person.name}
 											loading="lazy"
 										/>
