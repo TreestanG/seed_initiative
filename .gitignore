@@ -15,10 +15,12 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+.pnpm-store/
 
 # debug
 npm-debug.log*
