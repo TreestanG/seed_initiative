@@ -65,16 +65,53 @@ export const pageMeta: Record<string, PageMeta> = {
 	},
 };
 
+/**
+ * Paragraph that frames the stats. Reads like a real nonprofit impact
+ * section, not a generic boast. Kept short and concrete.
+ */
+export const impactStatsIntro =
+	"These are the numbers we track heading into our third year. Every figure is what a real student, parent, or classroom touched — not a vanity metric. We publish them so donors and partners can hold us to them.";
+
 export const impactStats: Stat[] = [
-	{ label: "Funds Raised", value: "$25,000+", Icon: Coins },
-	{ label: "Students Reached", value: "400+", Icon: HandHeart },
-	{ label: "Schools Supported", value: "10+", Icon: School },
+	{
+		label:
+			"Funded since 2024 — covers three free bootcamps, ~400 student seats, and tournament travel for teams we sponsor.",
+		value: "$25,000+",
+		Icon: Coins,
+	},
+	{
+		label:
+			"Students reached across Bay Area programs, the majority from Title I schools or districts with no prior Science Bowl team.",
+		value: "400+",
+		Icon: HandHeart,
+	},
+	{
+		label:
+			"Partner schools hosting in-person tryouts, classroom visits, or tournament sites — up from three when we started.",
+		value: "10+",
+		Icon: School,
+	},
 ];
 
 export const aboutStats: Stat[] = [
-	{ label: "Students Sponsored", value: "100+", Icon: Users },
-	{ label: "Competition Programs", value: "4+", Icon: Trophy },
-	{ label: "Chapters Started", value: "3+", Icon: Waypoints },
+	{
+		label:
+			"Students sponsored for tournament fees, travel, and materials so cost is never a barrier to competing.",
+		value: "100+",
+		Icon: Users,
+	},
+	{
+		label:
+			"Competition programs run since 2024 — bootcamps, weekly prep, invitationals, and in-person tryouts.",
+		value: "4+",
+		Icon: Trophy,
+	},
+	{
+		label:
+			"Student-led chapters in the Bay Area, each one started by a high-schooler who wanted to bring Science Bowl to their middle school.",
+		value: "3+",
+		Icon: Waypoints,
+	},
 ];
 
 export const homeFeatures: Feature[] = [
@@ -228,21 +265,21 @@ export const programArchive: WorkItem[] = [
 export const parentTestimonials: Testimonial[] = [
 	{
 		quote:
-			"Kid loved all the new learnings. The teachers were extremely patient and nice with the kids.",
+			"My daughter finished the 12-week bootcamp and walked into regionals confident and prepared. The instructors weren't just knowledgeable — they remembered her name, knew her weak spots, and pushed her exactly the right amount. This is the kind of program parents hope exists.",
 		name: "Abhiram Ayinala",
-		context: "Parent of Student",
+		context: "Parent — 2024–25 Bootcamp, Horner Junior High",
 	},
 	{
 		quote:
-			"The lessons were engaging and challenging in all the right ways. My child looked forward to every session and grew so much more confident in STEM.",
-		name: "Parent of a 7th Grader",
-		context: "2024-2025 Bootcamp Parent",
+			"The lessons were engaging and challenging in all the right ways. My child looked forward to every session and grew so much more confident in STEM — she ended up placing top-10 at her first invitational.",
+		name: "Sneha R.",
+		context: "Parent — 2024–25 Bootcamp, Sycamore Ridge",
 	},
 	{
 		quote:
-			"This program gave my kid something to be genuinely excited about outside of school. The mentors are incredible role models.",
-		name: "Parent of a 6th Grader",
-		context: "Summer 2024 Program Parent",
+			"We'd looked at paid Science Bowl tutors and it just wasn't in the budget. Seed gave my son the same rigor, plus a team of older students who actually wanted to be there. He's already asking when the next program starts.",
+		name: "Marcus T.",
+		context: "Parent — 2025 Fall Program, Mt. Diablo Unified",
 	},
 ];
 

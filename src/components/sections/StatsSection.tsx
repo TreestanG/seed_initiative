@@ -1,21 +1,68 @@
 import type { Stat } from "@/types/content";
 import { SectionHeader } from "./SectionHeader";
 
-export function StatsSection({ title, body, stats }: { title: string; body: string; stats: Stat[] }) {
-  return (
-    <section className="section section-muted">
-      <div className="container">
-        <SectionHeader title={title} body={body} align="center" />
-        <div className="stats-grid">
-          {stats.map(({ label, value, Icon }) => (
-            <div className="stat-card" key={label}>
-              <Icon size={34} aria-hidden="true" />
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+type Props = {
+	title: string;
+	body?: string;
+	eyebrow?: string;
+	stats: Stat[];
+	/**
+	 * Optional kicker paragraph that frames *why* the numbers matter.
+	 * Rendered as a two-column block with the section header to give the
+	 * section real substance — not just a row of numbers.
+	 */
+	intro?: string;
+	/**
+	 * Optional CTA shown to the right of the section header.
+	 */
+	cta?: { label: string; href: string; external?: boolean };
+};
+
+export function StatsSection({
+	eyebrow,
+	title,
+	body,
+	intro,
+	stats,
+	cta,
+}: Props) {
+	return (
+		<section className="section section-muted">
+			<div className="container">
+				<div className="stats-header">
+					<SectionHeader eyebrow={eyebrow} title={title} body={body} />
+					{intro || cta ? (
+						<div className="stats-header-aside">
+							{intro ? <p className="stats-intro">{intro}</p> : null}
+							{cta ? (
+								<a
+									className="stats-header-link"
+									href={cta.href}
+									target={cta.external ? "_blank" : undefined}
+									rel={cta.external ? "noreferrer" : undefined}
+								>
+									{cta.label} <span aria-hidden="true">→</span>
+								</a>
+							) : null}
+						</div>
+					) : null}
+				</div>
+
+				<ul className="stats-list">
+					{stats.map(({ label, value, Icon }) => (
+						<li className="stat" key={label}>
+							<Icon
+								className="stat-icon"
+								size={40}
+								strokeWidth={1.5}
+								aria-hidden="true"
+							/>
+							<strong className="stat-value">{value}</strong>
+							<span className="stat-label">{label}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	);
 }
