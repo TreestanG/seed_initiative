@@ -77,7 +77,7 @@ export const homeFeatures: Feature[] = [
 		title: "Announcing 2026 spring program",
 		body: "Ignite your curiosity this school year! Join us for an engaging online program designed to boost your Science Bowl knowledge, sharpen your skills, and connect with fellow science enthusiasts. Perfect for aspiring competitors entering 6th, 7th or 8th grade, this program will cover key topics in a fun, interactive format.",
 		image: {
-			src: "/media/new-feature.jpg",
+			src: "/media/new-feature.webp",
 			alt: "Seed Initiative students working through STEM lessons",
 		},
 		imageFit: "contain",
@@ -89,7 +89,7 @@ export const homeFeatures: Feature[] = [
 		title: "Join Us Today",
 		body: "Ready to take your STEM skills to the next level? Join lessons, participate in tournaments, and gain the support you need to succeed.",
 		image: {
-			src: "/media/tournament.jpg",
+			src: "/media/tournament.webp",
 			alt: "Students gathered at a Seed Initiative tournament",
 		},
 		imageFit: "cover",
@@ -109,7 +109,7 @@ export const latestWork: WorkItem[] = [
 		date: "November 1, 2025",
 		body: "Hosted in-person tryouts where students participated in fast-paced, team-based rounds across biology, chemistry, physics, earth science, and math.",
 		image: {
-			src: "/media/26-tryouts.jpg",
+			src: "/media/26-tryouts.webp",
 			alt: "Students competing during Science Bowl tryouts",
 		},
 	},
@@ -118,7 +118,7 @@ export const latestWork: WorkItem[] = [
 		date: "November 18, 2024 - February 28, 2025",
 		body: "Hosted a 12-week STEM bootcamp with daily classes on all SciBowl topics and a tournament experience for more than 100 students.",
 		image: {
-			src: "/media/bootcamp.jpg",
+			src: "/media/bootcamp.webp",
 			alt: "Seed Initiative bootcamp participants",
 		},
 	},
@@ -204,7 +204,7 @@ export const programArchive: WorkItem[] = [
 		date: "November 18, 2024",
 		body: "An intensive 12-week program featuring daily classes, weekly buzzer practice, and a culminating tournament.",
 		image: {
-			src: "/media/past-work-1.jpg",
+			src: "/media/past-work-1.webp",
 			alt: "Students participating in a winter STEM bootcamp",
 		},
 	},
@@ -213,7 +213,7 @@ export const programArchive: WorkItem[] = [
 		date: "June 5, 2024",
 		body: "A flexible online program providing comprehensive Science Bowl subject coverage over the summer break.",
 		image: {
-			src: "/media/past-work2.jpg",
+			src: "/media/past-work2.webp",
 			alt: "Seed Initiative summer program class",
 		},
 	},
