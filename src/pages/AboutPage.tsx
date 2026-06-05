@@ -20,7 +20,7 @@ export function AboutPage() {
 				<section className="section">
 					<div className="container story-grid">
 						<img
-							src="/media/our-story.jpg"
+							src="/media/our-story.webp"
 							alt="Seed Initiative students and volunteers"
 							loading="lazy"
 						/>
