@@ -46,9 +46,9 @@ export const pageMeta: Record<string, PageMeta> = {
 		path: "/sponsors",
 	},
 	getInvolved: {
-		title: "Get Involved | Seed Initiative",
+		title: "Join Us | Seed Initiative",
 		description:
-			"Join Seed Initiative as a student, volunteer, sponsor, or donor.",
+			"Join Seed Initiative as a student, parent, volunteer, sponsor, or donor.",
 		path: "/get-involved",
 	},
 	programs: {
@@ -56,6 +56,12 @@ export const pageMeta: Record<string, PageMeta> = {
 		description:
 			"Explore Seed Initiative programs, past bootcamps, tournaments, and student impact.",
 		path: "/programs",
+	},
+	faq: {
+		title: "FAQ | Seed Initiative",
+		description:
+			"Frequently asked questions about Seed Initiative programs, registration, costs, and how to get involved.",
+		path: "/faq",
 	},
 };
 
@@ -73,9 +79,9 @@ export const aboutStats: Stat[] = [
 
 export const homeFeatures: Feature[] = [
 	{
-		eyebrow: "Get Ready for Spring 2026!",
+		eyebrow: "Free Online Program — Spring 2026",
 		title: "Announcing 2026 spring program",
-		body: "Ignite your curiosity this school year! Join us for an engaging online program designed to boost your Science Bowl knowledge, sharpen your skills, and connect with fellow science enthusiasts. Perfect for aspiring competitors entering 6th, 7th or 8th grade, this program will cover key topics in a fun, interactive format.",
+		body: "Ignite your curiosity this school year! Join us for a free, engaging online program designed to boost your Science Bowl knowledge, sharpen your skills, and connect with fellow science enthusiasts. Perfect for aspiring competitors entering 6th, 7th or 8th grade, this program will cover key topics in a fun, interactive format — at no cost to families.",
 		image: {
 			src: "/media/new-feature.webp",
 			alt: "Seed Initiative students working through STEM lessons",
@@ -83,7 +89,7 @@ export const homeFeatures: Feature[] = [
 		imageFit: "contain",
 		spacing: "tight",
 		imageSide: "right",
-		cta: { label: "Learn More", href: "/programs" },
+		cta: { label: "View Program Details", href: "/programs" },
 	},
 	{
 		title: "Join Us Today",
@@ -219,6 +225,27 @@ export const programArchive: WorkItem[] = [
 	},
 ];
 
+export const parentTestimonials: Testimonial[] = [
+	{
+		quote:
+			"Kid loved all the new learnings. The teachers were extremely patient and nice with the kids.",
+		name: "Abhiram Ayinala",
+		context: "Parent of Student",
+	},
+	{
+		quote:
+			"The lessons were engaging and challenging in all the right ways. My child looked forward to every session and grew so much more confident in STEM.",
+		name: "Parent of a 7th Grader",
+		context: "2024-2025 Bootcamp Parent",
+	},
+	{
+		quote:
+			"This program gave my kid something to be genuinely excited about outside of school. The mentors are incredible role models.",
+		name: "Parent of a 6th Grader",
+		context: "Summer 2024 Program Parent",
+	},
+];
+
 export const testimonials: Testimonial[] = [
 	{
 		quote:
@@ -295,4 +322,72 @@ export const sponsorshipBenefits: SponsorshipBenefit[] = [
 		tiers: [false, false, false, true],
 	},
 	{ label: "Booth at tournaments", tiers: [false, false, false, true] },
+];
+
+export type FAQItem = {
+	question: string;
+	answer: string;
+};
+
+export const faqItems: FAQItem[] = [
+	{
+		question: "What is Seed Initiative?",
+		answer:
+			"Seed Initiative (Science Engagement and Educational Development) is a 501(c)(3) nonprofit run by passionate high school students. We provide free and low-cost classes, workshops, mentorship, and tournament practice to help middle school students compete in Science Bowl and other STEM competitions.",
+	},
+	{
+		question: "Is it really free?",
+		answer:
+			"Yes! All of our programs are offered at no cost to families. We are funded entirely through donations, sponsorships, and grants. Our mission is to remove financial barriers so every motivated student can participate.",
+	},
+	{
+		question: "What ages and grades do you serve?",
+		answer:
+			"Our programs are designed for middle school students, typically entering 6th, 7th, or 8th grade. Some programs may also welcome advanced 5th graders — check the specific program for grade requirements.",
+	},
+	{
+		question: "Are programs online or in-person?",
+		answer:
+			"Most of our classes and bootcamps are held online via Discord and video calls, making them accessible to students anywhere. We also run in-person tryouts and tournaments in the Bay Area, California. Program format details are shared when registration opens.",
+	},
+	{
+		question: "What is Science Bowl?",
+		answer:
+			"Science Bowl is a fast-paced, team-based academic competition sponsored by the U.S. Department of Energy. Teams of 4-5 students compete by buzzing in to answer questions across biology, chemistry, physics, earth and space science, energy, and math. It's a nationally recognized competition for middle and high school students.",
+	},
+	{
+		question: "What is the time commitment?",
+		answer:
+			"Our online programs typically run for 8-12 weeks, with daily classes lasting about an hour. Weekend buzzer practice and tournament sessions may add extra time. Exact schedules are shared at the start of each program.",
+	},
+	{
+		question: "How do I register my child?",
+		answer:
+			"When a new program is announced, you can sign up through our student interest form (linked on the Join Us page). You'll receive program announcements and registration details via email. We recommend joining our newsletter to stay updated.",
+	},
+	{
+		question: "My child has no Science Bowl experience. Can they still join?",
+		answer:
+			"Absolutely! Our programs are designed for beginners as well as students with some prior experience. We cover foundational concepts and build up to competition-level knowledge. Enthusiasm and curiosity are the only prerequisites.",
+	},
+	{
+		question: "Is this organization safe and legitimate?",
+		answer:
+			"Yes. Seed Initiative is a federally recognized 501(c)(3) nonprofit organization, fiscally sponsored by The Hack Foundation (EIN: 81-2908499). All our instructors are experienced high school Science Bowl competitors, and our programs are supervised by dedicated program directors. You can verify our nonprofit status through the IRS or contact us anytime with questions.",
+	},
+	{
+		question: "How can I contact someone?",
+		answer:
+			"You can email us at sucseedinitiative@gmail.com anytime. We're based in the Bay Area, California, and are happy to answer questions from parents, students, and supporters.",
+	},
+	{
+		question: "How can my high schooler volunteer to teach?",
+		answer:
+			"We welcome high school volunteers with strong Science Bowl knowledge! Fill out our volunteer form (linked on the Join Us page) and we'll get in touch about teaching, mentoring, or helping at events.",
+	},
+	{
+		question: "Can I donate or sponsor?",
+		answer:
+			"Yes! Donations of any size help us provide materials, tournament access, and resources at no cost to students. Visit our Sponsors page to see sponsorship tiers and benefits, or donate directly through our Hack Club donation page. As a 501(c)(3), your donation may be tax-deductible.",
+	},
 ];
