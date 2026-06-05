@@ -58,8 +58,9 @@ export function AboutPage() {
 			/>
 			<Reveal>
 				<StatsSection
-					title="Our Collective Impact"
-					body="Every class, tryout, and tournament builds a stronger pathway for students who want to compete in STEM."
+					eyebrow="Where we are in 2025–26"
+					title="Our collective impact"
+					intro="These are the numbers we track year over year. Each one is tied to a specific student, classroom, or program — not a vanity metric. We publish them so partners and donors can hold us to them."
 					stats={aboutStats}
 				/>
 			</Reveal>
