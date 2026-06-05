@@ -461,7 +461,7 @@ h3 {
 
 .button-row {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 	gap: 1.25rem;
 	margin-top: 1.9rem;
 }
@@ -495,6 +495,10 @@ h3 {
 .section-header--center {
 	margin-inline: auto;
 	text-align: center;
+}
+
+.section-header--center .eyebrow {
+	max-width: none;
 }
 
 .section-header p:last-child {
@@ -861,6 +865,131 @@ h3 {
 	background: var(--surface);
 	color: var(--brand-700);
 	transform: translateY(-1px);
+}
+
+/* ===== FAQ Page ===== */
+
+.faq-container {
+	max-width: 780px;
+}
+
+.faq-intro {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 2.5rem;
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
+.faq-intro a {
+	color: var(--brand-700);
+	text-decoration: underline;
+	font-weight: 600;
+}
+
+.faq-list {
+	display: grid;
+	gap: 0;
+	border-top: 1px solid var(--line);
+}
+
+.faq-item {
+	border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: 100%;
+	padding: 1.35rem 0;
+	background: transparent;
+	border: none;
+	color: var(--ink-strong);
+	font-size: 1.05rem;
+	font-weight: 600;
+	text-align: left;
+	cursor: pointer;
+	transition: color 180ms var(--ease-out);
+}
+
+.faq-question:hover {
+	color: var(--brand-700);
+}
+
+.faq-chevron {
+	flex: 0 0 auto;
+	display: inline-flex;
+	color: var(--muted);
+	transition: color 180ms var(--ease-out);
+}
+
+.faq-question:hover .faq-chevron {
+	color: var(--brand-600);
+}
+
+.faq-answer {
+	overflow: hidden;
+}
+
+.faq-answer p {
+	max-width: none;
+	margin: 0;
+	padding: 0 0 1.6rem;
+	color: var(--text);
+	font-size: 0.95rem;
+	line-height: 1.7;
+}
+
+/* ===== Program Highlights ===== */
+
+.program-highlights {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1.5rem;
+}
+
+.program-highlight-card {
+	display: grid;
+	justify-items: center;
+	gap: 0.5rem;
+	padding: 2rem 1.5rem;
+	text-align: center;
+	background: var(--surface);
+	border: 1px solid var(--line-light);
+	box-shadow: 0 2px 6px rgb(15 23 42 / 0.05);
+	transition:
+		transform 250ms var(--ease-out),
+		box-shadow 250ms var(--ease-out);
+}
+
+.program-highlight-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 16px rgb(15 23 42 / 0.1);
+}
+
+.program-highlight-icon {
+	color: var(--brand-400);
+	padding: 0.5rem;
+	background: var(--brand-50);
+	display: inline-flex;
+}
+
+.program-highlight-label {
+	color: var(--muted);
+	font-size: 0.82rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.program-highlight-value {
+	color: var(--ink-strong);
+	font-size: 0.95rem;
+	font-weight: 600;
+	line-height: 1.4;
 }
 
 /* ===== Sponsors Page ===== */
