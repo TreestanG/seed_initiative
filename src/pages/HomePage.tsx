@@ -3,9 +3,16 @@ import { FeatureSection } from "@/components/sections/FeatureSection";
 import { Hero } from "@/components/sections/Hero";
 import { PageMeta } from "@/components/sections/PageMeta";
 import { StatsSection } from "@/components/sections/StatsSection";
+import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WorkGrid } from "@/components/sections/WorkGrid";
 import { Reveal } from "@/components/Reveal";
-import { homeFeatures, impactStats, latestWork, pageMeta } from "@/data/pages";
+import {
+	homeFeatures,
+	impactStats,
+	latestWork,
+	pageMeta,
+	parentTestimonials,
+} from "@/data/pages";
 import { site } from "@/data/site";
 
 export function HomePage() {
@@ -14,10 +21,10 @@ export function HomePage() {
 			<PageMeta meta={pageMeta.home} />
 			<Hero
 				title="Empowering the Next Generation of STEM Leaders"
-				body="Seed Initiative helps middle school students thrive in STEM competitions through classes, workshops, and financial support."
+				body="Free, student-led STEM programs helping middle schoolers thrive in competitions through classes, workshops, and mentorship — at no cost to families."
 				image="/media/hero-1.webp"
 				actions={[
-					{ label: "Get Involved", href: "/get-involved" },
+					{ label: "Join a Program", href: "/programs" },
 					{ label: "Donate Now", href: site.links.donation, external: true },
 				]}
 			/>
@@ -38,6 +45,13 @@ export function HomePage() {
 			</Reveal>
 			<Reveal>
 				<WorkGrid title="Our Latest Work" items={latestWork} />
+			</Reveal>
+			<Reveal>
+				<TestimonialSection
+					testimonials={parentTestimonials}
+					eyebrow="What parents say"
+					title="Trusted by Families"
+				/>
 			</Reveal>
 			{homeFeatures.slice(1).map((feature) => (
 				<FeatureSection key={feature.title} feature={feature} />
