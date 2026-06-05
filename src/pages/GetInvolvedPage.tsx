@@ -10,8 +10,8 @@ export function GetInvolvedPage() {
 			<PageMeta meta={pageMeta.getInvolved} />
 			<Hero
 				compact
-				title="Get Involved"
-				body="Make a difference, belong to a community, and help us inspire the next generation of STEM students."
+				title="Join Us"
+				body="Whether you're a student, parent, volunteer, or sponsor — there's a place for you in the Seed Initiative community."
 			/>
 			<Reveal>
 				<InvolvementCards />
