@@ -1,5 +1,16 @@
 {
+  "framework": "vite",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/(.*\\.(webp|svg|png|jpg|jpeg|gif|ico|woff2?|ttf|otf))$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
   "rewrites": [
-    { "source": "/((?!robots.txt|sitemap.xml|assets/|media/|landing/|about/|sponsors/|ogbanner.png|logo-header.png|logo_curve_text.svg|placeholder-team.png|donations.svg).*)", "destination": "/index.html" }
+    { "source": "/((?!robots.txt|sitemap.xml|assets/|media/|sponsors/|ogbanner.webp|logo_curve_text.svg|placeholder-team.webp|donations.svg|about-banner.webp).*)", "destination": "/index.html" }
   ]
 }
