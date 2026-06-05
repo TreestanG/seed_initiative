@@ -51,7 +51,7 @@ export function SponsorsPage() {
 								className="sponsor-logo-card"
 							>
 								<img
-									src="/media/code-ninjas.png"
+									src="/media/code-ninjas.webp"
 									alt="Code Ninjas sponsor logo"
 									loading="lazy"
 								/>
