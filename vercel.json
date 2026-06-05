@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/((?!robots.txt|sitemap.xml|assets/|media/|landing/|about/|sponsors/|ogbanner.png|logo-header.png|logo_curve_text.svg|placeholder-team.png|donations.svg).*)", "destination": "/index.html" }
+  ]
+}
