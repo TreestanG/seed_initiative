@@ -50,7 +50,7 @@ export function ProgramsPage() {
 >
 					<div className="container">
 				
-							<div className="eyebrow" style={{display: "flex", justifyContent: "center"}}> "At a glance" </div>
+							<div className="eyebrow" style={{display: "flex", justifyContent: "center", color: "#7ec5ee"}}> "At a glance" </div>
 							<h2 style={{fontFamily: "Georgia, Times New Roman, serif", textAlign: "center", margin: "10px", color: "#ffffff"}}> What to expect</h2>
 							
 					

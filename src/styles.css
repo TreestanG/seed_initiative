@@ -844,8 +844,10 @@ h3 {
 	gap: clamp(2.5rem, 5vw, 4.5rem);
 	align-items: stretch;
 	margin-bottom: clamp(3rem, 5vw, 4rem);
+} 
+.work-feature--reverse .work-feature-media {
+	order: 2;
 }
-
 .work-feature-media {
 	display: block;
 	overflow: hidden;

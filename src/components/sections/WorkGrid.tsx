@@ -39,8 +39,10 @@ export function WorkGrid({
 	return <section className="section">
 			<div className="container">
 				<SectionHeader eyebrow={eyebrow} title={title} body={body} />
-				{items.map( item => (
-				<div className="work-feature" key={item.title}>
+				{items.map( (item, index) => (
+				<div className={`work-feature ${index % 2 !== 0 ? "work-feature--reverse" : "work-feature"}`}
+	key={item.title}
+>
 					<a
 						className="work-feature-media"
 						href={moreHref ?? "#"}
