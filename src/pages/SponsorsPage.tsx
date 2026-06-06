@@ -49,7 +49,8 @@ export function SponsorsPage() {
 								target="_blank"
 								rel="noreferrer"
 								className="sponsor-logo-card"
-							>
+								
+							>	
 								<img
 									src="/media/code-ninjas.webp"
 									alt="Code Ninjas sponsor logo"

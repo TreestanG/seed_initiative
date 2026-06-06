@@ -1425,9 +1425,10 @@ h3 {
 	gap: 0.5rem;
 	padding: 2rem 1.5rem;
 	text-align: center;
-	background: var(--surface);
+	background-color: rgba(143, 140, 140, 0.428);
 	border: 1px solid var(--line-light);
-	box-shadow: 0 2px 6px rgb(15 23 42 / 0.05);
+	border-radius: 10px;
+	box-shadow: 0 2px 6px rgb(15 23 42 / 0.01);
 	transition:
 		transform 250ms var(--ease-out),
 		box-shadow 250ms var(--ease-out);
@@ -1446,7 +1447,7 @@ h3 {
 }
 
 .program-highlight-label {
-	color: var(--muted);
+	color: #ffffff;
 	font-size: 0.82rem;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -1454,7 +1455,7 @@ h3 {
 }
 
 .program-highlight-value {
-	color: var(--ink-strong);
+	color: #ffffff;
 	font-size: 0.95rem;
 	font-weight: 600;
 	line-height: 1.4;
@@ -1489,18 +1490,20 @@ h3 {
 
 .sponsor-logo-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 	width: 100%;
 	max-width: 720px;
 	place-items: center;
+	margin: 0 auto;
 }
 
 .sponsor-logo-card {
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	width: 100%;
+	justify-content: center;
+	align-items:center;
 	padding: 1.5rem;
 	background: var(--surface);
 	border: 1px solid var(--line);

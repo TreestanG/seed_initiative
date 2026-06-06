@@ -36,7 +36,7 @@ export function HomePage() {
 					title="Every student who wants to compete should be able to."
 					body="Seed Initiative removes the barriers that keep motivated middle schoolers out of Science Bowl — cost, geography, and access to coaching. Our high-school instructors and mentors run free, structured programs so any 6th–8th grader can learn, practice, and step onto the competition floor."
 					image={{
-						src: "/media/our-story.webp",
+						src: "/media/new-feature.webp",
 						alt: "Seed Initiative students working through STEM lessons together",
 					}}
 					imageSide="right"

@@ -35,65 +35,37 @@ export function WorkGrid({
 	moreLabel = "See all updates",
 }: Props) {
 	if (items.length === 0) return null;
-	const [featured, ...rest] = items;
-	const list = rest.slice(0, 4);
-
-	return (
-		<section className="section">
+	
+	return <section className="section">
 			<div className="container">
 				<SectionHeader eyebrow={eyebrow} title={title} body={body} />
-
-				<div className="work-feature">
+				{items.map( item => (
+				<div className="work-feature" key={item.title}>
 					<a
 						className="work-feature-media"
 						href={moreHref ?? "#"}
-						aria-label={featured.title}
+						aria-label={item.title}
 					>
 						<img
-							src={featured.image.src}
-							alt={featured.image.alt}
+							src={item.image.src}
+							alt={item.image.alt}
 							loading="lazy"
 						/>
 					</a>
 					<div className="work-feature-copy">
-						<p className="work-feature-date">{formatDate(featured.date)}</p>
+						<p className="work-feature-date">{formatDate(item.date)}</p>
 						<h3 className="work-feature-title">
-							<a href={moreHref ?? "#"}>{featured.title}</a>
+							<a href={moreHref ?? "#"}>{item.title}</a>
 						</h3>
-						<p className="work-feature-body">{featured.body}</p>
+						<p className="work-feature-body">{item.body}</p>
 						{moreHref ? (
 							<a className="work-feature-cta" href={moreHref}>
 								Read the update <ArrowRight size={16} aria-hidden="true" />
 							</a>
 						) : null}
 					</div>
-				</div>
+				</div>) ) }
 
-				{list.length > 0 ? (
-					<ul className="work-list">
-						{list.map((item) => (
-							<li className="work-list-item" key={item.title}>
-								<a className="work-list-link" href={moreHref ?? "#"}>
-									<span className="work-list-date">
-										{formatDate(item.date)}
-									</span>
-									<span className="work-list-title">{item.title}</span>
-									<span className="work-list-body">{item.body}</span>
-									<span className="work-list-arrow" aria-hidden="true">
-										<ArrowRight size={16} />
-									</span>
-								</a>
-							</li>
-						))}
-					</ul>
-				) : null}
-
-				{moreHref ? (
-					<a className="work-more" href={moreHref}>
-						{moreLabel} <ArrowRight size={16} aria-hidden="true" />
-					</a>
-				) : null}
+			 
 			</div>
-		</section>
-	);
-}
+		</section> }

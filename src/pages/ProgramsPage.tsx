@@ -11,20 +11,25 @@ import { pageMeta, programArchive, testimonials } from "@/data/pages";
 import { site } from "@/data/site";
 
 export function ProgramsPage() {
+	function gradient(arg0: any, arg1: any) {
+		throw new Error("Function not implemented.");
+	}
+
 	return (
 		<>
 			<PageMeta meta={pageMeta.programs} />
 			<Hero
-				compact
+				
 				title="Our Programs"
+				image='/media/about-banner.webp'
 				body="Free online STEM programs for middle school students — Science Bowl prep, mentorship, and tournament experience."
 			/>
 			<Reveal>
 				<FeatureSection
 					feature={{
-						eyebrow: "Current Program — Spring 2026",
-						title: "Spring Science Bowl Prep",
-						body: "Our upcoming online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, and a culminating tournament. Designed for students entering 6th, 7th, or 8th grade — no prior experience needed. All sessions are held online and are completely free for families.",
+						eyebrow: "Current Program — Summer 2026",
+						title: "Summer Science Bowl Prep",
+						body: "Our upcoming online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions and a culminating tournament. We aim to expand our program, enriching and expanding students' knowledge as they learn more and apply different concepts. Designed for students entering 6th, 7th, 8th and even 9th grade — no prior experience needed. All sessions are held online and are completely free for families.",
 						image: {
 							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
@@ -41,19 +46,20 @@ export function ProgramsPage() {
 
 			{/* Program at a glance */}
 			<Reveal>
-				<section className="section section-muted">
+				<section className="section section-muted" style={{ backgroundImage: "linear-gradient(rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.6)), url('/media/tournament.webp')" , backgroundSize: 'cover'}}
+>
 					<div className="container">
-						<SectionHeader
-							eyebrow="At a glance"
-							title="What to expect"
-							align="center"
-						/>
+				
+							<div className="eyebrow" style={{display: "flex", justifyContent: "center"}}> "At a glance" </div>
+							<h2 style={{fontFamily: "Georgia, Times New Roman, serif", textAlign: "center", margin: "10px", color: "#ffffff"}}> What to expect</h2>
+							
+					
 						<div className="program-highlights">
 							{[
 								{
 									icon: <GraduationCap size={28} />,
 									label: "Grades",
-									value: "6th – 8th grade",
+									value: "6th – 9th grade",
 								},
 								{
 									icon: <Globe size={28} />,
@@ -68,8 +74,9 @@ export function ProgramsPage() {
 								{
 									icon: <CalendarDays size={28} />,
 									label: "Duration",
-									value: "8–12 week programs",
+									value: "5 week program",
 								},
+								
 								{
 									icon: <Users size={28} />,
 									label: "Class Size",
@@ -84,6 +91,7 @@ export function ProgramsPage() {
 									<span className="program-highlight-value">{item.value}</span>
 								</div>
 							))}
+							
 						</div>
 					</div>
 				</section>

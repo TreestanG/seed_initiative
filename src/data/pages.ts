@@ -113,6 +113,14 @@ export const aboutStats: Stat[] = [
 ];
 
 export const latestWork: WorkItem[] = [
+	{title: "25-26 End of Year Tournament",
+	date: "December 13, 2025",
+	body: "Hosted in-person tournament to practice science bowl concepts from classes in fast team-based rounds.",
+	image: {
+		src: "/media/26-tournament.webp",
+		alt: "Students competing to practice concepts they learned in classes"
+	}
+	},
 	{
 		title: "25-26 SciBowl Tryouts",
 		date: "November 1, 2025",
@@ -121,7 +129,7 @@ export const latestWork: WorkItem[] = [
 			src: "/media/26-tryouts.webp",
 			alt: "Students competing during Science Bowl tryouts",
 		},
-	},
+	}, 
 	{
 		title: "3 Month Bootcamp",
 		date: "November 18, 2024 - February 28, 2025",
@@ -163,7 +171,19 @@ export const timeline: TimelineItem[] = [
 		date: "March 2025",
 		title: "Sent First Team to Regionals",
 		body: "Provided targeted support that helped students reach regional competition.",
-	},
+	}, {
+		date: "September 2026",
+		title: "Started 2025 Fall Program",
+		body: "Expanded for another year of teaching, tryouts and tournament."
+	}, {
+		date: "November 2026",
+		title: "Hosted Middle School Science Bowl Tryouts",
+		body: "Created an in-person tryout environment for competitive practice.",
+	}, {
+		date: "December 2026",
+		title: "Hosted In-Person Tournament",
+		body: "Created an end of semester tournament to help students practice and apply concepts."
+	}
 ];
 
 const founders: Person[] = [
@@ -174,15 +194,15 @@ const founders: Person[] = [
 ];
 
 const officers: Person[] = [
-	{ name: "Nivi C. Shome", role: "2025 Fall Program Director" },
-	{ name: "Tanvi Gosain", role: "2025 Fall Program Director" },
+	{ name: "Nivi C. Shome", role: "2026 Co-CEO", image: { src: "/media/Nivi_Shome_Co_CEO.webp", alt: "Co-Ceo of Summer 2026 SEED"} },
+	{ name: "Abhiram Kuchi", role: "2026 Co-CEO", image: { src: "/media/Abhiram_Kuchi_Co_CEO.webp", alt: "Co-Ceo of Summer 2026 SEED"} },
+	{ name: "Tanvi Gosain", role: "2026 Summer Program Director" },
+	{ name: "Niya Panchumarthi", role: "2026 Summer Program Director"},
 	{ name: "Olivia Lee", role: "Head of Publicity" },
-	{ name: "Arjun Murugappan", role: "Horner Science Bowl Team Mentor" },
-	{ name: "Tristan Gee", role: "Web and Design" },
-	{ name: "Harshini J.", role: "Publicity Officer" },
-	{ name: "Abhay Ghirish", role: "Marketing Officer" },
-];
+	{ name: "Tristan Gee", role: "Web and Design" }
 
+];
+/*
 const teachers: Person[] = [
 	"Aarika Balivada",
 	"Aashna Gupta",
@@ -200,11 +220,11 @@ const teachers: Person[] = [
 	"Tanvi Gosain",
 	"Sanjana Shamarayar",
 ].map((name) => ({ name, role: "Teacher" }));
-
+*/
 export const teamGroups: TeamGroup[] = [
 	{ title: "Founders", people: founders },
 	{ title: "Officers", people: officers },
-	{ title: "Teachers", people: teachers },
+	/*{ title: "Teachers", people: teachers },*/
 ];
 
 export const programArchive: WorkItem[] = [
@@ -223,8 +243,8 @@ export const programArchive: WorkItem[] = [
 		body: "A flexible online program providing comprehensive Science Bowl subject coverage over the summer break.",
 		image: {
 			src: "/media/past-work2.webp",
-			alt: "Seed Initiative summer program class",
-		},
+			alt: "Students participating in a summer STEM bootcamp"
+		}
 	},
 ];
 
@@ -232,7 +252,7 @@ export const parentTestimonials: Testimonial[] = [
 	{
 		quote:
 			"My daughter finished the 12-week bootcamp and walked into regionals confident and prepared. The instructors weren't just knowledgeable — they remembered her name, knew her weak spots, and pushed her exactly the right amount. This is the kind of program parents hope exists.",
-		name: "Abhiram Ayinala",
+		name: "Abhiram Ayinala's Parent",
 		context: "Parent — 2024–25 Bootcamp, Horner Junior High",
 	},
 	{
@@ -259,7 +279,7 @@ export const testimonials: Testimonial[] = [
 	{
 		quote:
 			"Kid loved all the new learnings. The teachers were extremely patient and nice with the kids.",
-		name: "Abhiram Ayinala",
+		name: "Abhiram Ayinala's Parent",
 		context: "Parent of Student",
 	},
 	{

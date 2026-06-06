@@ -146,7 +146,7 @@ export function Header() {
 									>
 										{item.children.map((child, index) => (
 											<motion.div
-												key={child.href}
+												key={index}
 												initial={{ opacity: 0, scale: 0.98 }}
 												animate={{ opacity: 1, scale: 1 }}
 												transition={{
