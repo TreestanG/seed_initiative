@@ -1,13 +1,15 @@
 # Build the Vite app.
-FROM oven/bun:1 AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json bun.lockb* ./
-RUN bun install --frozen-lockfile
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN corepack enable \
+  && corepack prepare pnpm@10.28.0 --activate \
+  && pnpm install --frozen-lockfile
 
 COPY . .
-RUN bun run build
+RUN pnpm run build
 
 # Serve the static build.
 FROM nginx:1.27-alpine AS runner
