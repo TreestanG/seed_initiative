@@ -1,36 +1,34 @@
-# Stage 1: Build
-FROM oven/bun:1 AS builder
+# Build the Vite app.
+FROM node:22-alpine AS builder
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy dependencies definitions
-COPY package.json bun.lockb* ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN corepack enable \
+  && corepack prepare pnpm@10.28.0 --activate \
+  && pnpm install --frozen-lockfile
 
-# Install dependencies using Bun
-RUN bun install
-
-# Copy the rest of your code
 COPY . .
+RUN pnpm run build
 
-# Build the app (this assumes your package.json has a "build" script, 
-# e.g., "next build" or equivalent for your project)
-RUN bun run build
+# Serve the static build.
+FROM nginx:1.27-alpine AS runner
 
-# Stage 2: Production
-FROM oven/bun:1
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Set working directory
-WORKDIR /app
+RUN printf '%s\n' \
+  'server {' \
+  '  listen 3000;' \
+  '  server_name _;' \
+  '  root /usr/share/nginx/html;' \
+  '  index index.html;' \
+  '' \
+  '  location / {' \
+  '    try_files $uri $uri/ /index.html;' \
+  '  }' \
+  '}' \
+  > /etc/nginx/conf.d/default.conf
 
-# Copy the built files from the builder stage
-COPY --from=builder /app .
-
-# Set the environment variable to production
-ENV NODE_ENV=production
-
-# Expose the port your app listens on (adjust if different)
 EXPOSE 3000
 
-# Run the production start command (make sure your package.json "start" script launches your app)
-CMD ["bun", "run", "start"]
+CMD ["nginx", "-g", "daemon off;"]
