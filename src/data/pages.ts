@@ -196,8 +196,10 @@ const founders: Person[] = [
 const officers: Person[] = [
 	{ name: "Nivi C. Shome", role: "2026 Co-CEO", image: { src: "/media/Nivi_Shome_Co_CEO.webp", alt: "Co-Ceo of Summer 2026 SEED"} },
 	{ name: "Abhiram Kuchi", role: "2026 Co-CEO", image: { src: "/media/Abhiram_Kuchi_Co_CEO.webp", alt: "Co-Ceo of Summer 2026 SEED"} },
-	{ name: "Tanvi Gosain", role: "2026 Summer Program Director" },
-	{ name: "Niya Panchumarthi", role: "2026 Summer Program Director"},
+	{ name: "Tanvi Gosain", role: "2026 Summer Program Director", image: { src: "/media/Tanvi_Gosain_SEEDProgramDirector.webp", alt: "2026 SEED Summer Program Director "} },
+	{ name: "Niya Panchumarthi", role: "2026 Summer Program Director", image: {
+		src: "SEED_DIRECTOR.webp", alt: "2026 Summer Program Director"
+	}},
 	{ name: "Olivia Lee", role: "Head of Publicity" },
 	{ name: "Tristan Gee", role: "Web and Design" }
 

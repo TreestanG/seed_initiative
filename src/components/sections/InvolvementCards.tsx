@@ -12,7 +12,7 @@ const cards = [
 		title: "Become a Student",
 		body: "Join lessons, tryouts, tournaments, and newsletter updates for future program announcements.",
 		Icon: GraduationCap,
-		href: site.links.studentForm,
+		href: "https://docs.google.com/forms/d/e/1FAIpQLSechnNNrAO67GXxVjVpSBX7yv0HxXye8-KkxXsY4GQsXYJb9Q/viewform",
 		external: true,
 		bg: "var(--brand-700)",
 	},

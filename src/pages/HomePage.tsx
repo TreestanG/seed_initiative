@@ -22,10 +22,10 @@ export function HomePage() {
 
 			<Hero
 				title="Empowering the Next Generation of STEM Leaders"
-				body="Free, student-led STEM programs helping middle schoolers thrive in competitions through classes, workshops, and mentorship — at no cost to families."
+				body="Student-led STEM programs helping middle schoolers thrive in competitions through classes, workshops, and mentorship"
 				image="/media/hero-1.webp"
 				actions={[
-					{ label: "Join a Program", href: "/programs" },
+					{ label: "Sign Up Now", href:"https://docs.google.com/forms/d/e/1FAIpQLSechnNNrAO67GXxVjVpSBX7yv0HxXye8-KkxXsY4GQsXYJb9Q/viewform", external: true },
 					{ label: "Donate Now", href: site.links.donation, external: true },
 				]}
 			/>
@@ -34,7 +34,7 @@ export function HomePage() {
 				<MissionSection
 					eyebrow="Our mission"
 					title="Every student who wants to compete should be able to."
-					body="Seed Initiative removes the barriers that keep motivated middle schoolers out of Science Bowl — cost, geography, and access to coaching. Our high-school instructors and mentors run free, structured programs so any 6th–8th grader can learn, practice, and step onto the competition floor."
+					body="Seed Initiative removes the barriers that keep motivated middle schoolers out of Science Bowl — geography, and access to coaching. Our high-school instructors and mentors run structured programs so any 6th–8th grader can learn, practice, and step onto the competition floor."
 					image={{
 						src: "/media/new-feature.webp",
 						alt: "Seed Initiative students working through STEM lessons together",
