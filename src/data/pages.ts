@@ -86,7 +86,7 @@ export const impactStats: Stat[] = [
 	/*{
 		label:
 			"Partner schools hosting in-person tryouts, classroom visits, or tournament sites — up from three when we started.",
-		value: "10+",
+		value: "3+",
 		Icon: School,
 	},*/
 ];
