@@ -104,12 +104,7 @@ export const aboutStats: Stat[] = [
 		value: "4+",
 		Icon: Trophy,
 	},
-	{
-		label:
-			"Student-led chapters in the Bay Area, each one started by a high-schooler who wanted to bring Science Bowl to their middle school.",
-		value: "3+",
-		Icon: Waypoints,
-	},
+	
 ];
 
 export const latestWork: WorkItem[] = [
