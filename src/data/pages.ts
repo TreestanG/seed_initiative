@@ -383,7 +383,7 @@ export const faqItems: FAQItem[] = [
 	{
 		question: "How do I register my child?",
 		answer:
-			"When a new program is announced, you can sign up through our student interest form (linked on the Join Us page). You'll receive program announcements and registration details via email. We recommend joining our newsletter to stay updated.",
+			"When a new program is announced, you can sign up through our student interest form (linked on the Join Us page). You'll receive program announcements and registration details via email.",
 	},
 	{
 		question: "My child has no Science Bowl experience. Can they still join?",
@@ -408,6 +408,6 @@ export const faqItems: FAQItem[] = [
 	{
 		question: "Can I donate or sponsor?",
 		answer:
-			"Yes! Donations of any size help us provide materials, tournament access, and resources at no cost to students. Visit our Sponsors page to see sponsorship tiers and benefits, or donate directly through our Hack Club donation page. As a 501(c)(3), your donation may be tax-deductible.",
+			"Yes! Donations of any size help us provide materials, tournament access, and resources to students. Visit our Sponsors page to see sponsorship tiers and benefits, or donate directly through our Hack Club donation page. As a 501(c)(3), your donation may be tax-deductible.",
 	},
 ];
