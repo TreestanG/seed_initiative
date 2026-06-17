@@ -73,7 +73,7 @@ export const impactStatsIntro =
 export const impactStats: Stat[] = [
 	{
 		label:
-			"Funded since 2024 — covers three free bootcamps, ~400 student seats, and tournament travel for teams we sponsor.",
+			"Funded since 2024 — covers three bootcamps, ~400 student seats, and tournament travel for teams we sponsor.",
 		value: "$25,000+",
 		Icon: Coins,
 	},
@@ -358,12 +358,7 @@ export const faqItems: FAQItem[] = [
 	{
 		question: "What is Seed Initiative?",
 		answer:
-			"Seed Initiative (Science Engagement and Educational Development) is a 501(c)(3) nonprofit run by passionate high school students. We provide free and low-cost classes, workshops, mentorship, and tournament practice to help middle school students compete in Science Bowl and other STEM competitions.",
-	},
-	{
-		question: "Is it really free?",
-		answer:
-			"Yes! All of our programs are offered at no cost to families. We are funded entirely through donations, sponsorships, and grants. Our mission is to remove financial barriers so every motivated student can participate.",
+			"Seed Initiative (Science Engagement and Educational Development) is a 501(c)(3) nonprofit run by passionate high school students. We provide low-cost classes, workshops, mentorship, and tournament practice to help middle school students compete in Science Bowl and other STEM competitions.",
 	},
 	{
 		question: "What ages and grades do you serve?",
