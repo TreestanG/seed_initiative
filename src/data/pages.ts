@@ -83,12 +83,12 @@ export const impactStats: Stat[] = [
 		value: "400+",
 		Icon: HandHeart,
 	},
-	{
+	/*{
 		label:
 			"Partner schools hosting in-person tryouts, classroom visits, or tournament sites — up from three when we started.",
 		value: "10+",
 		Icon: School,
-	},
+	},*/
 ];
 
 export const aboutStats: Stat[] = [
