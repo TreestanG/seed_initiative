@@ -172,15 +172,15 @@ export const timeline: TimelineItem[] = [
 		title: "Sent First Team to Regionals",
 		body: "Provided targeted support that helped students reach regional competition.",
 	}, {
-		date: "September 2026",
+		date: "September 2025",
 		title: "Started 2025 Fall Program",
 		body: "Expanded for another year of teaching, tryouts and tournament."
 	}, {
-		date: "November 2026",
+		date: "November 2025",
 		title: "Hosted Middle School Science Bowl Tryouts",
 		body: "Created an in-person tryout environment for competitive practice.",
 	}, {
-		date: "December 2026",
+		date: "December 2025",
 		title: "Hosted In-Person Tournament",
 		body: "Created an end of semester tournament to help students practice and apply concepts."
 	}
