@@ -104,7 +104,6 @@ export const aboutStats: Stat[] = [
 		value: "4+",
 		Icon: Trophy,
 	},
-	
 ];
 
 export const latestWork: WorkItem[] = [
@@ -199,29 +198,25 @@ const officers: Person[] = [
 	{ name: "Tristan Gee", role: "Web and Design" }
 
 ];
-/*
+
 const teachers: Person[] = [
-	"Aarika Balivada",
-	"Aashna Gupta",
-	"Abhiram Kuchi",
-	"Aditi Singamaneni",
-	"Aditya Arun",
-	"Evan Davis",
-	"Madhav Salaka",
-	"Nivi C. Shome",
-	"Niya Panchumarthi",
-	"Ojal Choudhari",
-	"Prabhaavi Jagannati",
-	"Rithanya Srinivas",
-	"Saatvika Thamilarasan",
-	"Tanvi Gosain",
-	"Sanjana Shamarayar",
-].map((name) => ({ name, role: "Teacher" }));
-*/
+	{name: "Aarika Balivada", role: "Teacher", image: {src: "/media/chemteach.jpeg", alt: "Chemistry teacher"}},
+	{name: "Aditi Singamaneni", role: "Teacher"},
+	{name: "Aarav Gupta", role: "Teacher", image: {src: "media/complexmath2.jpg", alt: "Complex Math Teacher"} },
+	{name: "Soumya Deshmukh", role: "Teacher"},
+	{name: "Aditya Arun", role: "Teacher", image: {src: "media/mathteach.jpeg", alt: "Earth and Space teacher"}},
+	{name: "Venkat Javvadi", role: "Teacher", image: {src: "media/regbio.jpeg", alt: "Regular Biology Teacher"}	},
+
+	{name: "Madhav Salaka", role: "Teacher", image: {src: "media/complexmathteach.jpeg", alt: "Complex Math teacher"
+	}},
+	{name: "Vibha Mudaliar", role: "Teacher", image: {src: "media/practie.jpeg", alt: "Practice Sessions"}},
+	{name: "Johnny Du", role: "Teacher", image: {src: "media/regmath.jpeg", alt: "Regular Math"}}, 
+];
+
 export const teamGroups: TeamGroup[] = [
-	{ title: "Founders", people: founders },
 	{ title: "Officers", people: officers },
-	/*{ title: "Teachers", people: teachers },*/
+	{ title: "Teachers", people: teachers },
+	{ title: "Founders", people: founders }
 ];
 
 export const programArchive: WorkItem[] = [
