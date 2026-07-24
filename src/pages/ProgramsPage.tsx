@@ -28,8 +28,8 @@ export function ProgramsPage() {
 				<FeatureSection
 					feature={{
 						eyebrow: "Current Program — Summer 2026",
-						title: "SEED Summer Enrichment Program",
-						body: "Our upcoming online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions and a culminating tournament. We aim to expand our program, enriching and expanding students' knowledge as they learn more and apply different concepts. Designed for students entering 6th, 7th, 8th and even 9th grade — no prior experience needed. All sessions are held online.",
+						title: "SEED Summer Enrichment End of Summer Tournament",
+						body: "Our current online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions and a culminating tournament. Signups for our End of Summer Tournament on August 7th are open to ALL rising 6th to 9th graders, not just for those enrolled in SEED. It will feature buzzer rounds, semi-finals, finals, an in-person guest speaker and snacks. Sign up by August 1st!",
 						image: {
 							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
@@ -37,7 +37,7 @@ export function ProgramsPage() {
 						imageSide: "left",
 						cta: {
 							label: "Sign Up Now",
-							href: "https://docs.google.com/forms/d/e/1FAIpQLSechnNNrAO67GXxVjVpSBX7yv0HxXye8-KkxXsY4GQsXYJb9Q/viewform",
+							href: "https://docs.google.com/forms/d/e/1FAIpQLSd0qMZbQr0Oityb_eD7d51e_7DTgYt0nLLIVT2dfL7e59sHwQ/viewform?usp=header",
 							external: true,
 						},
 					}}
