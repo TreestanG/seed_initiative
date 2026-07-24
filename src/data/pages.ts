@@ -206,19 +206,18 @@ const officers: Person[] = [
 	{ name: "Niya Panchumarthi", role: "2026 Summer Program Director", image: { 
 		src: "/media/SEED_DIRECTOR.webp", alt: "2026 Summer Program Director"
 	}},
-	{ name: "Olivia Lee", role: "Head of Publicity" },
+	{ name: "Olivia Lee", role: "Head of Publicity", image: {src: "/media/publicity.jpeg", alt: "Publicity"} },
 	{ name: "Tristan Gee", role: "Web and Design" }
 
 ];
 
 const teachers: Person[] = [
 	{name: "Aarika Balivada", role: "Teacher", image: {src: "/media/chemteach.jpeg", alt: "Chemistry teacher"}},
-	{name: "Aditi Singamaneni", role: "Teacher"},
+	{name: "Aditi Singamaneni", role: "Teacher", image: {src: "/media/physics.jpeg", alt: "Physics teacher"}},
 	{name: "Aarav Gupta", role: "Teacher", image: {src: "media/complexmath2.jpg", alt: "Complex Math Teacher"} },
-	{name: "Soumya Deshmukh", role: "Teacher"},
+	{name: "Soumya Deshmukh", role: "Teacher", image: {src: "media/regmath2.jpeg", alt: "Regular Math Teacher"}},
 	{name: "Aditya Arun", role: "Teacher", image: {src: "media/mathteach.jpeg", alt: "Earth and Space teacher"}},
 	{name: "Venkat Javvadi", role: "Teacher", image: {src: "media/regbio.jpeg", alt: "Regular Biology Teacher"}	},
-
 	{name: "Madhav Salaka", role: "Teacher", image: {src: "media/complexmathteach.jpeg", alt: "Complex Math teacher"
 	}},
 	{name: "Vibha Mudaliar", role: "Teacher", image: {src: "media/practie.jpeg", alt: "Practice Sessions"}},
