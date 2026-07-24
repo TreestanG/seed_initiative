@@ -23,6 +23,11 @@ export type ImageAsset = {
 	alt: string;
 };
 
+export type VideoAsset = {
+	src: string;
+	alt: string;
+};
+
 export type Stat = {
 	label: string;
 	value: string;
@@ -44,7 +49,8 @@ export type WorkItem = {
 	title: string;
 	date: string;
 	body: string;
-	image: ImageAsset;
+	image: ImageAsset | VideoAsset;
+	poster?: string;
 };
 
 export type TimelineItem = {

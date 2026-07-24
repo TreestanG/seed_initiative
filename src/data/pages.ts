@@ -107,6 +107,18 @@ export const aboutStats: Stat[] = [
 ];
 
 export const latestWork: WorkItem[] = [
+	{
+	title: "Summer 2026 Earth and Space Hike @ Coyote Hills",
+	 date: "July 11, 2026",
+	 body: "Explained to students through an in-person hike at Coyote Hills to discuss the geology and different rock and plant types present, in addition to many hands-on experiments conducted.",
+	 image: {
+		src: "/media/eshike.mp4", 
+		alt: "Students hiking in Coyote Hills to learn about geologic formations, flora and fauna and conduct interesting experiments.", 
+	 },
+	 poster: "/media/eshikethumbnail.webp",
+	},
+	
+	
 	{title: "25-26 End of Year Tournament",
 	date: "December 13, 2025",
 	body: "Hosted in-person tournament to practice science bowl concepts from classes in fast team-based rounds.",

@@ -1,6 +1,13 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import type { WorkItem } from "@/types/content";
 import { SectionHeader } from "./SectionHeader";
+import {useRef, useState, useEffect} from "react";
+
+const extensions = ["mp4"];
+function isVideo(src: string){
+	return extensions.some((sl) => src.toLowerCase().endsWith(sl));
+}
+
 
 type Props = {
 	eyebrow?: string;
@@ -34,6 +41,11 @@ export function WorkGrid({
 	moreHref,
 	moreLabel = "See all updates",
 }: Props) {
+		const [videoStatus, setvideoStatus] = useState<boolean>(false);
+
+	const videoRef = useRef<HTMLVideoElement>(null);
+	
+
 	if (items.length === 0) return null;
 	
 	return <section className="section">
@@ -43,17 +55,31 @@ export function WorkGrid({
 				<div className={`work-feature ${index % 2 !== 0 ? "work-feature--reverse" : "work-feature"}`}
 	key={item.title}
 >
-					<a
+					<div
 						className="work-feature-media"
-						href={moreHref ?? "#"}
 						aria-label={item.title}
 					>
-						<img
-							src={item.image.src}
-							alt={item.image.alt}
-							loading="lazy"
-						/>
-					</a>
+						{isVideo(item.image.src) ? (
+							<span className="work-feature-video">
+								<video
+									src={item.image.src}
+									poster={item.poster}
+									aria-label={item.image.alt}
+									playsInline
+									ref={videoRef}
+								/>
+								<span className="work-feature-play" aria-hidden="true"  onClick={() => { videoRef.current?.paused ? videoRef.current?.play() : videoRef.current?.pause()}}>
+									<Play size={28} />
+								</span>
+							</span>
+						) : (
+							<img
+								src={item.image.src}
+								alt={item.image.alt}
+								loading="lazy"
+							/>
+						)}
+					</div>
 					<div className="work-feature-copy">
 						<p className="work-feature-date">{formatDate(item.date)}</p>
 						<h3 className="work-feature-title">
