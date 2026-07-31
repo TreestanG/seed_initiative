@@ -124,7 +124,8 @@ export const latestWork: WorkItem[] = [
 	body: "Hosted in-person tournament to practice science bowl concepts from classes in fast team-based rounds.",
 	image: {
 		src: "/media/26-tournament.webp",
-		alt: "Students competing to practice concepts they learned in classes"
+		alt: "Students competing to practice concepts they learned in classes",
+		widths: [640, 1024, 1600]
 	}
 	},
 	{
@@ -134,6 +135,7 @@ export const latestWork: WorkItem[] = [
 		image: {
 			src: "/media/26-tryouts.webp",
 			alt: "Students competing during Science Bowl tryouts",
+			widths: [640, 1024, 1600],
 		},
 	}, 
 	{
@@ -238,6 +240,7 @@ export const programArchive: WorkItem[] = [
 		image: {
 			src: "/media/past-work-1.webp",
 			alt: "Students participating in a winter STEM bootcamp",
+			widths: [640, 1024, 1600],
 		},
 	},
 	{

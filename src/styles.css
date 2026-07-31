@@ -32,6 +32,11 @@
 	--radius-sm: 0;
 	--radius-md: 0;
 
+	/* Height of the fixed header in its expanded (unscrolled) state:
+	 * 24px padding x2, the 56px nav row, and the 2px bottom border. The header
+	 * padding is animated from Header.tsx, so change these together. */
+	--header-height: 106px;
+
 	/* Spacing scale (4pt grid) */
 	--space-1: 0.25rem;
 	--space-2: 0.5rem;
@@ -146,7 +151,7 @@ p {
 }
 
 #main-content {
-	padding-top: 96px;
+	padding-top: var(--header-height);
 }
 
 .nav-shell {
@@ -156,6 +161,10 @@ p {
 	grid-template-columns: auto 1fr auto auto;
 	align-items: center;
 	gap: 1.5rem;
+	/* The logo is the tallest item at 56px, but between ~880px and ~1050px the
+	 * nav crowds it and `img { max-width: 100% }` lets it shrink. Pinning the
+	 * row keeps the header a fixed height, so --header-height stays honest. */
+	min-height: 56px;
 }
 
 .brand-link img {
@@ -329,10 +338,37 @@ p {
 	align-items: center;
 	padding-bottom: 8rem;
 	background-color: var(--brand-800);
+	/* Hero.tsx supplies --hero-src-small / --hero-src-large; the pick happens
+	 * here so the media query below can override it. */
+	--hero-pick-1x: var(--hero-src-small);
 	background-image:
-		linear-gradient(rgb(0 0 0 / 0.35), rgb(0 0 0 / 0.35)), var(--hero-image);
+		linear-gradient(rgb(0 0 0 / 0.35), rgb(0 0 0 / 0.35)), var(--hero-pick-1x);
 	background-size: cover;
 	background-position: center;
+}
+
+/*
+ * image-set() resolves on pixel ratio alone -- it has no notion of viewport
+ * width -- so a 1x display wider than the 1x file would upscale it. The hero is
+ * full-bleed, so past the 1x file's width every display needs the large one.
+ * Declared before the @supports block so both branches pick it up.
+ */
+@media (min-width: 1441px) {
+	.hero {
+		--hero-pick-1x: var(--hero-src-large);
+	}
+}
+
+/*
+ * Backgrounds can't use srcset, so the retina file is opt-in via image-set().
+ * Browsers without image-set() keep the smaller 1x declaration above.
+ */
+@supports (background-image: image-set(url("/media/hero-1.webp") 1x)) {
+	.hero {
+		background-image:
+			linear-gradient(rgb(0 0 0 / 0.35), rgb(0 0 0 / 0.35)),
+			image-set(var(--hero-pick-1x) 1x, var(--hero-src-large) 2x);
+	}
 }
 
 .hero--compact {
@@ -531,6 +567,39 @@ h3 {
 
 .section-muted {
 	background: var(--surface-tint);
+}
+
+/*
+ * Photographic section background, dark enough to carry white text.
+ *
+ * It has to sit *after* .section-muted: both are single-class selectors, and
+ * .section-muted sets the `background` shorthand, which resets background-image
+ * to none. Whichever is declared last wins, so don't move this back up.
+ */
+.section-tournament {
+	--tournament-1x: url("/media/tournament-1440.webp");
+	--tournament-2x: url("/media/tournament.webp");
+	background-image:
+		linear-gradient(rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.6)),
+		var(--tournament-1x);
+	background-size: cover;
+	background-position: center;
+}
+
+/* As with .hero: image-set() only knows pixel ratio, so a wide 1x display
+ * needs the large file too. This band is full-bleed. */
+@media (min-width: 1441px) {
+	.section-tournament {
+		--tournament-1x: var(--tournament-2x);
+	}
+}
+
+@supports (background-image: image-set(url("/media/tournament.webp") 1x)) {
+	.section-tournament {
+		background-image:
+			linear-gradient(rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.6)),
+			image-set(var(--tournament-1x) 1x, var(--tournament-2x) 2x);
+	}
 }
 
 .section:has(.cta-band) {
@@ -884,33 +953,117 @@ h3 {
 	transform: scale(1.02);
 }
 
+/*
+ * Announcement strip, between the white header and the hero.
+ *
+ * --brand-700 is the site's brand surface: it is already the .cta-band fill,
+ * the primary button, and the active nav colour. (--brand-gradient-start is a
+ * gradient stop only, never a solid, so a strip in it reads as a foreign navy.)
+ *
+ * The 1fr auto 1fr grid is what actually centres the sentence. With a plain
+ * centred flex row the *group* centres, which pushes the text left by half the
+ * button's width. Here the middle column is dead centre whatever the button does.
+ */
 .announcement {
-	background: linear-gradient(135deg, #1a73e8, #00c6ff, #ff6ec7, #7c3aed);
-	background-size: 300% 300%;
-	color: var(--white);
-	overflow: hidden;
-	white-space: nowrap;
+	background: var(--brand-700);
+}
+
+.announcement-inner {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	width: min(100% - 2rem, 1120px);
+	margin-inline: auto;
+	padding-block: 0.7rem;
 	text-align: center;
-	animation: flash-colors 4s ease infinite;
 }
 
-@keyframes flash-colors {
-	0%   { background-position: 0% 50%; }
-	25%  { background-position: 100% 0%; }
-	50%  { background-position: 100% 100%; }
-	75%  { background-position: 0% 100%; }
-	100% { background-position: 0% 50%; }
-}
-
-.announcement h1 {
+.announcement-message {
+	/* Overrides the global `p` colour and 68ch measure. */
+	grid-column: 2;
+	max-width: none;
 	margin: 0;
-	padding: 1.5rem;
-	font-size: clamp(1rem, 2.5vw, 1.5rem);
-	color: white;
+	color: var(--white);
+	font-size: 0.92rem;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+/* Caps and tracking are for short labels only -- see .eyebrow. The sentence
+ * stays sentence case, because a full sentence in caps is slower to read and
+ * leaves the button with no way to stand out. */
+.announcement-flag {
+	margin-right: 0.7rem;
+	font-size: 0.72rem;
 	font-weight: 700;
-	letter-spacing: 0.06em;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	display: inline-block;
+	white-space: nowrap;
+}
+
+/* White fill on --brand-700 (5.5:1) rather than --brand-300, which would sit
+ * at 2.9:1 against this band and blur into it. */
+.announcement-cta {
+	display: inline-flex;
+	grid-column: 3;
+	justify-self: start;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	min-height: 2.25rem;
+	margin-left: 1.25rem;
+	padding: 0 1rem;
+	background: var(--white);
+	color: var(--brand-700);
+	font-size: 0.82rem;
+	font-weight: 700;
+	line-height: 1;
+	white-space: nowrap;
+	transition:
+		transform 180ms var(--ease-out),
+		background 180ms var(--ease-out);
+}
+
+.announcement-cta:hover {
+	background: var(--brand-300);
+	color: var(--brand-gradient-start);
+	transform: translateY(-1px);
+}
+
+/*
+ * Stacks at 880px with everything else. It has to happen here rather than
+ * lower down: the outer tracks are 1fr but track 3 cannot shrink below the
+ * button, so once the row gets tight track 1 collapses on its own and the
+ * centred sentence drifts left. Below ~843px the two stop matching.
+ */
+@media (max-width: 880px) {
+	.announcement-inner {
+		grid-template-columns: 1fr;
+		gap: 0.7rem;
+	}
+
+	.announcement-message,
+	.announcement-cta {
+		grid-column: 1;
+	}
+
+	.announcement-cta {
+		justify-self: center;
+		margin-left: 0;
+	}
+}
+
+.announcement-cta svg {
+	transition: transform 180ms var(--ease-out);
+}
+
+.announcement-cta:hover svg {
+	transform: translateX(2px);
+}
+
+.announcement-cta:focus-visible {
+	outline: 2px solid var(--white);
+	outline-offset: 2px;
 }
 
 

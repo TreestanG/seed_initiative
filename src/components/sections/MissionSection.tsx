@@ -1,5 +1,9 @@
 import type { ImageAsset, LinkItem } from "@/types/content";
+import { buildSrcSet } from "@/lib/images";
 import { LinkButton } from "./LinkButton";
+
+// Half of the 1120px container above the 880px breakpoint, full-bleed below it.
+const SIZES = "(max-width: 880px) 100vw, 520px";
 
 type Props = {
 	eyebrow: string;
@@ -32,7 +36,13 @@ export function MissionSection({
 				className={`container mission ${imageSide === "right" ? "mission--reverse" : ""}`}
 			>
 				<div className="mission-media">
-					<img src={image.src} alt={image.alt} loading="lazy" />
+					<img
+						src={image.src}
+						srcSet={buildSrcSet(image.src, image.widths)}
+						sizes={SIZES}
+						alt={image.alt}
+						loading="lazy"
+					/>
 				</div>
 				<div className="mission-copy">
 					<p className="eyebrow">{eyebrow}</p>

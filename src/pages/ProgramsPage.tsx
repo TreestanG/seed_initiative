@@ -21,7 +21,8 @@ export function ProgramsPage() {
 			<Hero
 				
 				title="Our Programs"
-				image='/media/about-banner.webp'
+				image="/media/about-banner.webp"
+				imageOneX={1440}
 				body="Free online STEM programs for middle school students — Science Bowl prep, mentorship, and tournament experience."
 			/>
 			<Reveal>
@@ -33,6 +34,7 @@ export function ProgramsPage() {
 						image: {
 							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
+							widths: [640, 1024, 1600],
 						},
 						imageSide: "left",
 						cta: {
@@ -46,8 +48,7 @@ export function ProgramsPage() {
 
 			{/* Program at a glance */}
 			<Reveal>
-				<section className="section section-muted" style={{ backgroundImage: "linear-gradient(rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.6)), url('/media/tournament.webp')" , backgroundSize: 'cover'}}
->
+				<section className="section section-tournament">
 					<div className="container">
 				
 							<div className="eyebrow" style={{display: "flex", justifyContent: "center", color: "#7ec5ee"}}> "At a glance" </div>

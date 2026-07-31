@@ -24,6 +24,7 @@ export function HomePage() {
 				title="Empowering the Next Generation of STEM Leaders"
 				body="Student-led STEM programs helping middle schoolers thrive in competitions through classes, workshops, and mentorship"
 				image="/media/hero-1.webp"
+				imageOneX={1440}
 				actions={[
 					{ label: "Sign Up Now", href:"https://docs.google.com/forms/d/e/1FAIpQLSechnNNrAO67GXxVjVpSBX7yv0HxXye8-KkxXsY4GQsXYJb9Q/viewform", external: true },
 					{ label: "Donate Now", href: site.links.donation, external: true },
@@ -38,6 +39,7 @@ export function HomePage() {
 					image={{
 						src: "/media/new-feature.webp",
 						alt: "Seed Initiative students working through STEM lessons together",
+						widths: [640, 1024, 1600],
 					}}
 					imageSide="right"
 					cta={{ label: "Learn How We Work", href: "/programs" }}
