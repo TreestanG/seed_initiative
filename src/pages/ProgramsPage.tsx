@@ -29,7 +29,7 @@ export function ProgramsPage() {
 					feature={{
 						eyebrow: "Current Program — Summer 2026",
 						title: "SEED Summer Enrichment End of Summer Tournament",
-						body: "Our current online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions and a culminating tournament. Signups for our End of Summer Tournament on August 7th are open to ALL rising 6th to 9th graders, not just for those enrolled in SEED. It will feature buzzer rounds, semi-finals, finals, an in-person guest speaker and snacks. Sign up by August 1st!",
+						body: "Our current online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions and a culminating tournament. Signups for our End of Summer Tournament on August 7th are open to ALL rising 6th to 9th graders, not just for those enrolled in SEED. It will feature buzzer rounds, semi-finals, finals, an in-person guest speaker and snacks. Sign up by August 5th!",
 						image: {
 							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
