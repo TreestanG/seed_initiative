@@ -1,5 +1,6 @@
 import { ArrowRight, Play } from "lucide-react";
 import type { WorkItem } from "@/types/content";
+import { buildSrcSet } from "@/lib/images";
 import { SectionHeader } from "./SectionHeader";
 import {useRef, useState, useEffect} from "react";
 
@@ -7,6 +8,9 @@ const extensions = ["mp4"];
 function isVideo(src: string){
 	return extensions.some((sl) => src.toLowerCase().endsWith(sl));
 }
+
+// The media column is 1.15fr of the 1120px container above 880px, full-bleed below.
+const SIZES = "(max-width: 880px) 100vw, 560px";
 
 
 type Props = {
@@ -75,6 +79,11 @@ export function WorkGrid({
 						) : (
 							<img
 								src={item.image.src}
+								srcSet={buildSrcSet(
+									item.image.src,
+									"widths" in item.image ? item.image.widths : undefined,
+								)}
+								sizes={SIZES}
 								alt={item.image.alt}
 								loading="lazy"
 							/>

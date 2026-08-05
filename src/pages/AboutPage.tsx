@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { Timeline } from "@/components/sections/Timeline";
+import { buildSrcSet } from "@/lib/images";
 import { aboutStats, pageMeta, timeline } from "@/data/pages";
 
 export function AboutPage() {
@@ -21,6 +22,8 @@ export function AboutPage() {
 					<div className="container story-grid">
 						<img
 							src="/media/our-story.webp"
+							srcSet={buildSrcSet("/media/our-story.webp", [480, 800, 1200])}
+							sizes="(max-width: 880px) 100vw, 420px"
 							alt="Seed Initiative students and volunteers"
 							loading="lazy"
 						/>

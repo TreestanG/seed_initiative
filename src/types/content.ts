@@ -21,6 +21,8 @@ export type PageMeta = {
 export type ImageAsset = {
 	src: string;
 	alt: string;
+	/** Responsive variant widths; the largest is the base file. See lib/images. */
+	widths?: number[];
 };
 
 export type VideoAsset = {
