@@ -15,7 +15,7 @@ export function Announcement() {
 		<aside className="announcement" aria-label="Site announcement">
 			<div className="announcement-inner">
 				<p className="announcement-message">
-					<span className="announcement-flag">Closes Aug 1</span>
+					<span className="announcement-flag">Closes Aug 5</span>
 					End of Summer Tournament — open to all rising 6th–9th graders.
 				</p>
 				<a
