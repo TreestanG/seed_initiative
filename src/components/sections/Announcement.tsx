@@ -10,6 +10,7 @@ const REGISTRATION_URL =
  * message says who it is for, and the button is the only thing that looks
  * clickable. Update or remove this when the deadline passes.
  */
+/** 
 export function Announcement() {
 	return (
 		<aside className="announcement" aria-label="Site announcement">
@@ -31,3 +32,4 @@ export function Announcement() {
 		</aside>
 	);
 }
+**/

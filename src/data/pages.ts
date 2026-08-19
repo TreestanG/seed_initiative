@@ -108,6 +108,16 @@ export const aboutStats: Stat[] = [
 
 export const latestWork: WorkItem[] = [
 	{
+	title: "Summer 2026 End of Year Tournament",
+	 date: "Aug 7, 2026",
+	 body: "Conducted an in-person science bowl style tournament with teams to practice the concepts they learned through round robin, semifinals and finals.",
+	 image: {
+		src: "/media/endofsummertournament.jpeg", 
+		alt: "Students hiking in Coyote Hills to learn about geologic formations, flora and fauna and conduct interesting experiments.", 
+	 },
+	 poster: "/media/eshikethumbnail.webp",
+	},
+	{
 	title: "Summer 2026 Earth and Space Hike @ Coyote Hills",
 	 date: "July 11, 2026",
 	 body: "Explained to students through an in-person hike at Coyote Hills to discuss the geology and different rock and plant types present, in addition to many hands-on experiments conducted.",
@@ -233,6 +243,26 @@ export const teamGroups: TeamGroup[] = [
 ];
 
 export const programArchive: WorkItem[] = [
+	{
+		title: "Summer 2026 SEED Enrichment Bootcamp",
+		date: "June 20, 2026",
+		body: "An intensive 9-week program featuring daily classes, weekly buzzer practice, guest speakers, an in-person hike and a culminating tournament.",
+		image: {
+			src: "/media/endofsummertournament.jpeg",
+			alt: "Students participating in a fall STEM bootcamp",
+			widths: [640, 1024, 1600],
+		},
+	},
+	{
+		title: "Fall 2025 Bootcamp",
+		date: "September 22, 2025",
+		body: "An intensive 9-week program featuring daily classes, weekly buzzer practice, and a culminating tournament.",
+		image: {
+			src: "/media/endofyeartournament.jpeg",
+			alt: "Students participating in a fall STEM bootcamp",
+			widths: [640, 1024, 1600],
+		},
+	},
 	{
 		title: "2024-2025 Bootcamp",
 		date: "November 18, 2024",

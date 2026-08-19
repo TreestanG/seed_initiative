@@ -15,7 +15,7 @@ export const site = {
 		studentForm:
 			"https://docs.google.com/forms/d/e/1FAIpQLSdAdKJ3kqArb8ZwdS5LtYyIE2rKsfdvX9_52SCUxaKbsh929A/viewform",
 		volunteerForm:
-			"https://docs.google.com/forms/d/e/1FAIpQLSfqL3p9h-8CHtFSvIRX9o5OaFIsBqZ3mJ0RPLKo1CEpxqTnNA/viewform",
+			"https://docs.google.com/forms/d/e/1FAIpQLSeRcqfGBX4IFjdRZ6mfIY7_Fv6r2ekKzqcGZyvMzm9CgK4M5w/viewform",
 		instagram: "https://www.instagram.com/seedinitiative1",
 		hackFoundation: "https://hackclub.com/",
 		designer: "https://www.tristangee.com",
@@ -24,11 +24,10 @@ export const site = {
 
 export const navItems: NavItem[] = [
 	{
-		label: "Programs",
+		label: "Our Work",
 		href: "/programs",
 		children: [
-			{ label: "Current Programs", href: "/programs" },
-			{ label: "Program Archive", href: "/programs" },
+			{ label: "All Programs", href: "/programs" },
 			{ label: "FAQ", href: "/faq" },
 		],
 	},

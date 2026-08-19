@@ -10,7 +10,7 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProgramsPage } from "@/pages/ProgramsPage";
 import { SponsorsPage } from "@/pages/SponsorsPage";
 import { TeamPage } from "@/pages/TeamPage";
-import { Announcement } from "./components/sections/Announcement";
+//import { Announcement } from "./components/sections/Announcement";
 export default function App() {
 	const location = useLocation();
 
@@ -20,7 +20,7 @@ export default function App() {
 			<Header />
 			<main id="main-content">
 
-				<Announcement />
+				{/*<Announcement />*/}
 
 				<Routes>
 					<Route path="/" element={<HomePage />} />

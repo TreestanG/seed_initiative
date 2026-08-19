@@ -28,9 +28,9 @@ export function ProgramsPage() {
 			<Reveal>
 				<FeatureSection
 					feature={{
-						eyebrow: "Current Program — Summer 2026",
-						title: "SEED Summer Enrichment End of Summer Tournament",
-						body: "Our current online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions and a culminating tournament. Signups for our End of Summer Tournament on August 7th are open to ALL rising 6th to 9th graders, not just for those enrolled in SEED. It will feature buzzer rounds, semi-finals, finals, an in-person guest speaker and snacks. Sign up by August 5th!",
+						eyebrow: "Current Program — Fall 2026",
+						title: "SEED 2026 Fall Program",
+						body: "Our upcoming online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions, tryouts to represent their school for Science Bowl competitions, and a culminating tournament. Signups for SEED Fall Program are open to ALL rising 6th to 8th graders, which will open ON Aug 23.",
 						image: {
 							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
@@ -38,8 +38,8 @@ export function ProgramsPage() {
 						},
 						imageSide: "left",
 						cta: {
-							label: "Sign Up Now",
-							href: "https://docs.google.com/forms/d/e/1FAIpQLSd0qMZbQr0Oityb_eD7d51e_7DTgYt0nLLIVT2dfL7e59sHwQ/viewform?usp=header",
+							label: "Coming Soon!",
+							href: "",
 							external: true,
 						},
 					}}
@@ -60,7 +60,7 @@ export function ProgramsPage() {
 								{
 									icon: <GraduationCap size={28} />,
 									label: "Grades",
-									value: "6th – 9th grade",
+									value: "6th – 8th grade",
 								},
 								{
 									icon: <Globe size={28} />,
@@ -75,7 +75,7 @@ export function ProgramsPage() {
 								{
 									icon: <CalendarDays size={28} />,
 									label: "Duration",
-									value: "5 week program",
+									value: "9 week program",
 								},
 								
 								{
