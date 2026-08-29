@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 const REGISTRATION_URL =
-	"https://docs.google.com/forms/d/e/1FAIpQLSd0qMZbQr0Oityb_eD7d51e_7DTgYt0nLLIVT2dfL7e59sHwQ/viewform?usp=header";
+	"https://docs.google.com/forms/d/e/1FAIpQLScitmuqCOkWg5fVUOTQbGyj0NWOXIxRAGZgdFIzuIySefOQAw/viewform?usp=header";
 
 /**
  * Site-wide announcement strip, shown under the header on every page.
@@ -10,14 +10,14 @@ const REGISTRATION_URL =
  * message says who it is for, and the button is the only thing that looks
  * clickable. Update or remove this when the deadline passes.
  */
-/** 
+
 export function Announcement() {
 	return (
 		<aside className="announcement" aria-label="Site announcement">
 			<div className="announcement-inner">
 				<p className="announcement-message">
-					<span className="announcement-flag">Closes Aug 5th</span>
-					End of Summer Tournament — open to all rising 6th–9th graders.
+					<span className="announcement-flag">Closes Sep 7th @11:59 PM</span>
+					SEED Fall — open to all rising 6th–8th graders.
 				</p>
 				<a
 					className="announcement-cta"
@@ -32,4 +32,3 @@ export function Announcement() {
 		</aside>
 	);
 }
-**/

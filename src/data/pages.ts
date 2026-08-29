@@ -201,6 +201,10 @@ export const timeline: TimelineItem[] = [
 		date: "December 2025",
 		title: "Hosted In-Person Tournament",
 		body: "Created an end of semester tournament to help students practice and apply concepts."
+	}, {
+		date: "June 2026", 
+		title: "Hosted Summer Program",
+		body: "Created an end of summer tournament and an in-person hike to help students engage and test the concepts they learned. "
 	}
 ];
 
