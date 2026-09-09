@@ -16,7 +16,7 @@ export function Announcement() {
 		<aside className="announcement" aria-label="Site announcement">
 			<div className="announcement-inner">
 				<p className="announcement-message">
-					<span className="announcement-flag">Closes Sep 7th @11:59 PM</span>
+					<span className="announcement-flag">Registrations are currently rolling!</span>
 					SEED Fall — open to all rising 6th–8th graders.
 				</p>
 				<a
