@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 const REGISTRATION_URL =
 	"https://docs.google.com/forms/d/e/1FAIpQLScitmuqCOkWg5fVUOTQbGyj0NWOXIxRAGZgdFIzuIySefOQAw/viewform?usp=header";
 
+const TRYOUT_URL = "https://docs.google.com/forms/d/13iGqwSKiqgyCw1SWf0QUW0GQ3LAsVEyBGdo3xdLEpiQ/edit" 
+
 /**
  * Site-wide announcement strip, shown under the header on every page.
  *
@@ -16,12 +18,12 @@ export function Announcement() {
 		<aside className="announcement" aria-label="Site announcement">
 			<div className="announcement-inner">
 				<p className="announcement-message">
-					<span className="announcement-flag">Registrations are currently rolling!</span>
-					SEED Fall — open to all rising 6th–8th graders.
+					<span className="announcement-flag">Registrations for science bowl tryouts</span>
+					Open to rising 6th–8th graders attending Horner Middle School
 				</p>
 				<a
 					className="announcement-cta"
-					href={REGISTRATION_URL}
+					href={TRYOUT_URL}
 					target="_blank"
 					rel="noopener noreferrer"
 				>

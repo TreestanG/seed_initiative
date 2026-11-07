@@ -30,7 +30,7 @@ export function ProgramsPage() {
 					feature={{
 						eyebrow: "Current Program — Fall 2026",
 						title: "SEED 2026 Fall Program",
-						body: "Our upcoming online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions, tryouts to represent their school for Science Bowl competitions, and a culminating tournament. Signups for SEED Fall Program are open to ALL rising 6th to 8th graders with registrations rolling right now. Whether you are just getting started with science or are at an advanced level, SEED has a place for you. Sign up now for SEED Fall.",
+						body: "Our current online program helps students master Science Bowl topics through daily interactive classes, weekly buzzer practice, guest speaker sessions, tryouts to represent their school for Science Bowl competitions, and a culminating tournament. Signups for SEED Fall Program are open to ALL rising 6th to 8th graders, though they have closed.  Whether you are just getting started with science or are at an advanced level, SEED has a place for you. Sign up now for SEED Fall Tryouts (only for students who attend Horner Middle School).",
 						image: {
 							src: "/media/group-picture.webp",
 							alt: "Seed Initiative group at an in-person event",
@@ -38,8 +38,8 @@ export function ProgramsPage() {
 						},
 						imageSide: "left",
 						cta: {
-							label: "Sign Up!",
-							href: "https://docs.google.com/forms/d/e/1FAIpQLScitmuqCOkWg5fVUOTQbGyj0NWOXIxRAGZgdFIzuIySefOQAw/viewform",
+							label: "Sign Up for tryouts!",
+							href: "https://docs.google.com/forms/d/13iGqwSKiqgyCw1SWf0QUW0GQ3LAsVEyBGdo3xdLEpiQ/edit",
 							external: true,
 						},
 					}}
